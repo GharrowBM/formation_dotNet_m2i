@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Les formulaires</title>
+</head>
+
+<body>
+    <h1>Les formulaires</h1>
+    <div class="container">
+        <fieldset>
+            <legend> Formulaire </legend>
+            <div class="space">
+                <label>Mr</label>
+                <input type="radio" value="Mr" name="choix">
+                <label>Mme</label>
+                <input type="radio" value="Mme" name="choix" checked>
+                <label>Mlle</label>
+                <input type="radio" value="Mlle" name="choix">
+            </div>
+            <div class="space">
+                <label>Nom:</label><input type="text" name="Nom" />
+                <label>Prénom:</label><input type="text" name="Prenom" />
+            </div>
+            <div class="space">
+                <label>Date:</label><input type="date" name="date" />
+
+            </div>
+            <div class="space">
+                <label>Password:</label><input type="password" name="password" class="pswd" />
+                <label>RetypePass:</label><input type="password" name="passwordBis" class="pswd" />
+            </div>
+            <div class="space">
+                <input type="checkbox" name="java"><label>Java</label>
+                <input type="checkbox" name="C#"><label>C#</label>
+                <input type="checkbox" name="Js" checked><label>JS</label>
+            </div>
+            <div class="space">
+                <label>Liste de villes</label>
+                <select name="ville">
+                    <option disabled>Ville</option>
+                    <option value="lille">Lille</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Lyon">Lyon</option>
+                    <option value="Angers">Angers</option>
+                </select>
+            </div>
+            <div class="space">
+                <label>Liste de villes (multiple)</label>
+                <select name="villeMultiple" multiple>
+                    <optgroup label="Ville">                
+                        <option value="lille">Lille</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Lyon">Lyon</option>
+                        <option value="Angers">Angers</option>
+                    </optgroup>        
+                    <optgroup label="Pays">
+                        <option value="France">France</option>
+                        <option value="Belgique">Belgique</option>
+                        <option value="Angleterre">Angleterre</option>
+                        <option value="Espagne">Espagne</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="space">
+                <label>Veuillez faire une courte description :</label>
+                <textarea name="description" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                &lt;div&gt;
+            </div>
+            <div>
+                <input type="button" value="Valider">
+                <button>Annuler</button>
+            </div>
+        </fieldset>
+    </div>
+</body>
+
+</html>

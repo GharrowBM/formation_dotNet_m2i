@@ -1,0 +1,14 @@
+body{
+    text-align: center;
+}
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+}
+.pswd{
+    width: 100px;
+}
+.space{
+    margin:10px;
+}
