@@ -1,0 +1,20 @@
+/*
+    Ici un commentaire CSS
+    En multilignes
+*/
+
+body{
+    text-align: center;  
+}
+
+div{
+
+}
+
+.center{
+    text-align: center;
+}
+
+#monid{
+    color: blueviolet;
+}
