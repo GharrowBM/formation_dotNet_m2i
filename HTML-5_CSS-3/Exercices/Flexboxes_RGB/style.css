@@ -1,0 +1,104 @@
+
+body {
+    margin: 0;
+    display : flex;
+    flex-wrap: wrap;
+}
+
+header {
+    flex-basis: 100%;
+    height: 10vh;
+    background-color: red;
+}
+
+aside {
+    flex-basis: 10%;
+    height: 90vh;
+    background-color: blue;
+}
+
+main {
+    flex-basis: 90%;
+    height: 90vh;
+    background-color: green;
+}
+
+/* FLEXBOX
+body {
+    margin: 0;
+    display : flex;
+    flex-wrap: wrap;
+}
+
+header {
+    flex-basis: 100%;
+    height: 10vh;
+    background-color: red;
+}
+
+aside {
+    flex-basis: 10%;
+    height: 90vh;
+    background-color: blue;
+}
+
+main {
+    flex-basis: 90%;
+    height: 90vh;
+    background-color: green;
+}
+*/
+
+
+/* GRID
+body {
+    display: grid;
+    grid-template-columns: 5;
+    grid-auto-rows: minmax(150px, auto);
+}
+
+header {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    background-color: red;
+}
+
+aside {
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
+    background-color: blue;
+}
+
+main {
+    grid-column: 2 / 5;
+    grid-row: 2 / 5;
+    background-color: green;
+}
+*/
+
+/* GRID AREA
+body {
+    height: 500px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas: "A A"
+                        "B C";
+}
+
+header {
+    grid-area: A;
+    background-color: red;
+}
+
+main {
+    grid-area: C;
+    background-color: green;
+
+}
+
+aside {
+    grid-area: B;
+    background-color: blue;
+}
+*/
