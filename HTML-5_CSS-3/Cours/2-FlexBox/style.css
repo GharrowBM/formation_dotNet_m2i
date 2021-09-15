@@ -43,8 +43,12 @@ align-items: center;
     flex: 2 2 0;
 }
 
-
-
+.obj1{
+    align-self: flex-end;
+}
+.obj2{
+    align-self: center;
+}
 
 .order1{
     order: 1;
