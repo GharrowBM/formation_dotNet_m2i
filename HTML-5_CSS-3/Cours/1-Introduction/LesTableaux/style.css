@@ -1,4 +1,5 @@
 table{
+    margin: 20px;
     border: 1px solid rgb(0, 0, 0);    
 }
 
@@ -20,3 +21,21 @@ tr{
 .bdCollapse{
     border-collapse: collapse;
 }
+
+.dashed{
+    border-collapse: collapse;
+    border: 3px dashed red;
+}
+.dotted{
+    border-collapse: collapse;
+    border: 3px dotted green;
+}
+.double{
+    
+    border: 5px double blue;
+}
+.ridge{
+    border-collapse: collapse;
+    border: 3px ridge purple;
+}
+
