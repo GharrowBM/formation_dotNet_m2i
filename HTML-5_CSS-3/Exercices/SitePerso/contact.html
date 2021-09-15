@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="gauche"><a href="https://www.m2iformation.fr/">
+                <img src="images/images.png" alt="c'est le LOGO de M2i"> </a>
+        </span>
+        <div class="droit">
+            <H1>Bienvenue sur la home page de Anthony Di persio</H1>
+            <H3>En formation .NET chez M2iformation</H3>
+        </div>
+    </header>
+    <nav>
+
+        <a href="index.html">Accueil</a>
+
+
+        <a href="cv.html">C.V</a>
+
+
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+    <div class="clear">
+        <h2>Contact</h2>
+    </div>
+    <div class="c2">
+        <div>
+            <p>
+                Merci de Compléter le formulaire pour toute demande de renseignements complémentaire:
+            </p>
+        </div>
+
+        <form>
+            <fieldset>
+                <legend>Vos Coordonnées</legend>
+
+                <p>
+                    <!-- étiquette type case à cocher -->
+                    <label for="homme">Mr</label><input id="homme" type="radio" name="genre">
+                    <label for="femmes">Mlle/Mme</label><input id="femmes" type="radio" name="genre">
+                </p>
+                <p>
+                    <!-- étiquette de type texte -->
+                    <label for="nom">Nom:</label> <input id="nom" type="text" name="nom" />
+                    <label for="prenom">Prénom:</label> <input id="prenom" type="text" name="prenom" /> <br>
+                    <br>
+                    <label for="telephone">Téléphone :</label> <input id="telephone" type="text" name="telephone" />
+                    <label for="email">Email: </label> <input id="email" type="text" name="email" />
+                </p>
+                <legend>Sujet :</legend>
+                <p>
+                    <label for="sujet"></label>
+                    <textarea rows="1" cols="50" name="sujet" id="sujet"></textarea>
+                </p>
+                <legend>Message :</legend>
+                <p>
+                    <label for="message"></label>
+                    <textarea rows="10" cols="50" name="message" id="message"></textarea>
+                </p>
+                <p>
+                    <button type="reset">Recommencer</button>
+                    <button type="submit">Valider</button>
+                </p>
+
+
+            </fieldset>
+
+        </form>
+    </div>
+
+    <footer>
+        ©Anthony Di persio - <A HREF="mailto:anthony@utopios.net">anthony@utopios.net</A> - 06.07.08.09.10
+    </footer>
+
+
+
+</body>
+
+</html>

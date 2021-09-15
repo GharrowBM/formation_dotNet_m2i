@@ -1,0 +1,124 @@
+html{
+    font-feature-settings: arial ; 
+    color: dimgrey}
+body{
+    margin:0px;
+    background-color: rgb(209, 209, 208);
+     }
+header{
+    background-color: rgb(255,127,39);
+    height: 225px; 
+    display: flex;
+    flex-direction: row; }
+
+nav {
+    justify-content: center;    
+    height: 80px;
+    width: 100%; 
+    background-color: dimgrey;
+    display:flex;
+    flex-direction: row;
+    }
+.gauche{
+    background-color: rgb(255,127,39);
+    width: 20%; }
+.droit{
+    width: 80%;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;}
+.droit H1 {
+    text-align: center;
+    color: dimgrey;}
+.droit H3 { 
+    text-align: center; 
+    color:white  }
+h2 {
+    text-align: center; 
+    font-weight: bolder;}
+h3{text-align: center; 
+    font-weight: bolder;}
+
+form{
+    justify-content: center;
+    vertical-align:middle;}
+table{
+    background-color: #ffffff;
+    border: #000000;
+    display:flex;
+    justify-content: center;}
+.tabl{
+    display:flex;
+    justify-content: center;
+    vertical-align : middle;
+    height : 30px;
+    font-weight : bolder;
+    color: dimgrey;
+    background-color: rgb(148, 147, 147);}
+nav a{
+    color:white;
+    margin-top: auto;
+    margin-bottom:auto;
+    margin-inline-start :50px;
+    margin-inline-end: 50px;
+    width:150px;
+    line-height:50px;
+    text-align:center;
+    vertical-align:middle;
+    background:url(images/bouton_noir.png) no-repeat;
+    font-weight: bolder;    
+    }
+nav a:hover {
+    color:orangered;
+    background:url(images/bouton_noir_2.png) no-repeat;
+    }
+.bouton{
+    justify-content: center;  
+    height: 80px;
+    width: 100%;    
+    flex-direction: row;
+    text-align: center;
+}
+.bouton a{
+        color:white;               
+        width:175px;
+        line-height:40px;                
+        background:url(images/bouton_noir2.png) no-repeat;
+        font-weight: bolder;        
+        }
+.bouton a:hover {
+        color:orangered;
+        background:url(images/bouton_noir2_2.png) no-repeat;
+        }        
+.clear {
+    clear: both;
+    }
+.conteneur
+    {display:flex;
+    flex-direction: row;
+    }
+footer{
+    margin-top: 30px;
+    background-color: dimgrey;
+    color:white;
+    text-align:center;
+    }
+.c2{    
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content : space-around;
+    }
+.sign{
+    text-align : right;
+    }
+a, a:visited {
+        /* Les liens "au repos" et déjà visités antérieurement */
+    color:white; /* couleur blanche */
+    }
+a:hover, a:focus, a:active {
+        /* Les liens au survol, au focus, et actifs : on leur donne la couleur rouge pour l'exemple */
+    color: #ff0000;
+    }
+p{text-align: center;}

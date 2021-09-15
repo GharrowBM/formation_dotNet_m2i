@@ -1,20 +1,24 @@
 /* body{
     text-align:center;
 } */
-li{
+
+li {
     list-style-position: outside;
 }
-.imgRouge{
+
+.imgRouge {
     list-style-image: url(../§§§IMG§§§/puce_rouge_1.png);
 }
-.imgOrange{
+
+.imgOrange {
     list-style-image: url(../§§§IMG§§§/puce_orange_1.png);
 }
-.imgVert{
+
+.imgVert {
     list-style-image: url(../§§§IMG§§§/puce_verte_1.png);
 }
 
-.fontStyle{
-    list-style-type:lower-latin;
+.fontStyle {
+    list-style-type: lower-latin;
+    /* none pour aucune puce*/
 }
-
