@@ -1,48 +1,47 @@
 
-body {
+#divContainer {
     margin: 0;
     display : flex;
     flex-wrap: wrap;
 }
 
-header {
+#div1 {
     flex-basis: 100%;
     height: 10vh;
     background-color: red;
 }
 
-aside {
+#div2 {
     flex-basis: 10%;
     height: 90vh;
     background-color: blue;
 }
 
-main {
+#div3 {
     flex-basis: 90%;
     height: 90vh;
     background-color: green;
-}
 
 /* FLEXBOX
-body {
+#divContainer {
     margin: 0;
     display : flex;
     flex-wrap: wrap;
 }
 
-header {
+#div1 {
     flex-basis: 100%;
     height: 10vh;
     background-color: red;
 }
 
-aside {
+#div2 {
     flex-basis: 10%;
     height: 90vh;
     background-color: blue;
 }
 
-main {
+#div3 {
     flex-basis: 90%;
     height: 90vh;
     background-color: green;
@@ -51,32 +50,31 @@ main {
 
 
 /* GRID
-body {
+#divContainer {
     display: grid;
     grid-template-columns: 5;
     grid-auto-rows: minmax(150px, auto);
 }
 
-header {
+#div1 {
     grid-column: 1 / 5;
     grid-row: 1 / 2;
     background-color: red;
 }
 
-aside {
+#div2 {
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     background-color: blue;
 }
 
-main {
+#div3 {
     grid-column: 2 / 5;
     grid-row: 2 / 5;
     background-color: green;
 }
 */
-
-/* GRID AREA
+/*
 body {
     height: 500px;
     display: grid;
