@@ -21,13 +21,11 @@ body{
     box-shadow: 12px 12px 2px 1px var(--Shadow);
     padding: 20px;
 }
+
 nav{
     border-top: 1px solid var(--blanc);
 }
-.crumbs{
-    
 
-}
 .crumb{
     display: inline-block;
     padding: 0;
