@@ -1,0 +1,81 @@
+:root{
+    --blanc:white;
+    --Fond54:rgb(54,54,54);
+    --Fond77:rgb(77, 77, 77);
+    --Fond92:rgb(92,92,92);
+    --Shadow:rgb(34,34,34);
+    --Orange:rgb(255,68,21);
+}
+
+body{
+    background-color: var(--Fond54);
+    color:var(--blanc);
+    font-family: Calibri;
+    text-align:center;
+}
+.header{
+    background-color: var(--Fond77);
+    margin-top: 20px;
+    border: 1px solid var(--blanc);
+    border-radius:10px;
+    box-shadow: 12px 12px 2px 1px var(--Shadow);
+    padding: 20px;
+}
+nav{
+    border-top: 1px solid var(--blanc);
+}
+.crumbs{
+    
+
+}
+.crumb{
+    display: inline-block;
+    padding: 0;
+}
+
+.crumb a {
+    text-decoration: none;
+    color: var(--blanc);
+}
+.btn{
+    background-color: var(--Fond77);
+    font-size: 10px;
+    border:1px solid var(--blanc);
+    padding:10px;
+    box-shadow: 12px 12px 2px 1px var(--Shadow);
+    border-radius: 5px;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 300ms;
+
+}
+.btn:hover{
+    transform: scale(1.10);
+    color:var(--Orange);
+    border:1px solid var(--Orange);
+}
+.conteneur{
+    width: 90%;
+    margin : 0 auto;
+    
+}
+.vignette{
+    background-color: var(--Fond77);
+    margin-top: 40px;
+    border:1px solid var(--blanc);
+    border-radius: 10px;
+    padding: 20px 0;
+    box-shadow: 12px 12px 2px 1px var(--Shadow);
+    border-radius: 5px;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1300ms;
+}
+.vignette:hover{
+    background-color: var(--Fond92);
+    transform: scale(1.05);    
+}
+.img{
+    height: 200px;
+    width: 200px;
+}
