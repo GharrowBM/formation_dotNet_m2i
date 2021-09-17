@@ -1,8 +1,8 @@
 // Constructeur Objet produit
 function Product(pic, name, price) {
-    this.pic = pic;
-    this.name = name;
-    this.price = price;
+  this.pic = pic;
+  this.name = name;
+  this.price = price;
 }
 // Création liste de produits
 var products = [];
@@ -17,10 +17,10 @@ const x1 = new Product('img/ThinkPad_x1_Carbon_2020.png', 'Thinkpad X1 Carbon', 
 products.push(x270, t420, t560, x1);
 
 // Fonction composant la liste de produits en HTML
-window.onload = function (){
-    let listOfProducts= '';    
-    products.forEach(prod =>
-        listOfProducts += `
+window.onload = function () {
+  let listOfProducts = '';
+  products.forEach(prod =>
+    listOfProducts += `
           <tr class="text-center">
             <td><img src=${prod.pic} class="img-fluid img-thumbnail w-50"></td>
             <td class="w-25 align-middle">${prod.name}</td>
@@ -28,14 +28,15 @@ window.onload = function (){
             <td class="w-25 align-middle"><button class="btn btn-info" onclick='details("${prod.name}","${prod.price}")'>Push Me!</button></td>
           </tr>
           `
-          
-    )
-    // Insertion de la liste de produit dans la <div id="productList"> dans le DOM Virtuel
-    document.getElementById('productList').innerHTML = listOfProducts;
+
+  )
+  // Insertion de la liste de produit dans la <div id="productList"> dans le DOM Virtuel
+  document.getElementById('productList').innerHTML = listOfProducts;
 }
 
 // Fonction pour création d'un message type alert avec le nom et le prix du produit
-function details(name,price){
-  alert(`Le produit ${name} est au prix de ${price}€`);
+function details(name, price) {
+  //alert("Le produit" + name + "est au prix de" + price + "€");
+  alert(`Le produit ${ name } est au prix de ${ price }€`);
 }
 
