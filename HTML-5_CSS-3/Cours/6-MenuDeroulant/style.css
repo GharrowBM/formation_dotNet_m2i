@@ -17,7 +17,6 @@ nav{
   color:rgba(0,0,0,0.5);
   padding: 10px;
   font-size: 1.5em;
-
 }
 .menu>li:hover{
     border-bottom: 4px solid #39c;/* Ajoute une bordure de bas de couleur bleue au survol de la souris  */ 
@@ -35,12 +34,11 @@ nav{
     overflow: hidden;/* Pour cacher le contenu du sous menu */
     transition: max-height 0.5s ease;/* transition appliquée sur la propriété max-height */
     padding: 0;
-    margin: 5px 0;
-    
+    margin: 5px 0;    
 }
 .services:hover>.sous-menu{
     max-height:150px; /* Pour afficher le menu après le "hover" */
-    
+    /* overflow:visible; */
 }
 .sous-menu>li{
   text-align: center;  
@@ -55,8 +53,6 @@ nav{
   display: inline-block;
   width: 100%;
   color:#fff;
-  
-
 }
 .sous-menu>li:hover{
   background:#39c;
