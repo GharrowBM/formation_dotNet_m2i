@@ -29,27 +29,10 @@ links.push(
     new Lien("./tooltips.html", "Tooltips")
 );
 
+// Génération du menu au chargement de la page
 window.onload = function () {
     let listLinks = '<nav class="navbar fixed-bottom navbar-dark bg-dark">';
-
-    links.forEach(lien =>
-        listLinks += `
-        <span>
-        <a class="navbar-brand" href="${lien.link}">${lien.text}</a>
-    </div>
-        `
-        )
-    
+    links.forEach(lien => listLinks += `<span><a class="navbar-brand" href="${lien.link}">${lien.text}</a></span>`);    
         listLinks += "</nav>";
-        console.log(listLinks);
         document.getElementById("navMenu").innerHTML = listLinks;
 }
-
-
-/* `
-<nav class="navbar fixed-bottom navbar-dark bg-dark">
-<div class="container-fluid">
-    <a class="navbar-brand" href="#">Fixed bottom</a>
-</div>
-</nav>
-`  */

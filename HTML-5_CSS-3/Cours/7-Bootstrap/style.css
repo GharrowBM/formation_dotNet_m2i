@@ -33,3 +33,7 @@ body{
 .pink{
     background-color: pink;
 }
+
+#navMenu {
+    padding: 0 10%;
+}
