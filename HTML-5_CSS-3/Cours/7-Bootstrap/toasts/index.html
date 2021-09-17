@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+
+  <title>TOASTS</title>
+</head>
+<header>
+
+  <body>
+    <div class="container">
+
+      <h1>Basic</h1>
+      <button type="button" class="btn btn-success" id="bouton1">Afficher le Toast</button>
+      <div class="toast" id="toast1" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="b.jpg" class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+
+      <br><br>
+
+
+
+      <h1>Live example</h1>
+      <button type="button" class="btn btn-secondary" id="liveToastBtn">Show live toast</button>
+
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="b.jpg" class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+
+
+      <h1>Translucent</h1>
+      <button type="button" class="btn btn-primary" id="bouton2">Afficher le Toast</button>
+      <div class="toast" id="toast2" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="b.jpg" class="rounded me-2" alt="...">
+          <strong class="me-auto">Bootstrap</strong>
+          <small class="text-muted">11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+
+      <br><br>
+
+
+      <h1>Stacking</h1>
+      <button type="button" class="btn btn-danger" id="bouton3">Afficher le Toast</button>
+      <div class="toast-container">
+        <div class="toast" id="toast3" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="b.jpg" class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            See? Just like this.
+          </div>
+        </div>
+
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="b.jpg" class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Heads up, toasts will stack automatically
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+
+
+
+      <h1>Custom content</h1>
+      <button type="button" class="btn btn-warning" id="bouton4">Afficher le Toast</button>
+      <div class="toast align-items-center" id="toast4" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+      <br>
+      <h1>Alternative Custom content</h1>
+      <button type="button" class="btn btn-danger" id="bouton5">Afficher le Toast</button>
+      <div class="toast" role="alert" id="toast5" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+          <div class="mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-primary btn-sm">Take action</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+          </div>
+        </div>
+      </div>
+
+
+      <br><br>
+
+
+
+      <h1>Color schemes</h1>
+      <button type="button" class="btn btn-info" id="bouton6">Afficher le Toast</button>
+      <div class="toast align-items-center text-white bg-primary border-0" id="toast6" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
+        </div>
+      </div>
+
+      <br><br>
+
+
+
+      <h1>Placement</h1>
+      <form>
+        <div class="mb-3">
+          <label for="selectToastPlacement">Toast placement</label>
+          <select class="form-select mt-2" id="selectToastPlacement">
+            <option value="" selected>Select a position...</option>
+            <option value="top-0 start-0">Top left</option>
+            <option value="top-0 start-50 translate-middle-x">Top center</option>
+            <option value="top-0 end-0">Top right</option>
+            <option value="top-50 start-0 translate-middle-y">Middle left</option>
+            <option value="top-50 start-50 translate-middle">Middle center</option>
+            <option value="top-50 end-0 translate-middle-y">Middle right</option>
+            <option value="bottom-0 start-0">Bottom left</option>
+            <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>
+            <option value="bottom-0 end-0">Bottom right</option>
+          </select>
+        </div>
+      </form>
+
+      <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
+        <div class="toast-container position-absolute p-3" id="toastPlacement">
+          <div class="toast">
+            <div class="toast-header">
+              <img src="b.jpg" class="rounded me-2" alt="...">
+              <strong class="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </div>
+            <div class="toast-body">
+              Hello, world! This is a toast message.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</header>
+
+</html>

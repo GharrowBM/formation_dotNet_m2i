@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Bootstrap Accordion</title>
-  </head>
-  <body>
-      <em>Pour utiliser les tooltips, il faut les initialisés.
-        One way to initialize all tooltips on a page would be to select them by their data-bs-toggle attribute:
-      </em>
-      <code><br> var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Bootstrap Accordion</title>
+</head>
+
+<body>
+  <div class="container">
+    <em>Pour utiliser les tooltips, il faut les initialisés.
+      One way to initialize all tooltips on a page would be to select them by their data-bs-toggle attribute:
+    </em>
+    <code><br> var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 
         <br>var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
           <br>return new bootstrap.Tooltip(tooltipTriggerEl)
         <br> })</code>
-      <h1>Tooltips</h1>
-      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-        Tooltip on top
-      </button>
-      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
-        Tooltip on right
-      </button>
-      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-        Tooltip on bottom
-      </button>
-      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
-        Tooltip on left
-      </button>
-      <p>Avec du HTML personnalisé ajouté</p>
-      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-        Tooltip with HTML
-      </button>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/tooltips.js"></script>
-  </body>
-</html>
+    <h1>Tooltips</h1>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top"
+      title="Tooltip on top">
+      Tooltip on top
+    </button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right"
+      title="Tooltip on right">
+      Tooltip on right
+    </button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom"
+      title="Tooltip on bottom">
+      Tooltip on bottom
+    </button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left"
+      title="Tooltip on left">
+      Tooltip on left
+    </button>
+    <p>Avec du HTML personnalisé ajouté</p>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true"
+      title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+      Tooltip with HTML
+    </button>
+  </div>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/tooltips.js"></script>
+</body>
 
+</html>
