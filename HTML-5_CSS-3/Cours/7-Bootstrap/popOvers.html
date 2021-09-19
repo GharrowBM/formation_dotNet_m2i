@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Bootstrap Popovers</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Popovers</h1>
+        <div class="space">
+            <h2>Popover example</h2>
+            <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover"
+                data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to popover
+                example</button>
+
+            <h2>Four direction</h2>
+            <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="top" data-bs-content="Top popover">
+                Popover on top
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="right" data-bs-content="Right popover">
+                Popover on right
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="bottom" data-bs-content="Bottom popover">
+                Popover on bottom
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="left" data-bs-content="Left popover">
+                Popover on left
+            </button>
+
+            <h2>Dismiss on next click</h2>
+            <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                title="Dismissible popover"
+                data-bs-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+
+            <h2>Disabled elements</h2>
+            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                data-bs-content="Disabled popover">
+                <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+            </span>
+        </div>
+    </div>
+    <div id="navMenu">
+
+    </div>    
+    <script src="./assets/scripts/script.js"></script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+        var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+            container: 'body'
+        })
+
+        var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+            trigger: 'focus'
+        })
+    </script>
+</body>
+
+</html>
