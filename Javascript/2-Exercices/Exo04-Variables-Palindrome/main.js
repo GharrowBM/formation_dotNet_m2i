@@ -7,6 +7,7 @@ const result = document.querySelector('.result');
 
 // Declaration des variables
 var mot,
+    motLower,
     reverse;
 
 
@@ -14,20 +15,21 @@ var mot,
 affichage = "<h3>Ce mot est-il un palindrome?</h3><br>";
 
 // Récupération mot utilisateur
-mot= prompt("Veuillez saisir un mot").toLowerCase();
+mot = prompt("Veuillez saisir un mot");
+motLower=mot.toLowerCase();
 
 // affichage du mot de l'utilisateur
 affichage += `Vous avez saisi : <b>${mot}</b> <br>`
 
 // Invertion de la chaine de caractères
-reverse = mot.split('').reverse().join('');
+reverse = motLower.split('').reverse().join('');
 affichage += `<br>le mot inversé : <b>${reverse}</b> <br>`
 
 // Recherche de palindrome
-if(reverse === mot)
-    affichage+=`<br>Le mot <b>${mot}</b> est un palindrome<br>`
+if (reverse === motLower)
+    affichage += `<br>Le mot <b>${mot}</b> est un palindrome<br>`
 else
-    affichage+=`<br>Le mot <b>${mot}</b> n'est pas un palindrome<br>`
+    affichage += `<br>Le mot <b>${mot}</b> n'est pas un palindrome<br>`
 
 // Injection du résultat dans l'element HTML .result
 result.innerHTML = `${affichage}`;
