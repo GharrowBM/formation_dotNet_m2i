@@ -7,6 +7,8 @@ const result = document.querySelector('.result');
 
 // Récupération et stockage des saisie utilisateur
 var userLetter = prompt("Veuillez saisir une lettre");
+
+// Mise en majuscule
 userLetter = userLetter.toUpperCase()
 
 // // Etablissement Structure If() pour vérifier la saisie utilisateur
