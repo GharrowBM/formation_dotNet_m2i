@@ -41,6 +41,20 @@ for(i=10 ;  i>=1 ; i-=2){
     console.log(`La boucle while s'est exécutée ${i} fois.`);
 }
 
+/**
+ * EXERCICE
+ * A partir du tableau numérique suivant :
+ * 
+ * var names = ["Adam", "Etienne", "Sebastien", "Clement", "Virginie"];
+ * 
+ * 1/ Gràce à une boucle for, afficher la liste des prenoms du tableau
+ * 2/ Gràce à une boucle while, afficher la liste des prenoms du tableau
+ */
+ var names = ["Adam", "Etienne", "Sebastien", "Clement", "Virginie"];
+
+
+ 
+
 
 // Affichage de resultat dans la console
 //console.log(resultat);
