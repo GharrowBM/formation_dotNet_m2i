@@ -29,6 +29,9 @@ else {
     resultat+="Email non reconnu"
 }
 
+// // Avec un ternaire (Sugar syntaxe)
+// resultat+= (userEmail == email && userPassword == mdp)? "Bienvenue sur votre espace sécurisé" :" Utilisateur non reconnu";
+
 // Affichage du résultat en alert()
 //alert(resultat);
 // Injection du résultat dans l'element HTML .result
