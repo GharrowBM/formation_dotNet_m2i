@@ -36,7 +36,9 @@ do{
  */
 
 //i=1;
-
+for(i=1; i<=10; i++) {
+    
+}
 for(i=10 ;  i>=1 ; i-=2){
     console.log(`La boucle while s'est exécutée ${i} fois.`);
 }
