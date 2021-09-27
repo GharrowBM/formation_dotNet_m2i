@@ -66,13 +66,13 @@
 
 //Un autre exemple de fonction avec un retour
 
-const addition = (a, b) => {
+const addition =  (a, b)  => {
     return a + b
 }
 
 //une fonction avec CallBack
 
-const calcule = (a, b, fonctionCalcule) => {
+const calcule = function (a, b, fonctionCalcule) {
     console.log(fonctionCalcule(a,b))
 }
 
