@@ -29,7 +29,11 @@ affichage += `<br>Mise en tableau : <b>${chaineMEF}</b> <br>`;
 // Mise en majuscule des premiere lettres de chaques mots
 //chaineMEF = chaine.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
 //chaineMEF = chaine.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.substring(1)).join(' ');
-chaineMDF = chaine.toLowerCase().split(' ').map(x => x.replace(x[0],x[0].toUpperCase()));
+const remplacer = (t) => {
+    t.replace(t[0],t[0].toUpperCase())
+}
+// chaineMDF = chaine.toLowerCase().split(' ').map(x => x.replace(x[0],x[0].toUpperCase()));
+chaineMDF = chaine.toLowerCase().split(' ').map(remplacer);
 affichage += `<br>La chaîne après traitement : <b>${chaineMEF}</b> <br>`
 
 // Injection du résultat dans l'element HTML .result
