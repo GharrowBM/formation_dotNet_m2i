@@ -38,8 +38,13 @@ function Valider() {
     else if (revenuImposable >= 158123)
         montantImpot = Math.round((revenuImposable - 158122) * 0.45 + (158122 - 73516) * 0.41 + (73516 - 25710) * 0.30 + (25711 - 10085) * 0.11);
     console.log(montantImpot);
+
+    // Calcul de l'impot par le nbpart
     montantImpot *= nbParts;
-    console.log(montantImpot);
+
+    // Affiche le résulta dans la console
+    //console.log(montantImpot);
+
     // Execute la méthode afficher()
     Afficher();
     // Nettoyage des champs
