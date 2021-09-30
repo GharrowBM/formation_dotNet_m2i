@@ -34,4 +34,5 @@ console.table(annuaire);
 console.log(annuaire[1].prenom + " " + annuaire[1]["nom"]);
 
 // Injection du résultat dans l'element HTML .result
-result.innerHTML ="<b>"+ annuaire[1].prenom + " " + annuaire[1].nom +"</b>";
+//result.innerHTML ="<b>"+ annuaire[1].prenom + " " + annuaire[1].nom +"</b>";
+result.innerHTML =`<b> ${annuaire[1].prenom} ${annuaire[1]["nom"]}</b>`;

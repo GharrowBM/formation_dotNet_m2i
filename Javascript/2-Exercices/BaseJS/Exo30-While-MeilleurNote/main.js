@@ -17,10 +17,10 @@ affichage += `<p>La série contiend <b>les notes suivantes</b> : </p><ul>`;
 
 // Boucle pour saisie et traitement des notes
 while (!ok) {
-    let noteTmp=Number(prompt(`Merci de saisir la note ${nbNotes} (sur 20):`));
+    let noteTmp=Number(prompt(`Merci de saisir la note ${nbNotes+1} (sur 20):`));
     if(!isNaN(noteTmp)){
         if (noteTmp>=0 && noteTmp<=20 ) {
-            console.log(noteTmp);
+            //console.log(noteTmp);
             affichage += `<li>En note <b>${nbNotes+1}</b>, vous avez saisi <b>${noteTmp}/20</b>.</li>`;
             // Ajoute la note saisie au total
             moyNote += noteTmp;

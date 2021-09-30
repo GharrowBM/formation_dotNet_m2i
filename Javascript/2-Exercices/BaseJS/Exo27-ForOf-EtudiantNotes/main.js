@@ -46,7 +46,8 @@ for (let etudiant of etudiants) {
 
     // 2 - Boucle qui permet de parcourir toutes les matières pour chaque étudiant
     for (let key in etudiant.matieres) {
-        affichage += "<li>" + key + " : <b>" + etudiant.matieres[key] + "/20</b></li>";
+        //affichage += "<li>" + key + " : <b>" + etudiant.matieres[key] + "/20</b></li>";
+        affichage +=`<li> ${key}  : <b>${etudiant.matieres[key]}/20</b></li>` ;
 
         // 3.a Total des notes d'un étudiant
         total += etudiant.matieres[key];
