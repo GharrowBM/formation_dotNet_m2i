@@ -36,5 +36,9 @@ class Game {
             console.log('----------')
         }
     }
+
+    testWin(gamer) {
+
+    }
 }
 exports.Game = Game
