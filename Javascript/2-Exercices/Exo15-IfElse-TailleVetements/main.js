@@ -13,7 +13,8 @@ var taille = prompt("Veuillez saisir votre taille (en cm) :");
 var poids = prompt("Veuillez saisir votre poids (en kg) :");
 
 
-// Etablissement Structure If() pour vérifier la nature du triangle
+// Etablissement Structure If() pour vérifier taille correspondante
+
 if (taille >= 145 && taille < 172 && poids >= 43 && poids <= 47 ||
     taille >= 145 && taille < 169 && poids >= 48 && poids <= 53 ||
     taille >= 145 && taille < 166 && poids >= 54 && poids <= 59 ||
