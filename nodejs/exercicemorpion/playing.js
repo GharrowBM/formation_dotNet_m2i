@@ -1,12 +1,7 @@
 const readline = require('readline')
 const { Game } = require('./game')
 const { notrePropreQuestion } = require('./tools')
-const readLineInterface = readline.createInterface({
-    input:process.stdin,
-    output: process.stdout
-})
 
-// const {notrePropreQuestion} = require('./tools')
 class Playing {
     //Attribut premier joueur
     isFirstPlayer = true
@@ -20,11 +15,8 @@ class Playing {
     async getCasePosition(player) {
         console.log("Joueur : "+player)
         let casePosition = {x:0, y:0}
-        console.log("Merci de saisir la X : ")
-        //Une fonction qui permet de récupérer le resultat saisi dans la console
-        casePosition.x =  await (await readLineInterface[Symbol.asyncIterator]().next()).value
-        console.log("Merci de saisir la Y : ")
-        casePosition.y =  await (await readLineInterface[Symbol.asyncIterator]().next()).value
+        casePosition.x = await notrePropreQuestion("cord i : ")
+        casePosition.y = await notrePropreQuestion("cord j: ")
         return casePosition
     }
 
@@ -35,11 +27,14 @@ class Playing {
             let joueur = this.isFirstPlayer ? 'X' : 'O'
             let position =  await this.getCasePosition(joueur)
             
-            this.game.play(joueur, parseInt(position.x), parseInt(position.y))
-          
-            this.game.draw()
-            //On inverse le joueur
-            this.isFirstPlayer = !this.isFirstPlayer
+            if(!this.game.play(joueur, parseInt(position.x), parseInt(position.y))) {
+                console.log("Impossible de jouer cette case")
+            }else {
+                this.game.draw()
+                this.endGame = this.game.testWin(joueur)
+                //On inverse le joueur
+                this.isFirstPlayer = !this.isFirstPlayer
+            }
         }
     }
 }

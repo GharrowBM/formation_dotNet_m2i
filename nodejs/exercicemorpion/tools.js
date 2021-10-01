@@ -1,13 +1,16 @@
 const readline = require('readline')
-const readLineInterface = readline.createInterface({
-    input:process.stdin,
-    output: process.stdout
-})
+
 
 
 const notrePropreQuestion = async (question) => {
-    const result = await readLineInterface[Symbol.asyncIterator]().next()
-    return await result.value
+    console.log(question)
+    const readLineInterface = readline.createInterface({
+        input:process.stdin,
+        output: process.stdout
+    })
+    const result = await (await readLineInterface[Symbol.asyncIterator]().next()).value
+    readLineInterface.close()
+    return result
 }
 
 exports.notrePropreQuestion = notrePropreQuestion
