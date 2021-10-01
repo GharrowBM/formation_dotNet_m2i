@@ -1,0 +1,90 @@
+============TP Slide 26============
+1-  Création de repos
+    Après navigation jusqu'au dossier créé
+    Commande : git init .
+2-  Après ajout d'un fichier "fichier1.txt"
+    Commandes : - git add .
+                - git commit -am "Message du premier commit"
+3-  Après modification du fichier "fichier1.txt"
+    Commande :  - git commit -am "Message du second commit"
+4-  Pour accéder à l'historique des commits
+    Commande : git log
+
+===========TP Slide 46==============
+
+1-  git init .
+
+2/3/5 Après ajout des fichiers, (git add . ===> git commit -am "Message du commit")
+
+4/ git log
+
+6/ git reset --hard <id_commit>
+
+7/ git log
+
+8/ git checkout <id_commit_1>
+
+9/ git checkout -b <nom_branch>
+
+10/git commit
+
+11/ git log
+
+12/ Lister des branches => git branch
+
+13/ git tag -a vSecond -m "Tag sur le commit pointé par second-branch" => création de Tag
+
+14/ git checkout master
+
+15/ git tag -l
+
+16/ git branch -D nom_de_la_branch
+
+Le tag est toujours là
+
+===========TP 3 Slide 68===========
+
+1- git init .
+2- git add . et git commit -am "c1"
+3- git commit -am "c2"
+4- git branch b1 <id_commit_c1>, git checkout b1
+   //<=> git checkout -b b1 <id_commit_c1>
+5- git commit -am "c3"
+6- git checkout master
+   git merge b1
+   Resoudre les conflits
+   faire un nouveau commit
+   git commit -am "resolution conflits"
+   git checkout b1
+   git merge master
+
+
+
+=============TP Rebase=============
+1- git init .
+2- git add . && git commit -am "c1"
+   git commit -am "c2"
+3- git checkout -b b1 <id_commit_c1>
+4- git commit -am "c3"
+5- git rebase master
+ En cas de conflit, on regle le conflit, et continue le rebase (Sans commit)
+ git add .
+ git rebase --continue
+
+
+ =========TP Repos distant==========
+
+ Création d'un repos serveur R0 : git init --bare <adresse_du_repos>
+ Création d'un repos local R1 : git init <adresse_du_repos>
+ Associer repos R1 à R0, ajoute un remote: git remote add origin <adresse_de_R0>
+ Ajout d'un fichier, commit C1: git add . && git commit -am "C1"
+ pour envoyer des commits sur le serveur distant git push origin master
+ pour cloner un repos, git clone <adresse_repos_serveur> <nom_repos_local>
+ Dans le cadre d'un repos 3 créer localement (git init .)
+ Après ajout d'un fichier et d'un commit dans le R3
+ On ajoute un remote origin pour lier R3 à R0 (git remote add origin <adresse_repos_R0>)
+ Pour envoyer des données sur R0, il faut être à jour (git pull origin master)(Normalement erreur histoires non liées), il faut utiliser git pull origin master --rebase
+ R3 peut maintenant push sur la branche master de R0 (git push origin master)
+
+
+

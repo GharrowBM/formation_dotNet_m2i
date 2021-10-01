@@ -1,0 +1,27 @@
+#tableau{
+    border-collapse: collapse;
+}
+.title{
+    color:white;
+    background-color: rgb(71 ,71 ,71);
+}
+
+th,tr,td{
+    padding: 10px;
+    border:1px solid rgb(71 ,71 ,71);
+}
+th{
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+.liste{
+    text-align: center;
+}
+table{
+    margin: auto;
+    width: 100%;
+}
