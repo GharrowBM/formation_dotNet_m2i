@@ -1,6 +1,5 @@
-const {Game} = require('./game')
 const {Playing} = require('./playing')
-const game = new Game()
+
 const playing = new Playing()
 playing.gamerPlay()
 // game.play('X', 1,2)

@@ -13,7 +13,7 @@ class Game {
     // Une méthode qui récupère le joueur(X,O), le numéro de la ligne et le numéro de la col
     play(gamer, x, y) {
         //On vérfie si la case est vide
-        if(this.board[x-1][y-1] != ' ') {
+        if(this.board[x-1][y-1] == ' ') {
             //Si c'est vrai, on ajoute le caractère du joueur dans la case
             this.board[x-1][y-1] = gamer
             return true
