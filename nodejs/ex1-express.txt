@@ -1,0 +1,7 @@
+Exercice 1 : Express
+
+Créer une application web en express qui permet de charger une page d'accueil en html
+A partir de la page d'accueil, 
+	on peut charger une page contact, 
+	une page description, 
+	une page qui sommes nous ?
