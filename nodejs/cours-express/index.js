@@ -1,6 +1,10 @@
 //Import de la dependance express
 const express = require("express")
 
+//Import path
+const path = require("path")
+
+
 //On crée une application express pour générer une application web
 const app = express()
 
@@ -10,6 +14,10 @@ const app = express()
 app.get('/', (req,res) => {
     //On renvoie une réponse avec une chaine de caractère à la request
     res.end("Bonjour sur notre serveur web")
+})
+
+app.get('/fichierHtml', (req, res) => {
+    res.sendFile(path.join(__dirname+'/html/page.html'))
 })
 
 
