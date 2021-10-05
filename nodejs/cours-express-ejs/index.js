@@ -34,9 +34,9 @@ app.get('/users', (req, res) => {
 })
 
 //définition d'une route en GET avec un paramètre id
-app.get('/users/:id', (req, res) => {
+app.get('/users/:toto', (req, res) => {
     //Le paramètre req de la fonction callback contient un objet params avec les différents paramètres dynamique dans l'url
-    let id = req.params.id
+    let id = req.params.toto
     res.render("html/user", {
         id: id
     })
