@@ -5,6 +5,7 @@
         <% for(let i=0; i < utilisateurs.length; i++) { %>
             <div>
                 Prénom: <%= utilisateurs[i].firstName %> Nom: <%= utilisateurs[i].lastName %>
+                <a href="/users/<%= i %>">Lien pour l'utilsateur</a>
             </div>
         <% } %>
        
