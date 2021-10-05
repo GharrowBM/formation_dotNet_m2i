@@ -1,7 +1,7 @@
 const express = require("express")
 
 const app = express()
-
+const bodyParser = require("body-parser")
 //stock nos produits dans un tableau js
 let products = [
     {name: 'produit 1', description: 'description produit 1', price: 10, category: 'cat 1'},
@@ -16,7 +16,7 @@ let products = [
 //Dossier pour les ressources statiques (css, javascript)
 app.use(express.static(__dirname+"/assets"))
 
-
+app.use(express.urlencoded())
 //Indiquer que le moteur de rendu est ejs
 app.set("view engine","ejs")
 
@@ -50,6 +50,18 @@ app.get('/deleteproduct/:id', (req, res) => {
         products.splice(id,1)
         res.redirect("/")
     }
+})
+
+//route pour ajouter notre produit
+app.get('/formProduct', (req,res) => {
+    res.render('pages/form-product')
+})
+
+//Action pour valider le formulaire
+
+app.post('/submitProduct', (req, res) => {
+    products = [...products, {name:req.body.name, price: req.body.price, category: req.body.category, description: req.body.description}]
+    res.redirect('/')
 })
 
 app.listen(80)
