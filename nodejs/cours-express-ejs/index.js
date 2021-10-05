@@ -38,7 +38,8 @@ app.get('/users/:id', (req, res) => {
     //Le paramètre req de la fonction callback contient un objet params avec les différents paramètres dynamique dans l'url
     let id = req.params.id
     res.render("html/user", {
-        id: id
+        id: id,
+        user: users[id]
     })
 })
 app.listen(80)

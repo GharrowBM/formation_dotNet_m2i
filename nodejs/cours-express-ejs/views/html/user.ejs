@@ -3,6 +3,11 @@
     <main class="container">
         <h1>L'utilisateur N° <%= id %></h1>
         
-       
+        <div>
+            Nom: <%= user.firstName %>
+        </div>
+        <div>
+            Prénom: <%= user.lastName %>
+        </div>
     </main>
 <%- include("../partials/footer.ejs"); %>
