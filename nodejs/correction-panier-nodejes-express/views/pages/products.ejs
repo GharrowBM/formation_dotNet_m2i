@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+    <div class="row m-1">
+        <h1 class="col">Liste des produits</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i < products.length; i++) { %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td><%= products[i].name %></td>            
+            <td><%= products[i].price %></td>            
+            <td><%= products[i].category %></td> 
+            <td>
+                <a href="/product/<%= i %>" class="btn btn-primary p-1 m-1">detail</a>
+                <a href="/deleteproduct/<%= i %>" class="btn btn-danger p-1 m-1">delete</a>
+            </td>           
+          </tr>
+          <% } %>
+
+        </tbody>
+      </table>
+<%- include('../partials/footer') %>

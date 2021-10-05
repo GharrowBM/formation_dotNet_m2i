@@ -9,6 +9,8 @@ const users = [
 
 //Le moteur de rendu utilisé est ejs
 app.set('view engine', 'ejs')
+
+
 app.get('/', (req, res) => {
     //res.sendFile(path.join(__dirname+"/html/home.html"))
     res.render("html/home")
