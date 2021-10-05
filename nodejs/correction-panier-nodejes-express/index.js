@@ -52,13 +52,12 @@ app.get('/deleteproduct/:id', (req, res) => {
     }
 })
 
-//route pour ajouter notre produit
+//route pour le formulaire ajout du produit
 app.get('/formProduct', (req,res) => {
     res.render('pages/form-product')
 })
 
 //Action pour valider le formulaire
-
 app.post('/submitProduct', (req, res) => {
     products = [...products, {name:req.body.name, price: req.body.price, category: req.body.category, description: req.body.description}]
     res.redirect('/')
