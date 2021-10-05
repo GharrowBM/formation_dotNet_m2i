@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 
 //stock nos produits dans un tableau js
-const products = [
+let products = [
     {name: 'produit 1', description: 'description produit 1', price: 10, category: 'cat 1'},
     {name: 'produit 2', description: 'description produit 2', price: 20, category: 'cat 1'},
     {name: 'produit 3', description: 'description produit 3', price: 30, category: 'cat 2'},
@@ -45,7 +45,11 @@ app.get('/product/:id', (req,res) => {
 
 //Route pour supprimer un produit
 app.get('/deleteproduct/:id', (req, res) => {
-    
+    const id = req.params.id
+    if(products.length > id) {
+        products.splice(id,1)
+        res.redirect("/")
+    }
 })
 
 app.listen(80)
