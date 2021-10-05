@@ -31,12 +31,21 @@ app.get('/', (req,res) => {
 
 //Route afficher un produit
 app.get('/product/:id', (req,res) => {
-
+    const id = req.params.id
+    if(products.length > id) {
+        res.render('pages/product', {
+            product : products[id],
+            id: id
+        })
+    }
+    else {
+        res.render('pages/error')
+    }
 })
 
 //Route pour supprimer un produit
 app.get('/deleteproduct/:id', (req, res) => {
-
+    
 })
 
 app.listen(80)
