@@ -1,8 +1,8 @@
 const express = require("express")
 const path = require("path")
 const app = express()
-
-const users = [
+const bodyParser = require('body-parser')
+let users = [
     {firstName: 'ihab', lastName: 'abadi'},
     {firstName: 'tata', lastName: 'toto'},
 ]
@@ -10,6 +10,7 @@ const users = [
 //Le moteur de rendu utilisé est ejs
 app.set('view engine', 'ejs')
 
+app.use(bodyParser())
 
 app.get('/', (req, res) => {
     //res.sendFile(path.join(__dirname+"/html/home.html"))
@@ -20,6 +21,13 @@ app.get('/contact', (req, res) => {
    // res.sendFile(path.join(__dirname+"/html/contact.html"))
    res.render("html/contact")
 
+})
+
+app.post('/submitContact', (req,res) => {
+    //les données envoyées en POST se trouvent dans la propriété body du paramètre req
+    users = [...users, {firstName: req.body.prenom, lastName: req.body.nom}]
+
+    res.redirect('/users')
 })
 
 app.get('/description', (req,res) => {

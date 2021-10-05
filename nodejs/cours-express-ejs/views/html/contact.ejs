@@ -1,6 +1,18 @@
 <%- include("../partials/header.ejs"); %>
     </header>
-    <main class="container">
+    <main>
         <h1>Contact</h1>
+        <form class="container" method="POST" action="/submitContact">
+            <div class="row m-1">
+                <input type="text" placeholder="Merci de saisir votre nom" name="nom" class="col form-control p-1" />
+            </div>
+            <div class="row m-1">
+                <input type="text" name="prenom" placeholder="Merci de saisir votre prénom" class="col form-control p-1" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success col p-1" >Valider</button>
+            </div>
+        </form>
     </main>
+    
 <%- include("../partials/footer.ejs"); %>
