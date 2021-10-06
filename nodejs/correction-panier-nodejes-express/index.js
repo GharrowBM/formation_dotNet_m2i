@@ -24,8 +24,15 @@ app.set("view engine","ejs")
 //Route accueil
 app.get('/', (req,res) => {
     //Renvoie le rendu généré par ejs à partir de la page  products.ejs
+    let productsToDispaly = products
+    //Dans le cadre de la recherche dans les params de la req, on aura un paramètre search non udenfined
+    const search = req.query.search
+    console.log(req)
+    if(search != undefined) {
+        productsToDispaly = products.filter(e => e.name.includes(search))
+    }    
     res.render("pages/products", {
-        products: products
+        products: productsToDispaly
     })
 })
 
