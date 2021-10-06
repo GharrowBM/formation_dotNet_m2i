@@ -4,8 +4,8 @@ const app = express()
 const bodyParser = require("body-parser")
 //stock nos produits dans un tableau js
 let products = [
-    {name: 'produit 1', description: 'description produit 1', price: 10, category: 'cat 1'},
-    {name: 'produit 2', description: 'description produit 2', price: 20, category: 'cat 1'},
+    {name: 'produit 1', description: 'description produit 1', price: 10, category: 'cat 1', id: 1},
+    {name: 'produit 2', description: 'description produit 2', price: 20, category: 'cat 1',  id: 2},
     {name: 'produit 3', description: 'description produit 3', price: 30, category: 'cat 2'},
     {name: 'produit 4', description: 'description produit 4', price: 40, category: 'cat 2'},
     {name: 'produit 5', description: 'description produit 5', price: 50, category: 'cat 1'},
