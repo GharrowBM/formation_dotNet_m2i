@@ -57,8 +57,14 @@ app.get('/formProduct', (req,res) => {
     res.render('pages/form-product')
 })
 
+//Route qui renvoie le formulaire, en récupérant le produit à modifier
+app.get('/formProduct', (req,res) => {
+    res.render('pages/form-product')
+})
+
 //Action pour valider le formulaire
 app.post('/submitProduct', (req, res) => {
+    //Soit on fait de l'ajout, soit c'est la modification
     products = [...products, {name:req.body.name, price: req.body.price, category: req.body.category, description: req.body.description}]
     res.redirect('/')
 })
