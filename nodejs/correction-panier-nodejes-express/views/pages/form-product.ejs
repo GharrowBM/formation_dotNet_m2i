@@ -1,17 +1,20 @@
 <%- include('../partials/header') %>
     <div class="row m-1">
-        <form class="col" action="submitProduct" method="POST">
+        <form class="col" action="/submitProduct" method="POST">
+            <input type="hidden" name="id" value="<%= (id != undefined) ? id : -1 %>" />
             <div class="row m-1">
-                <input type="text" name="name" placeholder="Nom du produit" class="form-control col p-1" />
+                <input type="text" name="name" value="<%= (product != undefined) ? product.name : '' %>" placeholder="Nom du produit" class="form-control col p-1" />
             </div>
             <div class="row m-1">
-                <input type="number" name="price" placeholder="Prix du produit" class="form-control col p-1" />
+                <input type="number" name="price" placeholder="Prix du produit" value="<%= (product != undefined) ? product.price : '' %>" class="form-control col p-1" />
             </div>
             <div class="row m-1">
-                <input type="text" name="category" placeholder="Catégorie du produit" class="form-control col p-1" />
+                <input type="text" name="category" placeholder="Catégorie du produit" value="<%= (product != undefined) ? product.category : '' %>" class="form-control col p-1" />
             </div>
             <div class="row m-1">
-                <textarea name="description" placeholder="description du produit" class="form-control col p-1" ></textarea>
+                <textarea name="description" placeholder="description du produit" class="form-control col p-1" >
+                    <%= (product != undefined) ? product.description : '' %>
+                </textarea>
             </div>
             <div class="row m-1">
                 <button type="submit" class="btn btn-warning col">Valider</a>

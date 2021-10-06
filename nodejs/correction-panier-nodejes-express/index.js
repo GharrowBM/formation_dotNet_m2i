@@ -54,18 +54,38 @@ app.get('/deleteproduct/:id', (req, res) => {
 
 //route pour le formulaire ajout du produit
 app.get('/formProduct', (req,res) => {
-    res.render('pages/form-product')
+    res.render('pages/form-product', {product:undefined, id: undefined})
 })
 
 //Route qui renvoie le formulaire, en récupérant le produit à modifier
-app.get('/formProduct', (req,res) => {
-    res.render('pages/form-product')
+app.get('/formProduct/:id', (req,res) => {
+    //Récupération de l'id  du produit
+    const id = req.params.id
+    if(products.length > id) {
+        //Récupération du produit
+        const product = products[id]
+        res.render('pages/form-product', {product:product, id: id})
+    }else {
+        res.render('pages/error')
+    }
 })
 
 //Action pour valider le formulaire
 app.post('/submitProduct', (req, res) => {
     //Soit on fait de l'ajout, soit c'est la modification
-    products = [...products, {name:req.body.name, price: req.body.price, category: req.body.category, description: req.body.description}]
+
+    const id = parseInt(req.body.id)
+    //Un nouveau produit
+    if(id== -1) {
+        products = [...products, {name:req.body.name, price: req.body.price, category: req.body.category, description: req.body.description}]
+    }
+    else {
+        //modification
+        //On vérifie que le produit existe bien
+        if(products.length > id) {
+            products[id] = {name:req.body.name, price: req.body.price, category: req.body.category, description: req.body.description}
+        }
+    }
     res.redirect('/')
 })
 
