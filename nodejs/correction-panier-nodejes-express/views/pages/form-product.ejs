@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
     <div class="row m-1">
-        <form class="col" action="/submitProduct" method="POST">
+        <form class="col" action="/submitProduct"  method="POST">
             <input type="hidden" name="id" value="<%= (id != undefined) ? id : -1 %>" />
             <div class="row m-1">
                 <input type="text" name="name" value="<%= (product != undefined) ? product.name : '' %>" placeholder="Nom du produit" class="form-control col p-1" />
