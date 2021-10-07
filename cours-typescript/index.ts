@@ -40,3 +40,4 @@ let p:Person = new Person('toto','tata')
 p.afficher()
 
 let a:Address = {address:"Mon adresse", city:"Tourcoing", postCode:"59200"}
+
