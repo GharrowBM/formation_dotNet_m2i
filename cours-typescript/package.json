@@ -1,0 +1,16 @@
+{
+  "name": "cours-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc index.ts && node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

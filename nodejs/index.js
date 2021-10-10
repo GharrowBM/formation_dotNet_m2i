@@ -9,7 +9,8 @@
 //Il faut avoir le nom du module, et la savoir si le module est bien disponible.
 //Fonction node pour charger un module qui s'appelle require.
 const readline = require('readline')
-const fonctions = require('./fonction')
+// const fonctions = require('./fonction')
+const {direBonjour} = require('./fonction')
 // import { direBonjour } from './fonction'
 //Création d'une interface pour définir le flux d'entrée.
 
@@ -24,7 +25,8 @@ const readFromConsole = readline.createInterface({
 
 readFromConsole.question("Votre nom : ", (response) => {
     // console.log("Votre nom est "+ response)
-    fonctions.direBonjour(response)
+    // fonctions.direBonjour(response)
+    direBonjour(response)
 })
 
 //console.log("test")
