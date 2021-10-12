@@ -2,14 +2,15 @@ import CareScale from './CareScale'
 import '../styles/FormationCard.css'
 
 
-function handleClick(cours){
-    //console.log(cours);
-    alert(`Ceci est un click sur : ${cours.name}`);
-}
+// function handleClick(cours){
+//     //console.log(cours);
+//     alert(`Ceci est un click sur : ${cours.name}`);
+// }
 
 function FormationCard(cours, index) {
     return (
-        <div className="card" key={index} onClick={()=>handleClick(cours)}>
+        //<div className="card" key={index} onClick={()=>handleClick(cours)}>
+        <div className="card" key={index}>
             <div className="card-title">
                 {cours.name}
             </div>

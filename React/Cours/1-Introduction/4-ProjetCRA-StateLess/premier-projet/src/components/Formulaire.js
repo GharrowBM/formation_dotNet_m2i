@@ -20,6 +20,7 @@ function Formulaire() {
 
         <div>
             <div className="card">
+                <h1>Demande de renseignements</h1>
                 <QuestionForm />
                 <form onSubmit={handleSubmit}>
                     <div className="form-control formulaire">
@@ -51,6 +52,7 @@ function Formulaire() {
                 </form>
             </div>
             <div className="card">
+            <h1>Affichage résultats</h1>
                 <div className="form-control">
                     <div>
                         <textarea cols="30" rows="10"

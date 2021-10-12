@@ -3,11 +3,11 @@ import { coursList } from '../datas/CoursList'
 import FormationCard from '../components/FormationCard'
 
 
-function FormationList() {
+function FormationList({Quantity , setQuantityValue}) {
     return (
         <div className="card-container">
             {coursList.map((cours, index )=>
-            <div key={index}>
+            <div key={index} onClick={()=>setQuantityValue(Quantity +1)}>
                 <FormationCard
                     name={cours.name}
                     logo={cours.logo}
