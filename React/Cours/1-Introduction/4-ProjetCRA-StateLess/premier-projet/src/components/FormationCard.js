@@ -26,7 +26,7 @@ function FormationCard(cours, index) {
                 <CareScale scaleValue={cours.difficulte} careType="difficulte" className="stars" />
             </div>
             <div className="price">
-                {cours.price}€
+                Prix : {cours.price}€
             </div>
         </div>
         

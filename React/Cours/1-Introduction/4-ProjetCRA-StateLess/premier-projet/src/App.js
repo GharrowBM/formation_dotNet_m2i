@@ -3,17 +3,22 @@ import Banner from './components/Banner';
 //import QuestionForm from './components/QuestionForm'
 //import Formulaire from './components/Formulaire'
 import FormationList from './components/FormationList';
-import Cart from './components/Cart'
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
 
 function App() {
-  const[Quantity , setQuantityValue] = useState(0)
+  const savedCard = localStorage.getItem('cart');
+  const[cart , updateCart] = useState(savedCard? JSON.parse(savedCard):[])
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  })
+
   return (
     <div className="App">
       <Banner />
-      <FormationList Quantity={Quantity} setQuantityValue={setQuantityValue}/>
+      <FormationList cart={cart} updateCart={updateCart}/>
       {/* <Formulaire/> */}
-      <Cart Quantity={Quantity} setQuantityValue={setQuantityValue} />
+      
     </div>
   );
 }
