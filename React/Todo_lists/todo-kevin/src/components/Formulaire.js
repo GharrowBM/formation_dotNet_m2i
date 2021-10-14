@@ -28,23 +28,19 @@ function Formulaire({ ToDoList, setToDoList }) {
         
         let newTodo = {
             id: (ToDoList[ToDoList.length - 1] !== undefined) ? (ToDoList[ToDoList.length - 1].id + 1) : 1,
-            text: todo,
-            done: false            
+            done: false,
+            text: todo
         }
-
-        console.log("newTodo.id : " + newTodo.id);
-        console.log("newTodo.text : " + newTodo.text);
-        console.log("newTodo.done : " + newTodo.done);
-        console.log("newTodo : " + newTodo);
+        console.log("newTodo.id : " + tmpTodos.id);
+        console.log("newTodo.text : " + tmpTodos.text);
+        console.log("newTodo.done : " + tmpTodos.done);
         tmpTodos.push(newTodo)
-        console.log("ToDoList : "+ToDoList);
 
-        console.table("tmpTodos: "+tmpTodos);
-        
-        setToDoList(tmpTodos)
-        console.log("ToDoList"+ToDoList);
+        // console.log("NewTodo: "+newTodo);
+        // console.log(this.state.todos);
+        setToDoList(...ToDoList, tmpTodos)
 
-        
+        //console.log(this.state.todos);
         setTodo("")
     }
 

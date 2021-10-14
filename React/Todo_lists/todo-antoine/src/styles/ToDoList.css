@@ -1,0 +1,68 @@
+body {
+    background: #F3904F;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3B4371, #F3904F);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.todo-list {
+    width: 60%;
+    margin: 10vh auto;
+    padding-bottom: 25px;
+    background-color: rgba(200, 200, 200, 0.904);
+    border-radius: 25px;
+}
+
+.todo-list h1 {
+    text-align: center;
+    color: rgb(10,10,10);
+    font-weight: bolder;
+    margin: auto;
+    padding: 5px 0;
+}
+
+.todo-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.todo-body {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    grid-auto-columns: 1fr;
+    height: 80%;
+}
+
+.todo-head input {
+    width: 80%;
+    border: none;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.todo-head button {
+    appearance: none;
+    border: none;
+    height: 30px;
+    background-color: purple;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    opacity: 0.6;
+}
+
+.todo-head button:hover {
+    opacity: 1;
+}
+
+#task-number {
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+    background-color: rgb(130, 50, 10);
+    color: white;
+    padding: 5px;
+}

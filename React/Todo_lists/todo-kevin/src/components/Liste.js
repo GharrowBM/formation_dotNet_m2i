@@ -5,7 +5,7 @@ import ListeCard from '../components/ListeCard'
 
 function Liste({ToDoList, setToDoList}){
     
-    
+    console.log("dfdfdfdf"+ToDoList);
     return(
         <div className="card-container">
             {ToDoList.map((todo)=>{
