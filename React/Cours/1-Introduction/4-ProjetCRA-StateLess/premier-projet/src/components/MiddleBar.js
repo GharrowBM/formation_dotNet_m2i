@@ -1,6 +1,6 @@
 import React from "react";
-import FormationList from "./FormationList"
-import Formulaire from "./Formulaire"
+import FormationList from "../views/FormationList"
+import Formulaire from "../views/Formulaire"
 import {
     BrowserRouter as Router,
     Switch,

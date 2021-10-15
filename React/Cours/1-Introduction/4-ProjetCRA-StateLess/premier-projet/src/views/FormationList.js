@@ -1,9 +1,9 @@
 import '../styles/FormationList.css'
 import { coursList } from '../datas/CoursList'
 import FormationCard from '../components/FormationCard'
-import Category from './Category'
+import Category from '../components/Category'
 import { useState } from 'react'
-import Cart from './Cart'
+import Cart from '../components/Cart'
 
 
 function FormationList({ cart, updateCart }) {

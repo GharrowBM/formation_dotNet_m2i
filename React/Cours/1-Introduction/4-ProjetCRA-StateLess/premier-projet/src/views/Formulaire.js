@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import QuestionForm from './QuestionForm'
+import QuestionForm from '../components/QuestionForm'
 import '../styles/Formulaire.css'
 
 
