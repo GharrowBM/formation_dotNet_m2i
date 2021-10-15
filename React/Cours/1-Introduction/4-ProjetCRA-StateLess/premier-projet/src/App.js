@@ -2,7 +2,8 @@ import './App.css';
 import Banner from './components/Banner';
 //import QuestionForm from './components/QuestionForm'
 //import Formulaire from './components/Formulaire'
-import FormationList from './components/FormationList';
+//import FormationList from './components/FormationList';
+import MiddleBar from './components/MiddleBar';
 
 import { useEffect, useState } from 'react';
 
@@ -16,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <FormationList cart={cart} updateCart={updateCart}/>
-      {/* <Formulaire/> */}
       
+      {/* <Formulaire/> */}
+      <MiddleBar cart={cart} updateCart={updateCart}/>
     </div>
   );
 }

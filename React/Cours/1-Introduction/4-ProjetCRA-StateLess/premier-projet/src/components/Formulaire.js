@@ -19,7 +19,7 @@ function Formulaire() {
     return (
 
         <div>
-            <div className="card">
+            <div className="card formulaire">
                 <h1>Demande de renseignements</h1>
                 <QuestionForm />
                 <form onSubmit={handleSubmit}>
@@ -51,7 +51,7 @@ function Formulaire() {
                     </div>
                 </form>
             </div>
-            <div className="card">
+            <div className="card formulaire">
             <h1>Affichage résultats</h1>
                 <div className="form-control">
                     <div>
