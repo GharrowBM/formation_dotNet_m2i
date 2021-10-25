@@ -3,7 +3,7 @@ import Banner from './components/Banner';
 //import QuestionForm from './components/QuestionForm'
 //import Formulaire from './components/Formulaire'
 //import FormationList from './components/FormationList';
-import MiddleBar from './components/MiddleBar';
+import MiddleBar from './views/MiddleBar';
 
 import { useEffect, useState } from 'react';
 
@@ -20,6 +20,7 @@ function App() {
       
       {/* <Formulaire/> */}
       <MiddleBar cart={cart} updateCart={updateCart}/>
+      
     </div>
   );
 }
