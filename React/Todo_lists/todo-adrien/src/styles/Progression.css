@@ -1,0 +1,23 @@
+.nTask{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    border: 0.5mm solid rgba(32, 26, 34, 0.6);
+    margin: 25px 1px 5px 1px;
+    height: 50px;
+    background-color:#F9F3DF;
+    border-radius : 5px;
+    color:#716F81;
+    font-size: 22px;
+}
+
+.done{
+    background-color:#E0C097;
+    height:50px;
+    color:white;
+    border-radius : 5px;
+    font-size: 20px;
+
+}
+
+

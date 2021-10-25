@@ -1,0 +1,14 @@
+.bouton {
+    margin-left: 10px;
+    margin-right: 10px;    
+}
+
+.bouton a {
+    color: white;
+    text-decoration: none;
+}
+
+.bouton a:hover {
+    color: orangered;
+}
+

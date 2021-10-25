@@ -1,0 +1,9 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 15px 0 0 0;
+    height: 80px;
+    background-color: gainsboro;
+    color: #383E56
+}
