@@ -26,7 +26,8 @@ function App() {
     const response = await fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=2021-01-01&end=2021-10-26');
     const data = await response.json();
     const categories = Object.keys(data.bpi);
-    const series = Object.values(data.bpi)
+    const series = Object.values(data.bpi);
+    console.log(data);
     setCharData({
       xaxis: {
         categories: categories
