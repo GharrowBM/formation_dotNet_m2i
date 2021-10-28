@@ -1,7 +1,7 @@
 import React from "react"
 
 const Entreprise = (props) => {
-    console.log("Entreprise : "+props);
+    console.log(props);
     return (
         <div className="row entreprise">
             {props.entreprise !== undefined ? (

@@ -28,8 +28,8 @@ class ContainerSiret extends React.PureComponent {
     render() { 
         return (
             <div className="container">
-                <SearchSiret search={this.search}></SearchSiret>
-                <Entreprise entreprise={this.state.entreprise}></Entreprise>
+                <SearchSiret search={this.search}/>
+                <Entreprise entreprise={this.state.entreprise}/>
             </div>
          );
     }
