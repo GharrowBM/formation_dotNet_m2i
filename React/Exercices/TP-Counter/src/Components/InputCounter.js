@@ -12,6 +12,7 @@ import { PureComponent } from "react";
 
 export class InputCounter extends PureComponent {
     constructor(props) {
+        super(props)
         this.state = {
             userValue : 0
         }

@@ -17,13 +17,13 @@ export function counterReducer(state = initialState, action) {
         case INCREASE_ACTION:
             return {
                 ...state,
-                value: state.value + action.payload,
+                value: state.value + parseInt(action.payload),
                 isLoading: false
             };
         case DECREASE_ACTION:
             return {
                 ...state,
-                value: state.value - action.payload,
+                value: state.value - parseInt(action.payload),
                 isLoading: false
             };
         case  ISLOADING_ACTION:

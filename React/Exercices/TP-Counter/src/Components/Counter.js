@@ -1,7 +1,7 @@
 import { useSelector, useDispatch, connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import { PureComponent, useState } from 'react'
-import { actionCreators } from "../store/counterAction"
+import { actionCreators, decreaseCounterAction, increaseCounterAction } from "../store/counterAction"
 import { counterSelector } from '../store/counterSelector'
 import { AffichageCounter } from "./AffichageCounter"
 import { InputCounter } from "./InputCounter"
@@ -55,6 +55,16 @@ import { InputCounter } from "./InputCounter"
 class Counter extends PureComponent {
     
     constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return(
+            <div>
+            <InputCounter IncreaseCounter={this.props.IncreaseCounter} DecreaseCounter={this.props.DecreaseCounter} />
+            <AffichageCounter loading={this.props.loading} counter={this.props.counter}/>
+         </div>
+        )
     }
 }
 
@@ -66,7 +76,12 @@ const mapStateToProps = (state) => {
 }
 const mapActionToProps = (dispatch) => {
     return {
-
+        IncreaseCounter : value => {
+            dispatch(increaseCounterAction(value))
+        },
+        DecreaseCounter : value => {
+            dispatch(decreaseCounterAction(value))
+        }
     }
 }
 export default connect(mapStateToProps, mapActionToProps)(Counter)
