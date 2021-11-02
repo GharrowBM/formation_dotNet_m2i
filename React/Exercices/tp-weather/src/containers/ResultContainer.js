@@ -9,6 +9,16 @@ class ResultContainer extends PureComponent {
         super(props);
         this.state = {}
     }
+    componentDidMount() {
+        //Code sera executé aprés le premier rendu du composant
+        //Ici on appelle par exemple les API au démarrage du composant
+    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return nextProps != this.props || nextState != this.state
+    // }
+    componentDidUpdate() {
+        //Code executé à la fin de chaque mise à jour.
+    }
     render() {
         return (
             <Row justify="center">
