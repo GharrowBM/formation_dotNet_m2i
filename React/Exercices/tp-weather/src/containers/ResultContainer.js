@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Card, Col, Row } from "antd"
 import { CityComponent } from "../components/CityComponent";
 import { IconComponent } from "../components/IconComponent";
+import { TempComponent } from "../components/TempComponent";
 class ResultContainer extends PureComponent {
     constructor(props) {
         super(props);
@@ -11,14 +12,14 @@ class ResultContainer extends PureComponent {
     render() {
         return (
             <Row justify="center">
-                <Col>
+                <Col span={10}>
                     {this.props.weather != undefined ? (
                         <Card>
                             <CityComponent city={this.props.weather.name} />
                             {this.props.weather.weather.map((w) => (
-                                <IconComponent icon={`http://openweathermap.org/img/wn/${w.icon}@2x.png`}></IconComponent>
+                                <IconComponent description={w.description} icon={`http://openweathermap.org/img/wn/${w.icon}@2x.png`}></IconComponent>
                             ))}
-                            {this.props.weather.main.temp}
+                            <TempComponent main={this.props.weather.main}></TempComponent>
                         </Card>
                     ) : null}
                 </Col>
