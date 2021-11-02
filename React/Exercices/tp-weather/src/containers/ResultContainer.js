@@ -19,6 +19,10 @@ class ResultContainer extends PureComponent {
     componentDidUpdate() {
         //Code executé à la fin de chaque mise à jour.
     }
+
+    componentWillUnmount() {
+        //code à executer avant l'enlevement du componsant du dom réel
+    }
     render() {
         return (
             <Row justify="center">
