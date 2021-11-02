@@ -1,24 +1,30 @@
 import { PureComponent } from "react"
 import { connect } from "react-redux"
-import { getWeater } from "../redux/actions";
+import { getWeather } from "../redux/actions";
 import { Row, Col, Input, Button } from "antd"
 class FormContainer extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            city : null
+        }
+    }
+
+    getWeatherClick = () => {
+        this.props.getWeather(this.state.city)
     }
     render() {
         return (
             <div>
-                <Row>
-                    <Col span={9}>
-                        <Input placeholder="Ville..." />
+                <Row justify="center">
+                    <Col span={5}>
+                        <Input onChange={e=> this.setState({city:e.target.value})} placeholder="Ville..." />
                     </Col>
-                    <Col span={9}>
+                    <Col span={5}>
                         <Input placeholder="Pays..." />
                     </Col>
-                    <Col span={6}>
-                        <Button type="primary"  loading={this.props.loading}>
+                    <Col span={2}>
+                        <Button type="primary" onClick={this.getWeatherClick}  loading={this.props.loading}>
                             Get Weather
                         </Button>
                     </Col>
@@ -37,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const mapActionToProps = (dispatch) => {
     return {
-        getWeather: (city) => dispatch(getWeater(city))
+        getWeather: (city) => dispatch(getWeather(city))
     }
 }
 
