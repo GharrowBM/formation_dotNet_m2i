@@ -1,52 +1,87 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch, connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { useState } from 'react'
-import { actionCreators } from "../store/counterAction"
+import { PureComponent, useState } from 'react'
+import { actionCreators, decreaseCounterAction, increaseCounterAction } from "../store/counterAction"
 import { counterSelector } from '../store/counterSelector'
 import { AffichageCounter } from "./AffichageCounter"
 import { InputCounter } from "./InputCounter"
 
 
-export function Counter({ counter, IncreaseCounter, DecreaseCounter, setUserValue }) {
-    return (
-        <div>
-            <InputCounter IncreaseCounter={IncreaseCounter} DecreaseCounter={DecreaseCounter} setUserValue={setUserValue} />
-            <AffichageCounter counter={counter}/>
-        </div>
-    )
-}
+// export function Counter({ counter, IncreaseCounter, DecreaseCounter, setUserValue }) {
+//     return (
+//         <div>
+//             <InputCounter IncreaseCounter={IncreaseCounter} DecreaseCounter={DecreaseCounter} setUserValue={setUserValue} />
+//             <AffichageCounter counter={counter}/>
+//         </div>
+//     )
+// }
 
-export function CounterStore() {
+// export function CounterStore() {
 
-    const counter = useSelector(counterSelector)
+//     const counter = useSelector(counterSelector)
 
-    //console.log(counter);
+//     //console.log(counter);
 
-    const [userValue, setUserValue] = useState(0)
+//     const [userValue, setUserValue] = useState(0)
 
-    const dispatch = useDispatch();
+//     const dispatch = useDispatch();
 
-    const { increaseCounterAction, decreaseCounterAction } = bindActionCreators(actionCreators, dispatch);
+//     const { increaseCounterAction, decreaseCounterAction } = bindActionCreators(actionCreators, dispatch);
 
-    function IncreaseCounter() {
-        if (document.getElementById("usrValue").value !== '') {
-            increaseCounterAction(userValue)
-            document.getElementById("usrValue").value = '';
-        } else {
-            alert("Veuillez saisir un nombre.")
-        }
+//     function IncreaseCounter() {
+//         if (document.getElementById("usrValue").value !== '') {
+//             increaseCounterAction(userValue)
+//             document.getElementById("usrValue").value = '';
+//         } else {
+//             alert("Veuillez saisir un nombre.")
+//         }
+//     }
+
+//     function DecreaseCounter() {
+//         console.log(document.getElementById("usrValue").value);
+//         if (document.getElementById("usrValue").value !== '') {
+//             decreaseCounterAction(userValue)
+//             document.getElementById("usrValue").value = '';
+//         } else {
+//             alert("Veuillez saisir un nombre.")
+//         }
+//     }
+
+//     // Utilisation de notre composant sans logique store
+//     return <Counter counter={counter} IncreaseCounter={IncreaseCounter} DecreaseCounter={DecreaseCounter} setUserValue={setUserValue} />
+// }
+
+
+class Counter extends PureComponent {
+    
+    constructor(props) {
+        super(props)
     }
 
-    function DecreaseCounter() {
-        console.log(document.getElementById("usrValue").value);
-        if (document.getElementById("usrValue").value !== '') {
-            decreaseCounterAction(userValue)
-            document.getElementById("usrValue").value = '';
-        } else {
-            alert("Veuillez saisir un nombre.")
+    render() {
+        return(
+            <div>
+            <InputCounter IncreaseCounter={this.props.IncreaseCounter} DecreaseCounter={this.props.DecreaseCounter} />
+            <AffichageCounter loading={this.props.loading} counter={this.props.counter}/>
+         </div>
+        )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        counter : state.counter.value,
+        loading : state.counter.isLoading
+    }
+}
+const mapActionToProps = (dispatch) => {
+    return {
+        IncreaseCounter : value => {
+            dispatch(increaseCounterAction(value))
+        },
+        DecreaseCounter : value => {
+            dispatch(decreaseCounterAction(value))
         }
     }
-
-    // Utilisation de notre composant sans logique store
-    return <Counter counter={counter} IncreaseCounter={IncreaseCounter} DecreaseCounter={DecreaseCounter} setUserValue={setUserValue} />
 }
+export default connect(mapStateToProps, mapActionToProps)(Counter)
