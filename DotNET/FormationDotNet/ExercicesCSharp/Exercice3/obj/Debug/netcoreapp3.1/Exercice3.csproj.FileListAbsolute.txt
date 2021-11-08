@@ -1,0 +1,13 @@
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\bin\Debug\netcoreapp3.1\Exercice3.exe
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\bin\Debug\netcoreapp3.1\Exercice3.deps.json
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\bin\Debug\netcoreapp3.1\Exercice3.runtimeconfig.json
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\bin\Debug\netcoreapp3.1\Exercice3.runtimeconfig.dev.json
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\bin\Debug\netcoreapp3.1\Exercice3.dll
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\bin\Debug\netcoreapp3.1\Exercice3.pdb
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.csprojAssemblyReference.cache
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.AssemblyInfoInputs.cache
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.AssemblyInfo.cs
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.csproj.CoreCompileInputs.cache
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.dll
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.pdb
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice3\obj\Debug\netcoreapp3.1\Exercice3.genruntimeconfig.cache

@@ -1,0 +1,13 @@
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\bin\Debug\netcoreapp3.1\Exercice05.exe
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\bin\Debug\netcoreapp3.1\Exercice05.deps.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\bin\Debug\netcoreapp3.1\Exercice05.runtimeconfig.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\bin\Debug\netcoreapp3.1\Exercice05.runtimeconfig.dev.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\bin\Debug\netcoreapp3.1\Exercice05.dll
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\bin\Debug\netcoreapp3.1\Exercice05.pdb
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.AssemblyInfoInputs.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.AssemblyInfo.cs
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.csproj.CoreCompileInputs.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.dll
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.pdb
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice5\obj\Debug\netcoreapp3.1\Exercice05.genruntimeconfig.cache
