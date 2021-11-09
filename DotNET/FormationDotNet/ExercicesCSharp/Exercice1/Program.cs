@@ -12,7 +12,7 @@ namespace Exercice01
             Console.WriteLine("\t-Apprendre à utiliser Visual Studio");
             Console.WriteLine("\t-Comprendre l'affichage \"Console\"");
             Console.WriteLine("\t-Créer mon répertoire \"c:\\MesExercices\\\" pour les ranger");
-            Console.WriteLine("\t-Apprécier les fonctionnalités du C#\n\n\n");            
+            Console.WriteLine("\t-Apprécier les fonctionnalités du C#\n\n\n");
         }
     }
 }
