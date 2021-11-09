@@ -9,23 +9,27 @@
   },
   "packageFolders": {
     "C:\\Users\\diper\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programation\\Utopios\\FormationC#-NET\\Codes\\DécouverteCSharp\\ExercicesCSharp\\Exercice9\\Exercice9.csproj",
-      "projectName": "Exercice9",
-      "projectPath": "D:\\Programation\\Utopios\\FormationC#-NET\\Codes\\DécouverteCSharp\\ExercicesCSharp\\Exercice9\\Exercice9.csproj",
+      "projectUniqueName": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice9\\Exercice09.csproj",
+      "projectName": "Exercice09",
+      "projectPath": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice9\\Exercice09.csproj",
       "packagesPath": "C:\\Users\\diper\\.nuget\\packages\\",
-      "outputPath": "D:\\Programation\\Utopios\\FormationC#-NET\\Codes\\DécouverteCSharp\\ExercicesCSharp\\Exercice9\\obj\\",
+      "outputPath": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice9\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\diper\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -64,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
