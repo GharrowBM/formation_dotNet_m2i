@@ -6,7 +6,8 @@ namespace Exercice06
     {
         static void Main(string[] args)
         {
-            // Carré
+
+            #region Carré
             Console.WriteLine("--- Calcul du périmètre et de l'aire d'un carré ---" + Environment.NewLine);
 
             Console.Write("Entrez la longeur d'un coté du carré (en cm) : ");
@@ -17,11 +18,10 @@ namespace Exercice06
 
             Console.WriteLine("Le périmètre du carré est : " + perimetre + " cm");
             Console.WriteLine("L'aire du carré est : " + aire + " cm2\n");
+            #endregion
 
 
-
-
-            // Rectangle
+            #region Rectangle
             Console.WriteLine("--- Calcul du périmètre et de l'aire d'un rectangle ---" + Environment.NewLine);
 
             Console.Write("Entrez la longeur du rectangle (en cm) : ");
@@ -35,6 +35,7 @@ namespace Exercice06
 
             Console.WriteLine("Le périmètre du rectangle est : " + perimetreRect + " cm");
             Console.WriteLine("L'aire du carré est : " + aireRect + " cm2\n");
+            #endregion
 
         }
     }

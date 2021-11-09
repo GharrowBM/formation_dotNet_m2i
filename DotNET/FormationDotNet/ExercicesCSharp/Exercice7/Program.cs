@@ -6,16 +6,13 @@ namespace Exercice7
     {
         static void Main(string[] args)
         {
+            Console.Write("--- Calcul de la longeur de l'hypothénuse ---" + Environment.NewLine);            
+
             #region Déclaration des variables
             double premierCote;
             double deuxiemeCote;
             double sommeDesCarres;
             double resultat;
-            #endregion
-
-
-            #region Affichage du titre de l'app
-            Console.Write("--- Calcul de la longeur de l'hypothénuse ---" + Environment.NewLine);
             #endregion
 
 
