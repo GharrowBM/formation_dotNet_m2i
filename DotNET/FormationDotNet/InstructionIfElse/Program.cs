@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InstructionIfElse
+namespace InstructionIf_ElseIf_Else
 {
     class Program
     {

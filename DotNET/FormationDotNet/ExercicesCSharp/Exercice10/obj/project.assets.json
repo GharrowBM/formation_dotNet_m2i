@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\InstructionIfElse\\InstructionIf-ElseIf-Else.csproj",
-      "projectName": "InstructionIf-ElseIf-Else",
-      "projectPath": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\InstructionIfElse\\InstructionIf-ElseIf-Else.csproj",
+      "projectUniqueName": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice10\\Exercice10.csproj",
+      "projectName": "Exercice10",
+      "projectPath": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice10\\Exercice10.csproj",
       "packagesPath": "C:\\Users\\diper\\.nuget\\packages\\",
-      "outputPath": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\InstructionIfElse\\obj\\",
+      "outputPath": "E:\\Programmation\\Utopios\\M2i\\POE-NET\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice10\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
