@@ -10,7 +10,7 @@ namespace Exercice10
 
             #region Avec strcture If-Else et Char
             Console.Write("Entrez une lettre : ");
-            char lettre = Char.ToUpper(Convert.ToChar(Console.ReadLine()));
+            char lettre = Convert.ToChar(Console.ReadLine().ToUpper());
 
             if (lettre == 'A' || lettre == 'E' || lettre == 'I' || lettre == 'O' || lettre == 'U' || lettre == 'Y')
                 Console.WriteLine("Cette lettre est une voyelle !\n");
@@ -20,20 +20,13 @@ namespace Exercice10
             #endregion
 
             #region Avec contains            
-            Console.Write("Entrez une lettre : ");
-            string letter = Console.ReadLine().ToUpper();
+
             string chaine = "AEIOUY";
-            if(letter.Length == 1)
-            {
-                if (chaine.Contains(lettre))
-                    Console.WriteLine("Cette lettre est une voyelle !\n");
-                else
-                    Console.WriteLine("Cette lettre est une consonne !\n");
-            }
-            else
-            {
-                Console.WriteLine("Veuillez saisir une seule lettre!\n");
-            }
+            string resultat;
+
+            resultat = chaine.Contains(lettre) ? "Cette lettre est une voyelle !\n" : "Cette lettre est une consonne !\n";
+
+            Console.WriteLine(resultat);
             #endregion
         }
     }
