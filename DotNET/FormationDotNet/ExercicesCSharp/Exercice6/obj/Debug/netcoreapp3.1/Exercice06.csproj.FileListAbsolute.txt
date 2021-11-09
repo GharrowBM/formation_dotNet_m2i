@@ -1,0 +1,14 @@
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\bin\Debug\netcoreapp3.1\Exercice06.exe
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\bin\Debug\netcoreapp3.1\Exercice06.deps.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\bin\Debug\netcoreapp3.1\Exercice06.runtimeconfig.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\bin\Debug\netcoreapp3.1\Exercice06.runtimeconfig.dev.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\bin\Debug\netcoreapp3.1\Exercice06.dll
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\bin\Debug\netcoreapp3.1\Exercice06.pdb
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.csproj.AssemblyReference.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.AssemblyInfoInputs.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.AssemblyInfo.cs
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.csproj.CoreCompileInputs.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.dll
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.pdb
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice6\obj\Debug\netcoreapp3.1\Exercice06.genruntimeconfig.cache

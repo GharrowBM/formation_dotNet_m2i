@@ -1,0 +1,14 @@
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\bin\Debug\netcoreapp3.1\Exercice07.exe
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\bin\Debug\netcoreapp3.1\Exercice07.deps.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\bin\Debug\netcoreapp3.1\Exercice07.runtimeconfig.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\bin\Debug\netcoreapp3.1\Exercice07.runtimeconfig.dev.json
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\bin\Debug\netcoreapp3.1\Exercice07.dll
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\bin\Debug\netcoreapp3.1\Exercice07.pdb
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.AssemblyInfoInputs.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.AssemblyInfo.cs
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.csproj.CoreCompileInputs.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.dll
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.pdb
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.genruntimeconfig.cache
+E:\Programmation\Utopios\M2i\POE-NET\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice7\obj\Debug\netcoreapp3.1\Exercice07.csproj.AssemblyReference.cache
