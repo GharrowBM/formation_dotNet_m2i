@@ -1,0 +1,12 @@
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\bin\Debug\netcoreapp3.1\Exercice15.exe
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\bin\Debug\netcoreapp3.1\Exercice15.deps.json
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\bin\Debug\netcoreapp3.1\Exercice15.runtimeconfig.json
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\bin\Debug\netcoreapp3.1\Exercice15.runtimeconfig.dev.json
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\bin\Debug\netcoreapp3.1\Exercice15.dll
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\bin\Debug\netcoreapp3.1\Exercice15.pdb
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\obj\Debug\netcoreapp3.1\Exercice15.AssemblyInfoInputs.cache
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\obj\Debug\netcoreapp3.1\Exercice15.AssemblyInfo.cs
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\obj\Debug\netcoreapp3.1\Exercice15.csproj.CoreCompileInputs.cache
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\obj\Debug\netcoreapp3.1\Exercice15.dll
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\obj\Debug\netcoreapp3.1\Exercice15.pdb
+D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice15\obj\Debug\netcoreapp3.1\Exercice15.genruntimeconfig.cache
