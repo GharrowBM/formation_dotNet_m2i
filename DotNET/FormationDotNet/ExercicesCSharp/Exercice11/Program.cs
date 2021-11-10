@@ -61,6 +61,53 @@ namespace Exercice11
                 Console.WriteLine($"Division par { diviseur1 } impossible \n");
             }
             #endregion
+
+            #region Version Florian D.
+
+
+
+            //Console.WriteLine("Saisissez un entier relatif je vous dirais s'il est divisible et par combien : ");
+            //double nbUser = Convert.ToDouble(Console.ReadLine());
+
+
+
+            //Console.WriteLine("Saisissez par combien : ");
+            //double diviUser = Convert.ToDouble(Console.ReadLine());
+
+
+
+            //int divi = 2;
+            //string diviseur = "1";
+
+
+
+            //while (divi <= nbUser)
+            //{
+            //    if (nbUser % divi == 0)
+            //    {
+            //        diviseur = $"{diviseur}, {divi}";
+            //        if (divi == diviUser)
+            //        {
+            //            Console.WriteLine($"\n\tLe nombre {nbUser} est divisible par {diviUser}");
+            //        }
+            //    }
+            //    divi++;
+            //}
+
+
+
+            //if (nbUser % diviUser != 0)
+            //{
+            //    Console.WriteLine($"\n\tLe nombre {nbUser} n'est pas divisible par {diviUser}");
+            //}
+
+
+
+            //Console.WriteLine($"\n\n\nLe nombre {nbUser} est divisible par {diviseur}");
+
+
+
+            #endregion
         }
     }
 }
