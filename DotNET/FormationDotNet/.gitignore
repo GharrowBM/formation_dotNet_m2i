@@ -386,7 +386,3 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
-
-# Ajouts maison
-node_modules/*
-node_modules
