@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoursCSharp", "CoursCSharp", "{15170D50-2111-481F-A6F6-B3CAF27D9752}"
 EndProject
@@ -99,6 +99,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeCasting", "FormationCSharp\LeCasting\LeCasting.csproj", "{FDAB7EB6-C04F-4B9A-B03D-3F9E117C2A2F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeBoxing", "FormationCSharp\LeBoxing\LeBoxing.csproj", "{20AB7657-FEF1-477D-98EE-6A6DCD963193}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoucleWhile", "BoucleWhile", "{449B0E98-99EA-4E2E-BEA0-BB8571D700BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoucleWhile", "BoucleWhile\BoucleWhile.csproj", "{6775AAD3-EB0F-4BCF-8D08-662DBD162A3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice29", "Exercice29\Exercice29.csproj", "{9D092D59-0704-4EA8-91BB-6D76E827DD36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -246,6 +252,14 @@ Global
 		{20AB7657-FEF1-477D-98EE-6A6DCD963193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20AB7657-FEF1-477D-98EE-6A6DCD963193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20AB7657-FEF1-477D-98EE-6A6DCD963193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6775AAD3-EB0F-4BCF-8D08-662DBD162A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6775AAD3-EB0F-4BCF-8D08-662DBD162A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6775AAD3-EB0F-4BCF-8D08-662DBD162A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6775AAD3-EB0F-4BCF-8D08-662DBD162A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D092D59-0704-4EA8-91BB-6D76E827DD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D092D59-0704-4EA8-91BB-6D76E827DD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D092D59-0704-4EA8-91BB-6D76E827DD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D092D59-0704-4EA8-91BB-6D76E827DD36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -296,6 +310,9 @@ Global
 		{506AA559-ECBD-4E0E-A576-95F597151CE5} = {31E21D45-E909-4AA6-B679-68BFFF5D0D9A}
 		{FDAB7EB6-C04F-4B9A-B03D-3F9E117C2A2F} = {5D4BC963-9BD9-4AA9-93BF-3EEDD0C513CA}
 		{20AB7657-FEF1-477D-98EE-6A6DCD963193} = {5D4BC963-9BD9-4AA9-93BF-3EEDD0C513CA}
+		{449B0E98-99EA-4E2E-BEA0-BB8571D700BD} = {15170D50-2111-481F-A6F6-B3CAF27D9752}
+		{6775AAD3-EB0F-4BCF-8D08-662DBD162A3D} = {449B0E98-99EA-4E2E-BEA0-BB8571D700BD}
+		{9D092D59-0704-4EA8-91BB-6D76E827DD36} = {DA13D4A6-EECA-48B1-8268-74A39BEC67F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D04D9408-6251-4750-92D5-423A8E21360A}
