@@ -17,7 +17,13 @@ namespace CorrectionEx32
             Console.WriteLine("=====Le contenu du tableau====");
             for(int i = 0;i < tabEntier.Length; i++)
             {
-                Console.WriteLine(tabEntier[i]);
+                string result = "";
+                for(int j = 0; j < i; j++)
+                {
+                    result += "    ";
+                }
+                result += tabEntier[i];
+                Console.WriteLine(result);
             }
         }
     }
