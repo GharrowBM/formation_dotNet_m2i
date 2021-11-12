@@ -116,6 +116,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursTableau", "CoursTablea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionEx32", "CorrectionEx32\CorrectionEx32.csproj", "{E3BFC07A-CD2F-454E-B9B9-A5A436E0E796}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice34", "Exercice34\Exercice34.csproj", "{1D15B03F-226C-4B60-AC98-5C6CED35A76B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -286,6 +288,10 @@ Global
 		{E3BFC07A-CD2F-454E-B9B9-A5A436E0E796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3BFC07A-CD2F-454E-B9B9-A5A436E0E796}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3BFC07A-CD2F-454E-B9B9-A5A436E0E796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D15B03F-226C-4B60-AC98-5C6CED35A76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D15B03F-226C-4B60-AC98-5C6CED35A76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D15B03F-226C-4B60-AC98-5C6CED35A76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D15B03F-226C-4B60-AC98-5C6CED35A76B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -344,6 +350,7 @@ Global
 		{8511BB96-82FC-4EA1-99AD-23F41AEDAF64} = {15170D50-2111-481F-A6F6-B3CAF27D9752}
 		{FD9F068A-AEC5-4EBD-BA5B-6219222B7223} = {8511BB96-82FC-4EA1-99AD-23F41AEDAF64}
 		{E3BFC07A-CD2F-454E-B9B9-A5A436E0E796} = {DA13D4A6-EECA-48B1-8268-74A39BEC67F6}
+		{1D15B03F-226C-4B60-AC98-5C6CED35A76B} = {DA13D4A6-EECA-48B1-8268-74A39BEC67F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D04D9408-6251-4750-92D5-423A8E21360A}

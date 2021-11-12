@@ -12,7 +12,12 @@ namespace CoursTableau
             for(int i = 0; i < tabEntier.Length; i++)
             {
                 tabEntier[i] = (i+1)*2;
-                Console.WriteLine(tabEntier[i]);
+               // Console.WriteLine(tabEntier[i]);
+            }
+            //Afficher le tableau avec la boucle foreach
+            foreach(int element in tabEntier)
+            {
+                Console.WriteLine(element);
             }
             #endregion
         }
