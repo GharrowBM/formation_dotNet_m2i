@@ -8,13 +8,14 @@ namespace CoursPOO.Classes
 {
     internal class Chaise
     {
+        private static int nbChaise = 0;
         private int nbPieds;
         private string couleur;
         private string materiel;
 
         public Chaise()
         {
-
+            nbChaise++;
         }
 
         public Chaise(int nbPieds, string couleur, string materiel)
@@ -22,6 +23,7 @@ namespace CoursPOO.Classes
             this.NbPieds = nbPieds;
             this.Couleur = couleur;
             this.Materiel = materiel;
+            nbChaise++;
         }
 
         public void Afficher()
@@ -57,5 +59,6 @@ namespace CoursPOO.Classes
 
         public string Couleur { get => couleur; set => couleur = value; }
         public string Materiel { get => materiel; set => materiel = value; }
+        public static int NbChaise { get => nbChaise;}
     }
 }

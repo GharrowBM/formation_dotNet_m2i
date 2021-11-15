@@ -35,6 +35,8 @@ namespace CoursPOO
                 chaise.Afficher();
             }
             //chaise3.Afficher();
+
+            Console.WriteLine($"Le nombre de chaise est de {Chaise.NbChaise}");
             #endregion  
         }
     }
