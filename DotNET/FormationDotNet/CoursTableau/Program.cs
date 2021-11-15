@@ -7,6 +7,7 @@ namespace CoursTableau
         static void Main(string[] args)
         {
             #region création de tableau
+            int[] tabAvecValeur = new int[] { 10, 3 };
             int[] tabEntier = new int[10];
             //Pour afficher le contenu d'un tableau avec une boucle for
             for(int i = 0; i < tabEntier.Length; i++)
