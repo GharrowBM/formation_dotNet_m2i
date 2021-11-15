@@ -24,9 +24,11 @@ namespace CoursPOO
             //chaise1.Afficher();
             //chaise2.Afficher();
             Chaise chaise3 = new Chaise();
-            chaise3.nbPieds = 6;
-            chaise3.couleur = "jaune";
-            chaise3.materiel = "plexiglass";
+            chaise3.NbPieds = 6;
+            //chaise3.couleur = "jaune";
+            //chaise3.materiel = "plexiglass";
+            //chaise3.SetNbPieds(6);
+            
             Chaise[] tabChaises = new Chaise[] {chaise1, chaise2, chaise3};
             foreach(Chaise chaise in tabChaises)
             {
