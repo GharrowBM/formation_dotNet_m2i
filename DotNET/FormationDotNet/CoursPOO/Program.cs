@@ -43,7 +43,25 @@ namespace CoursPOO
             e.Nom = "abadi";
             e.Prenom = "Ihab";
             e.Niveau = 1;
-            e.AfficherAvecNiveau();
+            //e.AfficherAvecNiveau();
+            //e.Marcher();
+
+            //new Prof().Marcher();
+
+            Etudiant e2 = new Etudiant("toto", "tata", 4);
+
+            Prof p1 = new Prof();
+            Prof p2 = new Prof();
+
+            Personne[] personnes = new Personne[4];
+            personnes[0] = p1;
+            personnes[1] = p2;
+            personnes[2] = e;
+            personnes[3] = e2;
+            foreach(Personne p in personnes)
+            {
+                p.Marcher();
+            }
             #endregion
         }
 

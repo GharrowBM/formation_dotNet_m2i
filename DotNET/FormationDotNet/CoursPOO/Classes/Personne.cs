@@ -9,6 +9,13 @@ namespace CoursPOO.Classes
         {
         }
 
+
+        public Personne(string n, string p)
+        {
+            Nom = n;
+            Prenom = p;
+        }
+
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
 
@@ -16,6 +23,12 @@ namespace CoursPOO.Classes
         protected void AfficherInfo()
         {
             Console.WriteLine($"Le nom est {Nom} et le prénom est {Prenom}");
+        }
+
+        //Pour authoriser les classes enfants à réecrire une méthode, il faut que la méthode soit en virtual
+        public virtual void Marcher()
+        {
+            Console.WriteLine("Je suis une personne qui marche");
         }
     }
 }
