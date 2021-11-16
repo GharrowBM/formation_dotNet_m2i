@@ -35,6 +35,9 @@ namespace TpSalarie.Classes
                     case "4":
                         ActionAfficherNbSalaries();
                         break;
+                    case "5":
+                        ActionRechercheSalarie();
+                        break;
                     default:
                         Environment.Exit(0);
                         break;
@@ -49,6 +52,7 @@ namespace TpSalarie.Classes
             Console.WriteLine("2-- Afficher les salariés");
             Console.WriteLine("3-- Afficher total salaires");
             Console.WriteLine("4-- Afficher nombre salarié");
+            Console.WriteLine("5-- Recherche salarié");
         }
 
         private void AfficherMenuTypeEmploye()
@@ -138,6 +142,27 @@ namespace TpSalarie.Classes
         {
             Console.WriteLine("----Afficher le nombre des salariés----");
             Console.WriteLine(Salarie.NbSalaries);
+        }
+
+        private void ActionRechercheSalarie()
+        {
+            Console.Write("Merci de saisir le nom : ");
+            string nom = Console.ReadLine();
+            bool found = false;
+            foreach(Salarie s in salaries)
+            {
+                if(s != default(Salarie))
+                {
+                    if(s.Nom == nom)
+                    {
+                        found = true;
+                        Console.WriteLine(s.AfficherSalaire());
+                        break;
+                    }
+                }
+            }
+            if (!found)
+                Console.WriteLine("Aucun salarié avec ce nom");
         }
     }
 }
