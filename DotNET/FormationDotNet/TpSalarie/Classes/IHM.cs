@@ -72,19 +72,19 @@ namespace TpSalarie.Classes
             decimal salaire = Convert.ToDecimal(Console.ReadLine());
             AfficherMenuTypeEmploye();
             string type = Console.ReadLine();
-
-            if(type == "1")
+            Salarie s = null;
+            if (type == "1")
             {
-                Salarie s = new Salarie(matricule, categorie, salaire, service, nom);
-                if(compteur < salaries.Length - 1)
-                {
-                    salaries[compteur] = s;
-                    compteur++;
-                }
-                else
-                {
-                    Console.WriteLine("Il n'y a plus d'argent pour recruter");
-                }
+                s = new Salarie(matricule, categorie, salaire, service, nom);
+                //if(compteur < salaries.Length - 1)
+                //{
+                //    salaries[compteur] = s;
+                //    compteur++;
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Il n'y a plus d'argent pour recruter");
+                //}
             }
             else if(type == "2")
             {
@@ -92,7 +92,20 @@ namespace TpSalarie.Classes
                 decimal chiffreAffaire = Convert.ToDecimal(Console.ReadLine());
                 Console.Write("Merci de saisir la commission en % : ");
                 decimal commission = Convert.ToDecimal(Console.ReadLine());
-                Commercial s = new Commercial(matricule, categorie, salaire, service, nom, chiffreAffaire, commission);
+                s = new Commercial(matricule, categorie, salaire, service, nom, chiffreAffaire, commission);
+                //if (compteur < salaries.Length - 1)
+                //{
+                //    salaries[compteur] = s;
+                //    compteur++;
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Il n'y a plus d'argent pour recruter");
+                //}
+            }
+
+            if(s != null)
+            {
                 if (compteur < salaries.Length - 1)
                 {
                     salaries[compteur] = s;

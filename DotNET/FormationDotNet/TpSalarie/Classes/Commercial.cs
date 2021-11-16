@@ -22,7 +22,7 @@ namespace TpSalarie.Classes
         public override string AfficherSalaire()
         {
             decimal salaireAvecCommission = Salaire + (chiffreAffaire * commission / 100);
-            return $"Le salaire de {Nom} est de {salaireAvecCommission} euros";
+            return $"Le salaire du commercial {Nom} est de {salaireAvecCommission} euros";
         }
 
         
