@@ -24,6 +24,11 @@ namespace TpSalarie.Classes
         public static decimal TotalSalaire { get => totalSalaire; }
         public static int NbSalaries { get => nbSalaries;}
 
+        
+        public Salarie()
+        {
+
+        }
         public Salarie(string matricule, string categorie, decimal salaire, string service, string nom)
         {
             Matricule = matricule;
@@ -35,7 +40,7 @@ namespace TpSalarie.Classes
             nbSalaries++;
         }
 
-        public string AfficherSalaire()
+        public virtual string AfficherSalaire()
         {
             return $"Le salaire de {Nom} est de {Salaire} euros";
         }

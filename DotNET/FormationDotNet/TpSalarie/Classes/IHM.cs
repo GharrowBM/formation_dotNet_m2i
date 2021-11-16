@@ -51,6 +51,12 @@ namespace TpSalarie.Classes
             Console.WriteLine("4-- Afficher nombre salarié");
         }
 
+        private void AfficherMenuTypeEmploye()
+        {
+            Console.WriteLine("1-- Salarié");
+            Console.WriteLine("2-- Commercial");
+        }
+
         private void ActionAjouterSalarie()
         {
             Console.WriteLine("----Ajout d'un salarié----");
@@ -64,15 +70,38 @@ namespace TpSalarie.Classes
             string categorie = Console.ReadLine();
             Console.Write("Merci de saisir le salaire du salairé : ");
             decimal salaire = Convert.ToDecimal(Console.ReadLine());
-            Salarie s = new Salarie(matricule, categorie, salaire, service, nom);
-            if(compteur < salaries.Length - 1)
+            AfficherMenuTypeEmploye();
+            string type = Console.ReadLine();
+
+            if(type == "1")
             {
-                salaries[compteur] = s;
-                compteur++;
+                Salarie s = new Salarie(matricule, categorie, salaire, service, nom);
+                if(compteur < salaries.Length - 1)
+                {
+                    salaries[compteur] = s;
+                    compteur++;
+                }
+                else
+                {
+                    Console.WriteLine("Il n'y a plus d'argent pour recruter");
+                }
             }
-            else
+            else if(type == "2")
             {
-                Console.WriteLine("Il n'y a plus d'argent pour recruter");
+                Console.Write("Merci de saisir le chiffre d'affaire : ");
+                decimal chiffreAffaire = Convert.ToDecimal(Console.ReadLine());
+                Console.Write("Merci de saisir la commission en % : ");
+                decimal commission = Convert.ToDecimal(Console.ReadLine());
+                Commercial s = new Commercial(matricule, categorie, salaire, service, nom, chiffreAffaire, commission);
+                if (compteur < salaries.Length - 1)
+                {
+                    salaries[compteur] = s;
+                    compteur++;
+                }
+                else
+                {
+                    Console.WriteLine("Il n'y a plus d'argent pour recruter");
+                }
             }
         }
 

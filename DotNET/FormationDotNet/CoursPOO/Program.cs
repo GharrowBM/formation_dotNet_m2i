@@ -60,6 +60,7 @@ namespace CoursPOO
             personnes[3] = e2;
             foreach(Personne p in personnes)
             {
+                
                 p.Marcher();
             }
             #endregion
