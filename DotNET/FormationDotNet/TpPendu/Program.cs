@@ -1,4 +1,5 @@
 ﻿using System;
+using TpPendu.Classes;
 
 namespace TpPendu
 {
@@ -6,7 +7,7 @@ namespace TpPendu
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new IHM().Demarrer();
         }
     }
 }

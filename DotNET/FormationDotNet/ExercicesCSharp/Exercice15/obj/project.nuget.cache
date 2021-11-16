@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+ZoB8a36KfcQ1mu1GyJBeM4/BYCvx2kpDhWzkwOwrIFUeWo8S+SGSvtU78Sv+3flAqfRHpdak6bH7cWwQvsmFw==",
+  "dgSpecHash": "pxX+BeVbZTB8Q4/jK6hXhKRXNYE9uzpnchAwDzm4Br351kZ7xV3qoWgbv6Vt+/DG9HRT5E4jwnBkhy1aczEP4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrateur\\Documents\\ReposM2i\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice15\\Exercice15.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512",
-    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/utopios/Desktop/formations/m2iDotNet/DotNET/FormationDotNet/ExercicesCSharp/Exercice15/Exercice15.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

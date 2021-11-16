@@ -35,9 +35,11 @@ namespace TpPendu.Classes
                 else
                 {
                     tmpMasque += masque[i];
-                    nbEssai--;
+                    
                 }
             }
+            if(!test)
+                nbEssai--;
             masque = tmpMasque;
             return test;
         }
