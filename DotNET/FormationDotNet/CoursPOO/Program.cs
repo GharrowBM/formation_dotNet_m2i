@@ -19,25 +19,33 @@ namespace CoursPOO
             //Console.WriteLine(avion1.GetType());
 
             #region exercice chaise
-            Chaise chaise1 = new Chaise(4, "rouge", "bois");
-            Chaise chaise2 = new Chaise(5, "blanche", "metal");
-            //chaise1.Afficher();
-            //chaise2.Afficher();
-            Chaise chaise3 = new Chaise();
-            chaise3.NbPieds = 6;
-            //chaise3.couleur = "jaune";
-            //chaise3.materiel = "plexiglass";
-            //chaise3.SetNbPieds(6);
-            
-            Chaise[] tabChaises = new Chaise[] {chaise1, chaise2, chaise3};
-            foreach(Chaise chaise in tabChaises)
-            {
-                chaise.Afficher();
-            }
-            //chaise3.Afficher();
+            //Chaise chaise1 = new Chaise(4, "rouge", "bois");
+            //Chaise chaise2 = new Chaise(5, "blanche", "metal");
+            ////chaise1.Afficher();
+            ////chaise2.Afficher();
+            //Chaise chaise3 = new Chaise();
+            //chaise3.NbPieds = 6;
+            ////chaise3.couleur = "jaune";
+            ////chaise3.materiel = "plexiglass";
+            ////chaise3.SetNbPieds(6);
 
-            Console.WriteLine($"Le nombre de chaise est de {Chaise.NbChaise}");
-            #endregion  
+            //Chaise[] tabChaises = new Chaise[] {chaise1, chaise2, chaise3};
+            //foreach(Chaise chaise in tabChaises)
+            //{
+            //    chaise.Afficher();
+            //}
+            ////chaise3.Afficher();
+
+            //Console.WriteLine($"Le nombre de chaise est de {Chaise.NbChaise}");
+            #endregion
+            #region cours héritage
+            Etudiant e = new Etudiant();
+            e.Nom = "abadi";
+            e.Prenom = "Ihab";
+            e.Niveau = 1;
+            e.AfficherAvecNiveau();
+            #endregion
         }
+
     }
 }

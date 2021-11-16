@@ -70,10 +70,6 @@ namespace TpPendu.Classes
             {
                 Console.WriteLine("Bravo vous avez gagné");
             }
-            else
-            {
-                Console.WriteLine("Perdu");
-            }
         }
     }
 }
