@@ -39,30 +39,37 @@ namespace CoursPOO
             //Console.WriteLine($"Le nombre de chaise est de {Chaise.NbChaise}");
             #endregion
             #region cours héritage
-            Etudiant e = new Etudiant();
-            e.Nom = "abadi";
-            e.Prenom = "Ihab";
-            e.Niveau = 1;
-            //e.AfficherAvecNiveau();
-            //e.Marcher();
+            //Etudiant e = new Etudiant();
+            //e.Nom = "abadi";
+            //e.Prenom = "Ihab";
+            //e.Niveau = 1;
+            ////e.AfficherAvecNiveau();
+            ////e.Marcher();
 
-            //new Prof().Marcher();
+            ////new Prof().Marcher();
 
-            Etudiant e2 = new Etudiant("toto", "tata", 4);
+            //Etudiant e2 = new Etudiant("toto", "tata", 4);
 
-            Prof p1 = new Prof();
-            Prof p2 = new Prof();
-            Personne pr = new Etudiant();
-            Personne[] personnes = new Personne[4];
-            personnes[0] = p1;
-            personnes[1] = p2;
-            personnes[2] = e;
-            personnes[3] = e2;
-            foreach(Personne p in personnes)
-            {
-                
-                p.Marcher();
-            }
+            //Prof p1 = new Prof();
+            //Prof p2 = new Prof();
+            //Personne pr = new Etudiant();
+            //Personne[] personnes = new Personne[4];
+            //personnes[0] = p1;
+            //personnes[1] = p2;
+            //personnes[2] = e;
+            //personnes[3] = e2;
+            //foreach(Personne p in personnes)
+            //{
+
+            //    p.Marcher();
+            //}
+            #endregion
+
+            #region cours generique
+            Maison<Personne> maison = new Maison<Personne>();
+            Maison<int> maisonEntier = new Maison<int>();
+            maison.Ajouter(new Etudiant());
+            maisonEntier.Ajouter(10);
             #endregion
         }
 
