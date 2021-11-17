@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CoursPOO.Classes
 {
-    public class Etudiant : Personne
+    public sealed class Etudiant : Personne
     {
         private int niveau;
         public Etudiant()
@@ -16,6 +16,11 @@ namespace CoursPOO.Classes
         }
 
         public int Niveau { get => niveau; set => niveau = value; }
+
+        public override void Afficher()
+        {
+           
+        }
 
         public void AfficherAvecNiveau()
         {

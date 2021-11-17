@@ -6,5 +6,10 @@ namespace CoursPOO.Classes
         public Prof()
         {
         }
+
+        public override void Afficher()
+        {
+           
+        }
     }
 }

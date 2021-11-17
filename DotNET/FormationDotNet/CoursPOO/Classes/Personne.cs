@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CoursPOO.Classes
 {
-    public class Personne
+    public abstract class Personne
     {
         private string nom;
         private string prenom;
@@ -19,7 +19,7 @@ namespace CoursPOO.Classes
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
 
-
+        public abstract void Afficher();
         protected void AfficherInfo()
         {
             Console.WriteLine($"Le nom est {Nom} et le prénom est {Prenom}");

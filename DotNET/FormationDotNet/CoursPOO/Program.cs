@@ -52,7 +52,7 @@ namespace CoursPOO
 
             Prof p1 = new Prof();
             Prof p2 = new Prof();
-
+            Personne pr = new Personne();
             Personne[] personnes = new Personne[4];
             personnes[0] = p1;
             personnes[1] = p2;
