@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "KzYnKdx8vq6xRBMMSa/VUe8HfxkkfQUiX5UEuN7FERvzV6BP0pf4onsMWWvN9qXTopmnJYDUHMDv8M2FsWf1Eg==",
+  "dgSpecHash": "kGobCdhNmFOyhQxBzkGxqNKiOn0zPi4xo6uIOMxEAqKLgs03GD96HaLO6y/tWBq4qj3WEFUBJYS860USMnqgoA==",
   "success": true,
-  "projectFilePath": "/Users/utopios/Desktop/formations/m2iDotNet/DotNET/FormationDotNet/ExercicesCSharp/Exercice12/Exercice12.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Administrateur\\Documents\\ReposM2i\\m2iDotNet\\DotNET\\FormationDotNet\\ExercicesCSharp\\Exercice12\\Exercice12.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512",
+    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
