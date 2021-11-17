@@ -11,7 +11,7 @@ namespace ForumNouvelle.Classes
         private string nom;
         private string prenom;
         private int age;
-        private Forum forum;
+        protected Forum forum;
 
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
@@ -64,6 +64,11 @@ namespace ForumNouvelle.Classes
                 return forum.Nouvelles[index];
             }
             return default(Nouvelle);
+        }
+
+        public override bool Equals(object abonne)
+        {
+            return Nom == ((Abonne)abonne).Nom && Prenom== ((Abonne)abonne).Prenom;
         }
     }
 }

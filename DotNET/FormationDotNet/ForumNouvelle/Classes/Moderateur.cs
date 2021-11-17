@@ -14,12 +14,31 @@ namespace ForumNouvelle.Classes
 
         public bool AjouterAbonne(Abonne abonne)
         {
+            if(forum.CompteurAbonnes < forum.Abonnes.Length - 1)
+            {
+                forum.Abonnes[forum.CompteurAbonnes++] = abonne;
+                return true;
+            }
             return false;
         }
 
         public bool BannirAbonne(Abonne abonne)
         {
-            return false;
+            bool done = false;
+            for(int i = 0; i < forum.Abonnes.Length; i++)
+            {
+                if(forum.Abonnes[i].Equals(abonne))
+                {
+                    forum.Abonnes[i] = default(Abonne);
+                    for(int j = i+1; j < forum.Abonnes.Length; j++)
+                    {
+                        forum.Abonnes[j-1] = forum.Abonnes[j];
+                    }
+                    done = true;
+                    forum.CompteurAbonnes--;
+                }
+            }
+            return done;
         }
         public bool SupprimerNouvelle(Nouvelle nouvelle)
         {
