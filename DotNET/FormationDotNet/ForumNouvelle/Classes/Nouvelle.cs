@@ -24,5 +24,10 @@ namespace ForumNouvelle.Classes
         {
             return $"Sujet : {Sujet}, Contenu : {Contenu}";
         }
+
+        public override bool Equals(object nouvelle)
+        {
+            return Sujet == ((Nouvelle)nouvelle).Sujet && Contenu == ((Nouvelle)nouvelle).Contenu;
+        }
     }
 }

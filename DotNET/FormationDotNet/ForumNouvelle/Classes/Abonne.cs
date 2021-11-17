@@ -70,5 +70,10 @@ namespace ForumNouvelle.Classes
         {
             return Nom == ((Abonne)abonne).Nom && Prenom== ((Abonne)abonne).Prenom;
         }
+
+        public override string ToString()
+        {
+            return $"Nom : {Nom}, Prénom : {Prenom}, Age : {Age}";
+        }
     }
 }

@@ -42,12 +42,29 @@ namespace ForumNouvelle.Classes
         }
         public bool SupprimerNouvelle(Nouvelle nouvelle)
         {
-            return false;
+            bool done = false;
+            for(int i = 0; i< forum.Nouvelles.Length; i++)
+            {
+                if (forum.Nouvelles[i].Equals(nouvelle))
+                {
+                    forum.Nouvelles[i] = default(Nouvelle);
+                    for (int j = i + 1; j < forum.Nouvelles.Length; j++)
+                    {
+                        forum.Nouvelles[j - 1] = forum.Nouvelles[j];
+                    }
+                    done=true;
+                    forum.CompteurNouvelles--;
+                }
+            }
+            return done;
         }
 
         public void ListerAbonnes()
         {
-
+            foreach(Abonne a in forum.Abonnes)
+            {
+                Console.WriteLine(a);
+            }
         }
     }
 }
