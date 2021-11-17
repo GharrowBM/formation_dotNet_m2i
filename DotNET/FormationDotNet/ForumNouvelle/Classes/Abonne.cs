@@ -23,6 +23,7 @@ namespace ForumNouvelle.Classes
             Nom = nom;
             Prenom = prenom;
             Age = age;
+            this.forum = forum;
         }
 
         public Nouvelle CreerNouvelle(string sujet, string contenu)
@@ -53,13 +54,14 @@ namespace ForumNouvelle.Classes
         {
             foreach(Nouvelle n in forum.Nouvelles)
             {
+                if(n != default(Nouvelle))
                 Console.WriteLine(n);
             }
         }
 
         public Nouvelle ConsulterNouvelle(int index)
         {
-            if(index > 0 && index < forum.Nouvelles.Length)
+            if(index >= 0 && index < forum.Nouvelles.Length)
             {
                 return forum.Nouvelles[index];
             }

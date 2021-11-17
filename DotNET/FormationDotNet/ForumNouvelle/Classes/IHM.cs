@@ -22,6 +22,7 @@ namespace ForumNouvelle.Classes
             {
                 MenuPrincipal();
                 choix = Console.ReadLine();
+                Console.Clear();
                 switch(choix)
                 {
                     case "1":
@@ -92,6 +93,7 @@ namespace ForumNouvelle.Classes
             {
                 MenuModerateur();
                 choix = Console.ReadLine();
+                Console.Clear();
                 switch (choix)
                 {
                     case "1":
@@ -122,60 +124,152 @@ namespace ForumNouvelle.Classes
         private void ActionsAbonne()
         {
             //Chercher Abonne
-            
-            string choix;
-            do
+            Console.Write("Index de l'abonné : ");
+            int index = Convert.ToInt32(Console.ReadLine());
+            abonne = forum.RechercherAbonne(index);
+            if(abonne != default(Abonne))
             {
-                MenuAbonne();
-                choix = Console.ReadLine();
-                switch (choix)
+                string choix;
+                do
                 {
-                    case "1":
-                        ActionAjouterNouvelle();
-                        break;
-                    case "2":
-                        ActionListerNouvelles();
-                        break;
-                    case "3":
-                        ActionRepondreNouvelle();
-                        break;
-                    
-                }
-            } while (choix != "0");
+                    MenuAbonne();
+                    choix = Console.ReadLine();
+                    Console.Clear();
+                    switch (choix)
+                    {
+                        case "1":
+                            ActionAjouterNouvelle();
+                            break;
+                        case "2":
+                            ActionListerNouvelles();
+                            break;
+                        case "3":
+                            ActionRepondreNouvelle();
+                            break;
+
+                    }
+                } while (choix != "0");
+            }else
+            {
+                Console.WriteLine("Aucun abonné avec cet id");
+            }
+            
         }
 
 
         private void ActionAjouterNouvelle()
         {
-
+            Console.Write("Merci de saisir le sujet de la nouvelle : ");
+            string sujet = Console.ReadLine();
+            Console.Write("Merci de saisir le contenu de la nouvelle : ");
+            string contenu = Console.ReadLine();
+            Nouvelle nouvelle = abonne.CreerNouvelle(sujet, contenu);
+            if(abonne.DeposerNouvelle(nouvelle))
+            {
+                Console.WriteLine("Nouvelle ajoutée");
+            }
+            else
+            {
+                Console.WriteLine("Impossible d'ajouter la nouvelle");
+            }
         }
 
         private void ActionListerNouvelles()
         {
-
+            abonne.ListerNouvelle();
         }
 
         private void ActionRepondreNouvelle()
         {
-
+            ActionListerNouvelles();
+            Console.Write("L'id  de la nouvelle : ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Nouvelle nouvelle = abonne.ConsulterNouvelle(id);
+            if(nouvelle != default(Nouvelle))
+            {
+                Console.Write("Merci de saisir la réponse : ");
+                string reponse = Console.ReadLine();
+                if(abonne.RepondreANouvelle(nouvelle, reponse))
+                {
+                    Console.WriteLine("Votre réponse a été ajoutée");
+                }
+                else
+                {
+                    Console.WriteLine("Erreur de réponse à une nouvelle ");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Aucune nouvelle avec cet id");
+            }
         }
 
         private void ActionAjouterAbonne()
         {
-
+            Console.Write("Merci de saisir le nom de l'abonné : ");
+            string nom = Console.ReadLine();
+            Console.Write("Merci de saisir le prénom de l'abonné : ");
+            string prenom = Console.ReadLine();
+            Console.Write("Merci de saisir l'age de l'abonné : ");
+            int age = Convert.ToInt32(Console.ReadLine());
+            if(moderateur.AjouterAbonne(new Abonne(nom, prenom, age, forum)))
+            {
+                Console.WriteLine("Abonné ajouté");
+            }
+            else
+            {
+                Console.WriteLine("Erreur ajout abonné");
+            }
         }
 
         private void ActionListerAbonnes()
         {
-
+            moderateur.ListerAbonnes();
         }
 
         private void ActionBannirAbonne()
         {
-
+            ActionListerAbonnes();
+            Console.Write("L'index de l'abonné à bannir");
+            int index = Convert.ToInt32(Console.ReadLine());
+            Abonne a = forum.RechercherAbonne(index);
+            if(a != default(Abonne))
+            {
+                if (moderateur.BannirAbonne(a))
+                {
+                    Console.WriteLine("l'abonné n'est plus la");
+                }
+                else
+                {
+                    Console.WriteLine("Erreur pour bannir l'abonné");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Aucun abonné avec cet id");
+            }
         }
         private void ActionSupprimerNouvelle()
         {
+            ActionListerNouvelles();
+            Console.Write("L'id  de la nouvelle : ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Nouvelle nouvelle = moderateur.ConsulterNouvelle(id);
+            if (nouvelle != default(Nouvelle))
+            {
+                if (moderateur.SupprimerNouvelle(nouvelle))
+                {
+                    Console.WriteLine("Nouvelle supprimée");
+                }
+                else
+                {
+                    Console.WriteLine("Erreur suppression nouvelle");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Aucune nouvelle avec cet id");
+            }
 
         }
     }

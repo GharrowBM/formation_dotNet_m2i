@@ -27,7 +27,7 @@ namespace ForumNouvelle.Classes
             bool done = false;
             for(int i = 0; i < forum.Abonnes.Length; i++)
             {
-                if(forum.Abonnes[i].Equals(abonne))
+                if(forum.Abonnes[i] != default(Abonne) && forum.Abonnes[i].Equals(abonne))
                 {
                     forum.Abonnes[i] = default(Abonne);
                     for(int j = i+1; j < forum.Abonnes.Length; j++)
@@ -45,7 +45,7 @@ namespace ForumNouvelle.Classes
             bool done = false;
             for(int i = 0; i< forum.Nouvelles.Length; i++)
             {
-                if (forum.Nouvelles[i].Equals(nouvelle))
+                if (forum.Nouvelles[i] != default(Nouvelle) && forum.Nouvelles[i].Equals(nouvelle))
                 {
                     forum.Nouvelles[i] = default(Nouvelle);
                     for (int j = i + 1; j < forum.Nouvelles.Length; j++)
@@ -63,6 +63,7 @@ namespace ForumNouvelle.Classes
         {
             foreach(Abonne a in forum.Abonnes)
             {
+                if(a != default(Abonne))
                 Console.WriteLine(a);
             }
         }
