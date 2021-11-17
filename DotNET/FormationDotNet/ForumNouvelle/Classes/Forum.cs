@@ -37,7 +37,11 @@ namespace ForumNouvelle.Classes
 
         public Abonne RechercherAbonne(int index)
         {
-            return null;
+            if(index >= 0 && index < Abonnes.Length)
+            {
+                return Abonnes[index];
+            }
+            return default(Abonne);
         }
     }
 }

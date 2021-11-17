@@ -19,5 +19,10 @@ namespace ForumNouvelle.Classes
             Sujet = sujet;
             Contenu = contenu;
         }
+
+        public override string ToString()
+        {
+            return $"Sujet : {Sujet}, Contenu : {Contenu}";
+        }
     }
 }

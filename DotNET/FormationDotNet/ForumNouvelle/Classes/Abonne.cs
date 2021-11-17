@@ -33,23 +33,37 @@ namespace ForumNouvelle.Classes
         public bool DeposerNouvelle(Nouvelle nouvelle)
         {
             //A coder
+            if(forum.CompteurNouvelles < forum.Nouvelles.Length - 1)
+            {
+                forum.Nouvelles[forum.CompteurNouvelles++] = nouvelle;
+                //forum.CompteurNouvelles++;
+                return true;
+            }
             return false;
         }
 
         public bool RepondreANouvelle(Nouvelle nouvelle, string reponse)
         {
             //A Coder
-            return false;
+            Nouvelle reponseNouvelle = CreerNouvelle(nouvelle.Sujet, reponse);
+            return DeposerNouvelle(reponseNouvelle);
         }
 
         public void ListerNouvelle()
         {
-            //A Coder
+            foreach(Nouvelle n in forum.Nouvelles)
+            {
+                Console.WriteLine(n);
+            }
         }
 
-        public void ConsulterNouvelle(int index)
+        public Nouvelle ConsulterNouvelle(int index)
         {
-            //A Coder
+            if(index > 0 && index < forum.Nouvelles.Length)
+            {
+                return forum.Nouvelles[index];
+            }
+            return default(Nouvelle);
         }
     }
 }
