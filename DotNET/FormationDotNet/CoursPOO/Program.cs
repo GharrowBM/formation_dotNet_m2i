@@ -3,6 +3,7 @@ using CoursPOO.Classes;
 //using CoursPOO.AirBus;
 //using CoursPOO.Boeing;
 using System;
+using System.Collections.Generic;
 namespace CoursPOO
 {
     internal class Program
@@ -66,10 +67,36 @@ namespace CoursPOO
             #endregion
 
             #region cours generique
-            Maison<Personne> maison = new Maison<Personne>();
-            Maison<int> maisonEntier = new Maison<int>();
-            maison.Ajouter(new Etudiant());
-            maisonEntier.Ajouter(10);
+            //Maison<Personne> maison = new Maison<Personne>();
+            //Maison<int> maisonEntier = new Maison<int>();
+            //maison.Ajouter(new Etudiant());
+            //maisonEntier.Ajouter(10);
+
+            //Exemple de classe generique dans le framework .net
+            List<string> list = new List<string>();
+            //On peut ajouter des éléments dans notre liste
+            list.Add("toto");
+            list.Add("tata");
+            list.Add("titi");
+
+            //On peut parccourir une liste
+            for(int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+
+            //On peut supprimer des éléments
+            list.RemoveAt(1);
+            list.Remove("titi");
+            //On peut également utiliser la boucle foreach
+            foreach(string s in list)
+            {
+                Console.WriteLine(s);
+            }
+            //On peut récupérer un element avec son index comme dans un tableau
+            Console.WriteLine(list[0]);
+
+            //Exercice : Il faut modifier la correction du ForumNouvelle en remplaçant les tableaux par des listes.
             #endregion
         }
 

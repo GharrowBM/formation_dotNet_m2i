@@ -15,6 +15,8 @@ namespace CorrectionPile
             pileString.Depiler();
             pileString.Empiler("test5");
 
+            Pile<int> pileInt = new Pile<int>(5);
+
         }
     }
 }
