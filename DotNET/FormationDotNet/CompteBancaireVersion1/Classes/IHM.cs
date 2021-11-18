@@ -68,7 +68,11 @@ namespace CompteBancaireVersion1.Classes
                 Console.Clear();
                 Console.Write("Solde initial du compte : ");
                 decimal solde = Convert.ToDecimal(Console.ReadLine());
-                Compte compte = banque.CreationCompte(client, solde);
+                Console.WriteLine("1- Compte Courant");
+                Console.WriteLine("2- Compte Payant");
+                Console.WriteLine("3- Compte Epargne");
+                string choix = Console.ReadLine();
+                Compte compte = banque.CreationCompte(client, solde, choix);
                 if(compte != default(Compte))
                 {
                     Console.WriteLine($"Compte crée avec le numéro {compte.Id}");

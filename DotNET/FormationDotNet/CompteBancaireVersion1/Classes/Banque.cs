@@ -33,9 +33,21 @@ namespace CompteBancaireVersion1.Classes
             return default(Client);
         }
 
-        public Compte CreationCompte(Client client, decimal soldeInitial)
+        public Compte CreationCompte(Client client, decimal soldeInitial, string type)
         {
-            Compte compte = new Compte();
+            Compte compte;
+            if(type == "3")
+            {
+                compte = new CompteEpargne();
+            }
+            else if(type == "2")
+            {
+                compte = new ComptePayant();
+            }
+            else
+            {
+                compte = new Compte();
+            }
             compte.Client = client;
             compte.Depot(new Operation(soldeInitial));
             comptes.Add(compte);

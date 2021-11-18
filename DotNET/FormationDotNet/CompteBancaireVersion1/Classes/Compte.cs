@@ -25,7 +25,7 @@ namespace CompteBancaireVersion1.Classes
             id = ++compteur;
         }
 
-        public bool Depot(Operation operation)
+        public virtual bool Depot(Operation operation)
         {
             if(operation.Montant >= 0)
             {
@@ -36,7 +36,7 @@ namespace CompteBancaireVersion1.Classes
             return false;
         }
 
-        public bool Retrait(Operation operation)
+        public virtual bool Retrait(Operation operation)
         {
             if(solde >= operation.Montant * -1)
             {
