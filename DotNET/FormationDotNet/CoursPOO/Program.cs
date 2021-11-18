@@ -97,6 +97,12 @@ namespace CoursPOO
             Console.WriteLine(list[0]);
 
             //Exercice : Il faut modifier la correction du ForumNouvelle en remplaçant les tableaux par des listes.
+            //D'autre exemple de generique
+            //HashSet<string> set = new HashSet<string>();
+            //Dictionnary
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("toto", "valueToto");
+            Console.WriteLine(dic["toto"]);
             #endregion
         }
 

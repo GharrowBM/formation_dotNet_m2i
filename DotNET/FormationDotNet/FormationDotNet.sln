@@ -138,6 +138,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciceRappelPOO", "Exerci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionPile", "CorrectionPile\CorrectionPile.csproj", "{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireVersion1", "CompteBancaireVersion1\CompteBancaireVersion1.csproj", "{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -348,6 +350,10 @@ Global
 		{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -417,6 +423,7 @@ Global
 		{78B2DA39-A8DF-4481-8847-1A5D8098E6CC} = {80AFBB20-7E50-4DA0-9C3E-70667BAB9C01}
 		{8E73BEC8-DFAD-48AF-8E85-8C9BD4A8B05E} = {80AFBB20-7E50-4DA0-9C3E-70667BAB9C01}
 		{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3} = {80AFBB20-7E50-4DA0-9C3E-70667BAB9C01}
+		{15395E3C-B2BA-43A9-AF1B-390BEF294CBF} = {80AFBB20-7E50-4DA0-9C3E-70667BAB9C01}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D04D9408-6251-4750-92D5-423A8E21360A}
