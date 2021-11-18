@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompteBancaireVersion1.Classes;
+using System;
 
 namespace CompteBancaireVersion1
 {
@@ -6,7 +7,7 @@ namespace CompteBancaireVersion1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new IHM().Demarrer();
         }
     }
 }

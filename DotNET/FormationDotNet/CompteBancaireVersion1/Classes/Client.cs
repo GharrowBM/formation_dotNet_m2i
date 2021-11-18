@@ -22,5 +22,10 @@ namespace CompteBancaireVersion1.Classes
             Prenom = prenom;
             Telephone = telephone;
         }
+
+        public override string ToString()
+        {
+            return $"Client : {Nom} {Prenom}, Tel : {Telephone}";
+        }
     }
 }

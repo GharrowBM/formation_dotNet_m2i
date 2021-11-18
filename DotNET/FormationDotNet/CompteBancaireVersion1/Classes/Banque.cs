@@ -17,17 +17,43 @@ namespace CompteBancaireVersion1.Classes
 
         public Client CreerClient(string nom, string prenom, string telephone)
         {
-            return null;
+            bool exist = false;
+            foreach(Compte compte in comptes)
+            {
+                if(compte.Client.Telephone == telephone)
+                {
+                    exist = true;
+                    break;
+                }
+            }
+            if (!exist)
+            {
+                return new Client(nom, prenom, telephone); 
+            }
+            return default(Client);
         }
 
-        public Compte CreationCompte(Client client, decimal solde)
+        public Compte CreationCompte(Client client, decimal soldeInitial)
         {
-            return null;
+            Compte compte = new Compte();
+            compte.Client = client;
+            compte.Depot(new Operation(soldeInitial));
+            comptes.Add(compte);
+            return compte;
         } 
 
         public Compte RechercherCompte(int id)
         {
-            return null;
+            Compte compte = default(Compte);
+            foreach(Compte c in comptes)
+            {
+                if(c.Id == id)
+                {
+                    compte = c;
+                    break;
+                }
+            }
+            return compte;
         }
     }
 }

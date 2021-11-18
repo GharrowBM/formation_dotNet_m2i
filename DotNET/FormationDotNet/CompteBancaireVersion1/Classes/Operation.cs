@@ -11,13 +11,18 @@ namespace CompteBancaireVersion1.Classes
         private decimal montant;
         private DateTime dateEtheureOperation;
 
-        public decimal Montant { get => montant; set => montant = value; }
-        public DateTime DateEtheureOperation { get => dateEtheureOperation; set => dateEtheureOperation = value; }
+        public decimal Montant { get => montant;  }
+        public DateTime DateEtheureOperation { get => dateEtheureOperation; }
 
-        public Operation(decimal montant, DateTime dateEtheureOperation)
+        public Operation(decimal montant)
         {
-            Montant = montant;
-            DateEtheureOperation = dateEtheureOperation;
+            this.montant = montant;
+            this.dateEtheureOperation = DateTime.Now;
+        }
+
+        public override string ToString()
+        {
+            return $"Montant : {Montant}, Date de l'opération : {DateEtheureOperation}";
         }
     }
 }
