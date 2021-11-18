@@ -34,13 +34,15 @@ namespace ForumNouvelle.Classes
         public bool DeposerNouvelle(Nouvelle nouvelle)
         {
             //A coder
-            if(forum.CompteurNouvelles < forum.Nouvelles.Length - 1)
-            {
-                forum.Nouvelles[forum.CompteurNouvelles++] = nouvelle;
-                //forum.CompteurNouvelles++;
-                return true;
-            }
-            return false;
+            //if(forum.CompteurNouvelles < forum.Nouvelles.Length - 1)
+            //{
+            //    forum.Nouvelles[forum.CompteurNouvelles++] = nouvelle;
+            //    //forum.CompteurNouvelles++;
+            //    return true;
+            //}
+            //return false;
+            forum.Nouvelles.Add(nouvelle);
+            return true;
         }
 
         public bool RepondreANouvelle(Nouvelle nouvelle, string reponse)
@@ -61,7 +63,7 @@ namespace ForumNouvelle.Classes
 
         public Nouvelle ConsulterNouvelle(int index)
         {
-            if(index >= 0 && index < forum.Nouvelles.Length)
+            if(index >= 0 && index < forum.Nouvelles.Count)
             {
                 return forum.Nouvelles[index];
             }
