@@ -36,6 +36,9 @@ namespace CompteBancaireVersion1.Classes
                     case "4":
                         ActionAffichageCompte();
                         break;
+                    case "5":
+                        ActionCalculeInteret();
+                        break;
                     default:
                         Environment.Exit(0);
                         break;
@@ -49,6 +52,7 @@ namespace CompteBancaireVersion1.Classes
             Console.WriteLine("2--Effectuer un dépôt");
             Console.WriteLine("3--Effectuer un retrait");
             Console.WriteLine("4--Afficher un compte");
+            Console.WriteLine("5--Calcule Interet d'un compte");
             Console.WriteLine("0--Quitter");
         }
 
@@ -155,6 +159,24 @@ namespace CompteBancaireVersion1.Classes
                 Console.WriteLine("Aucun compte avec ce numéro");
             }
             return compte;
+        }
+
+        private void ActionCalculeInteret()
+        {
+            Compte compte = RechercheCompte();
+            if(compte != default(Compte))
+            {
+                //CompteEpargne compteEpargne = (CompteEpargne)compte;
+                //CompteEpargne compteEpargne = compte as CompteEpargne;
+                //On peut convertir avec is
+                if(compte is CompteEpargne compteEpargne)
+                {
+                    if(compteEpargne.CalculeInteret())
+                    {
+                        Console.WriteLine($"Intert calculé, nouveau solde est de {compteEpargne.Solde}");
+                    }
+                }
+            }
         }
     }
 }

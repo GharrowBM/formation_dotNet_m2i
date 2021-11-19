@@ -8,5 +8,12 @@ namespace CompteBancaireVersion1.Classes
 {
     internal class CompteEpargne : Compte
     {
+        private decimal tauxInteret = 2;
+
+        public bool CalculeInteret()
+        {
+            Operation operation = new Operation(Solde * tauxInteret / 100);
+            return Depot(operation);
+        }
     }
 }
