@@ -1,5 +1,6 @@
 ﻿using CoursPOO;
 using CoursPOO.Classes;
+using CoursPOO.Interfaces;
 //using CoursPOO.AirBus;
 //using CoursPOO.Boeing;
 using System;
@@ -73,36 +74,55 @@ namespace CoursPOO
             //maisonEntier.Ajouter(10);
 
             //Exemple de classe generique dans le framework .net
-            List<string> list = new List<string>();
+            //List<string> list = new List<string>();
             //On peut ajouter des éléments dans notre liste
-            list.Add("toto");
-            list.Add("tata");
-            list.Add("titi");
+            //list.Add("toto");
+            //list.Add("tata");
+            //list.Add("titi");
 
-            //On peut parccourir une liste
-            for(int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i]);
-            }
+            ////On peut parccourir une liste
+            //for(int i = 0; i < list.Count; i++)
+            //{
+            //    Console.WriteLine(list[i]);
+            //}
 
-            //On peut supprimer des éléments
-            list.RemoveAt(1);
-            list.Remove("titi");
-            //On peut également utiliser la boucle foreach
-            foreach(string s in list)
-            {
-                Console.WriteLine(s);
-            }
-            //On peut récupérer un element avec son index comme dans un tableau
-            Console.WriteLine(list[0]);
+            ////On peut supprimer des éléments
+            //list.RemoveAt(1);
+            //list.Remove("titi");
+            ////On peut également utiliser la boucle foreach
+            //foreach(string s in list)
+            //{
+            //    Console.WriteLine(s);
+            //}
+            ////On peut récupérer un element avec son index comme dans un tableau
+            //Console.WriteLine(list[0]);
 
-            //Exercice : Il faut modifier la correction du ForumNouvelle en remplaçant les tableaux par des listes.
-            //D'autre exemple de generique
-            //HashSet<string> set = new HashSet<string>();
-            //Dictionnary
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("toto", "valueToto");
-            Console.WriteLine(dic["toto"]);
+            ////Exercice : Il faut modifier la correction du ForumNouvelle en remplaçant les tableaux par des listes.
+            ////D'autre exemple de generique
+            ////HashSet<string> set = new HashSet<string>();
+            ////Dictionnary
+            //Dictionary<string, string> dic = new Dictionary<string, string>();
+            //dic.Add("toto", "valueToto");
+            //Console.WriteLine(dic["toto"]);
+            #endregion
+
+            #region cours interface
+            IVolant elementVolant1 = new Avion(); 
+            IVolant elementVolant2 = new Oiseau();
+            //List<IVolant> volants = new List<IVolant>();
+            //volants.Add(elementVolant1);
+            //volants.Add(elementVolant2);
+            //foreach(IVolant volant in volants)
+            //{
+            //    volant.Decoller();
+            //    volant.Voler();
+            //    volant.Atterrir();
+            //}
+
+            Transporteur transporteurAncien = new Transporteur(new Oiseau());
+            Transporteur transporteurModerne = new Transporteur(new Avion());
+            transporteurAncien.Transporter();
+            transporteurModerne.Transporter();
             #endregion
         }
 
