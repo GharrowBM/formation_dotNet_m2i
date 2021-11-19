@@ -1,0 +1,9 @@
+On va définir une classe abstraite Figure, qui possède les attributs posX, et posY coordonnée du centre et une méthode abstract Affiche
+-    Ecrivez le code la class Figure
+-    Ecrivez le code de la classe Rectange qui hérite de la classe Figure. On doit passer en paramètres du constructeur la position du centre, la largeur et la hauteur.
+-    Ecrivez le code de la classe Carre. On doit passer en paramètres du constructeur la position du centre et la longueur d’un côté
+-    Ecrivez le code de la classe Triangle. On considère qu’un triangle est toujours isocèle et positionné au centre. On doit passer en paramètres du constructeur la position du centre, la base et la hauteur 
+-    On définit l’interface Deformable qui correspond aux figures qu’on peut déformer horizontalement et verticalement de manière à obtenir une nouvelle figure. 
+Cette interface contiendra la méthode
+Figure deformation(double coeffH,double coeffV) ou coeffH est le coefficient de déformation horizontale, et ou coeffV est celui de déformation verticale.
+Quelles figures implémenteront Deformable ? Quel devra être dans chaque cas le type r ́réel de l’objet référencé par la valeur de retour ? Implémentez cette interface dans toutes les classes ou c’est possible
