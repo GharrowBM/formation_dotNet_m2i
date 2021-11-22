@@ -132,17 +132,24 @@ namespace CoursPOO
                 Console.Write("Merci de saisir un entier :");
                 int a = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Vous avez saisi " + a);
-                tab[6] = a;
+                tab[0] = a;
+                //Code à executer
             }
             catch (FormatException ex)
             {
                 Console.WriteLine(ex.GetType()); 
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("vous n'avez pas saisi un entier");
+                //Code à executer
+
             }
-            catch(IndexOutOfRangeException ex)
+            catch (IndexOutOfRangeException ex)
             {
                 Console.WriteLine("Vous êtes à l'exterieur du tableau");
+            }
+            finally
+            {
+                Console.WriteLine("Partie executée quelque soit le scénario try ou catch");
             }
             #endregion
         }
