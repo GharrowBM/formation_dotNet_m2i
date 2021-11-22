@@ -126,31 +126,48 @@ namespace CoursPOO
             #endregion
 
             #region cours gestion des exceptions
-            try
-            {
-                int[] tab = new int[2];
-                Console.Write("Merci de saisir un entier :");
-                int a = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Vous avez saisi " + a);
-                tab[0] = a;
-                //Code à executer
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.GetType()); 
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("vous n'avez pas saisi un entier");
-                //Code à executer
+            //try
+            //{
+            //    int[] tab = new int[2];
+            //    Console.Write("Merci de saisir un entier :");
+            //    int a = Convert.ToInt32(Console.ReadLine());
+            //    Console.WriteLine("Vous avez saisi " + a);
+            //    tab[0] = a;
+            //    //Code à executer
+            //}
+            //catch (FormatException ex)
+            //{
+            //    Console.WriteLine(ex.GetType()); 
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine("vous n'avez pas saisi un entier");
+            //    //Code à executer
 
-            }
-            catch (IndexOutOfRangeException ex)
+            //}
+            //catch (IndexOutOfRangeException ex)
+            //{
+            //    Console.WriteLine("Vous êtes à l'exterieur du tableau");
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Partie executée quelque soit le scénario try ou catch");
+            //}
+
+            bool error;
+            int a = 0;
+            do
             {
-                Console.WriteLine("Vous êtes à l'exterieur du tableau");
-            }
-            finally
-            {
-                Console.WriteLine("Partie executée quelque soit le scénario try ou catch");
-            }
+                try
+                {
+                    Console.Write("Merci de saisir un entier : ");
+                    a = Convert.ToInt32(Console.ReadLine());
+                    error = false;
+                }catch(Exception e)
+                {
+                    Console.WriteLine("Erreur, vous n'avez pas saisi un entier");
+                    error = true;
+                }
+            } while (error);
+            Console.WriteLine("Valeur de a " + a);
             #endregion
         }
 
