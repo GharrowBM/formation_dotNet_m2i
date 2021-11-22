@@ -26,5 +26,11 @@ namespace CaisseEnregistreuse.Classes
             //A Coder
             return false;
         }
+
+        public bool AjouterProduit(Produit produit)
+        {
+            produits.Add(produit);
+            return true;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace CaisseEnregistreuse.Classes
                         ActionAjouterProduit();
                         break;
                     case "2":
+                        ActionFaireUneVente();
                         break;
                     default:
                         break;
@@ -78,11 +79,42 @@ namespace CaisseEnregistreuse.Classes
         private void ActionFaireUneVente()
         {
             vente = new Vente();
+            string choix;
+            do
+            {
+                MenuVente();
+                choix = Console.ReadLine();
+                switch (choix)
+                {
+                    case "1":
+                        ActionAjoutProduitVente();
+                        break;
+                    case "2":
+                        ActionPaiementCB();
+                        break;
+                    case "3":
+                        ActionPaiementEspece();
+                        break;
+                }
+            } while (choix != "0");
         }
 
         private void ActionAjoutProduitVente()
         {
-
+            int produit_id;
+            CustomIntTryParseLoop("Merci de saisir l'id du produit : ", out produit_id);
+            Produit produit = caisse.RechercherProduit(produit_id);
+            if(produit != default(Produit))
+            {
+                if (vente.AjouterProduit(produit))
+                {
+                    Console.WriteLine("Produit ajouté à la vente");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Aucun produit avec cet id");
+            }
         }
 
         private void ActionPaiementCB()
