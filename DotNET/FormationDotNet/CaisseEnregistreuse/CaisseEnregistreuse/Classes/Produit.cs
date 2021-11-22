@@ -9,6 +9,10 @@ namespace CaisseEnregistreuse.Classes
         private int stock;
         private static int compteur = 0;
 
+        //public Produit()
+        //{
+
+        //}
         public Produit(string titre, decimal prix, int stock)
         {
             id = ++compteur;

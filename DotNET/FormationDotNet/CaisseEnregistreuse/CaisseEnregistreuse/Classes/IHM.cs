@@ -49,22 +49,30 @@ namespace CaisseEnregistreuse.Classes
         {
             Console.Write("Titre produit : ");
             string titre = Console.ReadLine();
-            
             decimal prix;
             CustomDecimalTryParseLoop("Merci de saisir le prix : ", out prix);
             //Console.Write("Prix du produit : ");
             //decimal prix = Convert.ToDecimal(Console.ReadLine());
-            Console.Write("Stock initial : ");
-            int stock = Convert.ToInt32(Console.ReadLine());
-            Produit produit = new Produit(titre, prix, stock);
-            if(caisse.AjouterProduit(produit))
+            //Console.Write("Stock initial : ");
+            //int stock = Convert.ToInt32(Console.ReadLine());
+            int stock;
+            CustomIntTryParseLoop("Stock initial : ", out stock);
+            try
             {
-                Console.WriteLine("Produit ajouté");
-            }
-            else
+                Produit produit = new Produit(titre, prix, stock);
+                if (caisse.AjouterProduit(produit))
+                {
+                    Console.WriteLine("Produit ajouté");
+                }
+                else
+                {
+                    Console.WriteLine("Erreur d'ajout produit");
+                }
+            }catch(Exception ex)
             {
-                Console.WriteLine("Erreur d'ajout produit");
+                Console.WriteLine(ex.Message);
             }
+            
         }
 
         private void ActionFaireUneVente()
@@ -103,6 +111,27 @@ namespace CaisseEnregistreuse.Classes
                     element = 0;
                 }
                 
+            } while (error);
+        }
+
+        private void CustomIntTryParseLoop(string message, out int element)
+        {
+            bool error;
+            do
+            {
+                try
+                {
+                    Console.Write(message);
+                    element = Convert.ToInt32(Console.ReadLine());
+                    error = false;
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Impossible de convertir votre chaine de caractère en entier");
+                    error = true;
+                    element = 0;
+                }
+
             } while (error);
         }
     }
