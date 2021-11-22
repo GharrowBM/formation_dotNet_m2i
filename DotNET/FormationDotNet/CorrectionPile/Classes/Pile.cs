@@ -45,5 +45,20 @@ namespace CorrectionPile.Classes
             }
             return default(T);
         }
+
+        public T Search(Func<T, bool> searchMethod)
+        {
+            T element = default(T);
+            foreach(T t in elements)
+            {
+                if(searchMethod(t))
+                {
+                    element = t;
+                    break;
+                }
+            }
+
+            return element;
+        }
     }
 }
