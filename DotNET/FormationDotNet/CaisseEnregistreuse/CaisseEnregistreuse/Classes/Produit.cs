@@ -18,8 +18,28 @@ namespace CaisseEnregistreuse.Classes
         }
 
         public int Id { get => id; }
-        public string Titre { get => titre; set => titre = value; }
-        public decimal Prix { get => prix; set => prix = value; }
+        public string Titre
+        {
+            get => titre;
+            set
+            {
+                if (value.Length > 3)
+                    titre = value;
+                else
+                   throw new FormatException("Le titre doit avoir 3 caractères min");
+            }
+        }
+        public decimal Prix
+        {
+            get => prix; 
+            set
+            {
+                if (value > 0)
+                    prix = value;
+                else
+                    throw new FormatException("Le prix du produit doit être un nombre positif");
+            }
+        }
         public int Stock { get => stock; set => stock = value; }
     }
 }

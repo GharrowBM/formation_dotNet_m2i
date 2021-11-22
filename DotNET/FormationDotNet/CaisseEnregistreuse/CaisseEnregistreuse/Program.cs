@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaisseEnregistreuse.Classes;
+using System;
 
 namespace CaisseEnregistreuse
 {
@@ -6,7 +7,7 @@ namespace CaisseEnregistreuse
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new IHM().Demarrer();
         }
     }
 }

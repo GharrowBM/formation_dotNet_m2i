@@ -15,5 +15,11 @@ namespace CaisseEnregistreuse.Classes
 
         public List<Produit> Produits { get => produits; set => produits = value; }
         public List<Vente> Ventes { get => ventes; set => ventes = value; }
+
+        public bool AjouterProduit(Produit produit)
+        {
+            produits.Add(produit);
+            return true;
+        }
     }
 }
