@@ -19,6 +19,14 @@ namespace CaisseEnregistreuse.Classes
 
         public bool Payer(decimal montant)
         {
+            if(Reference %2 == 0 && montant > 0 && montant < 300)
+            {
+                return true;
+            }
+            else if (Reference % 2 != 0 && montant > 0 && montant < 200)
+            {
+                return true;
+            }
             return false;
         }
     }

@@ -21,6 +21,19 @@ namespace CaisseEnregistreuse.Classes
         public string Etat { get => etat; set => etat = value; }
         public List<Produit> Produits { get => produits; set => produits = value; }
 
+        public decimal Total
+        {
+            get
+            {
+                decimal total = 0;
+                Produits.ForEach(p =>
+                {
+                    total += p.Prix;
+                });
+                return total;
+            }
+        }
+
         public bool Valider(IPaiement paiement)
         {
             //A Coder
@@ -29,7 +42,7 @@ namespace CaisseEnregistreuse.Classes
 
         public bool AjouterProduit(Produit produit)
         {
-            produits.Add(produit);
+            Produits.Add(produit);
             return true;
         }
     }

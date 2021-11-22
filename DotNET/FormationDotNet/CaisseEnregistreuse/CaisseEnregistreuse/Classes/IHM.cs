@@ -44,6 +44,7 @@ namespace CaisseEnregistreuse.Classes
             Console.WriteLine("1- Ajouter un produit à la vente");
             Console.WriteLine("2- Paiement CB");
             Console.WriteLine("3- Paiement Espece");
+            Console.WriteLine("4- Afficher produit de la vente");
         }
 
         private void ActionAjouterProduit()
@@ -99,7 +100,8 @@ namespace CaisseEnregistreuse.Classes
                         ActionAfficherProduitVente();
                         break;
                 }
-            } while (choix != "0");
+                ClearScreen();
+            } while (choix != "0" && vente.Etat != "payé");
         }
 
         private void ActionAjoutProduitVente()
@@ -130,7 +132,18 @@ namespace CaisseEnregistreuse.Classes
 
         private void ActionPaiementCB()
         {
-
+            PaiementCB paiement = new PaiementCB();
+            if(paiement.Payer(vente.Total))
+            {
+                vente.Etat = "payé";
+                caisse.AjouterVente(vente);
+                ActionAfficherProduitVente();
+                Console.WriteLine($"======Total : {vente.Total} euros=====");
+            }
+            else
+            {
+                Console.WriteLine("Paiement refusé");
+            }
         }
         private void ActionPaiementEspece()
         {
@@ -176,6 +189,13 @@ namespace CaisseEnregistreuse.Classes
                 }
 
             } while (error);
+        }
+
+        private void ClearScreen()
+        {
+            Console.WriteLine("Une touche pour continuer....");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

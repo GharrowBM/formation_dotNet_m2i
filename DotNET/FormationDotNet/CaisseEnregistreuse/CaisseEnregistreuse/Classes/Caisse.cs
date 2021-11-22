@@ -21,7 +21,11 @@ namespace CaisseEnregistreuse.Classes
             produits.Add(produit);
             return true;
         }
-
+        public bool AjouterVente(Vente vente)
+        {
+            Ventes.Add(vente);
+            return true;
+        }
         public Produit RechercherProduit(int id)
         {
             //Produit produit = default(Produit);
