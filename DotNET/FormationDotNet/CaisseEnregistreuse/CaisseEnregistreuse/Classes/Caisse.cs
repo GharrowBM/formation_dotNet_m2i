@@ -24,17 +24,18 @@ namespace CaisseEnregistreuse.Classes
 
         public Produit RechercherProduit(int id)
         {
-            Produit produit = default(Produit);
-            foreach(Produit p in Produits)
-            {
-                if(p.Id== id)
-                {
-                    produit = p;
-                    break;
-                }
-            }
+            //Produit produit = default(Produit);
+            //foreach(Produit p in Produits)
+            //{
+            //    if(p.Id== id)
+            //    {
+            //        produit = p;
+            //        break;
+            //    }
+            //}
 
-            return produit;
+            //return produit;
+            return Produits.Find(x => x.Id == id);
         }
     }
 }

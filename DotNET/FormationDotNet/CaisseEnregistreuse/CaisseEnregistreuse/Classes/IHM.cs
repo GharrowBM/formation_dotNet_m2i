@@ -95,6 +95,9 @@ namespace CaisseEnregistreuse.Classes
                     case "3":
                         ActionPaiementEspece();
                         break;
+                    case "4":
+                        ActionAfficherProduitVente();
+                        break;
                 }
             } while (choix != "0");
         }
@@ -115,6 +118,14 @@ namespace CaisseEnregistreuse.Classes
             {
                 Console.WriteLine("Aucun produit avec cet id");
             }
+        }
+
+        private void ActionAfficherProduitVente()
+        {
+            vente.Produits.ForEach(p =>
+            {
+                Console.WriteLine(p.Titre);
+            });
         }
 
         private void ActionPaiementCB()

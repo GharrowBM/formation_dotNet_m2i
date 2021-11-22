@@ -169,22 +169,35 @@ namespace CoursPOO
             //} while (error);
             //Console.WriteLine("Valeur de a " + a);
 
-            Personne p = new Etudiant();
-            try
-            {
+            //Personne p = new Etudiant();
+            //try
+            //{
 
-                int a = 130;
-                //if(a >= 0 && a < 100)
-                //{
-                //    p.Age = a;
-                //}
-                p.Age = a;
-            }catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            //    int a = 130;
+            //    //if(a >= 0 && a < 100)
+            //    //{
+            //    //    p.Age = a;
+            //    //}
+            //    p.Age = a;
+            //}catch(Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+            #endregion
+
+            #region cours expression lambda
+            Calculatrice calculatrice = new Calculatrice();
+            calculatrice.Calculer(10, 20, Soustraction);
+            calculatrice.Calculer(10, 30, delegate (double a, double b) { return a * b; });
+            calculatrice.Calculer(10, 30,  (a,b) =>  a / b  );
+
+            
             #endregion
         }
 
+        static double Soustraction(double x, double y)
+        {
+            return x - y;
+        }
     }
 }
