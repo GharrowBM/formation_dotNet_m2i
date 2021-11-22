@@ -107,22 +107,43 @@ namespace CoursPOO
             #endregion
 
             #region cours interface
-            IVolant elementVolant1 = new Avion(); 
-            IVolant elementVolant2 = new Oiseau();
-            //List<IVolant> volants = new List<IVolant>();
-            //volants.Add(elementVolant1);
-            //volants.Add(elementVolant2);
-            //foreach(IVolant volant in volants)
-            //{
-            //    volant.Decoller();
-            //    volant.Voler();
-            //    volant.Atterrir();
-            //}
+            //IVolant elementVolant1 = new Avion(); 
+            //IVolant elementVolant2 = new Oiseau();
+            ////List<IVolant> volants = new List<IVolant>();
+            ////volants.Add(elementVolant1);
+            ////volants.Add(elementVolant2);
+            ////foreach(IVolant volant in volants)
+            ////{
+            ////    volant.Decoller();
+            ////    volant.Voler();
+            ////    volant.Atterrir();
+            ////}
 
-            Transporteur transporteurAncien = new Transporteur(new Oiseau());
-            Transporteur transporteurModerne = new Transporteur(new Avion());
-            transporteurAncien.Transporter();
-            transporteurModerne.Transporter();
+            //Transporteur transporteurAncien = new Transporteur(new Oiseau());
+            //Transporteur transporteurModerne = new Transporteur(new Avion());
+            //transporteurAncien.Transporter();
+            //transporteurModerne.Transporter();
+            #endregion
+
+            #region cours gestion des exceptions
+            try
+            {
+                int[] tab = new int[2];
+                Console.Write("Merci de saisir un entier :");
+                int a = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Vous avez saisi " + a);
+                tab[6] = a;
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.GetType()); 
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("vous n'avez pas saisi un entier");
+            }
+            catch(IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Vous êtes à l'exterieur du tableau");
+            }
             #endregion
         }
 
