@@ -152,22 +152,37 @@ namespace CoursPOO
             //    Console.WriteLine("Partie executée quelque soit le scénario try ou catch");
             //}
 
-            bool error;
-            int a = 0;
-            do
+            //bool error;
+            //int a = 0;
+            //do
+            //{
+            //    try
+            //    {
+            //        Console.Write("Merci de saisir un entier : ");
+            //        a = Convert.ToInt32(Console.ReadLine());
+            //        error = false;
+            //    }catch(Exception e)
+            //    {
+            //        Console.WriteLine("Erreur, vous n'avez pas saisi un entier");
+            //        error = true;
+            //    }
+            //} while (error);
+            //Console.WriteLine("Valeur de a " + a);
+
+            Personne p = new Etudiant();
+            try
             {
-                try
-                {
-                    Console.Write("Merci de saisir un entier : ");
-                    a = Convert.ToInt32(Console.ReadLine());
-                    error = false;
-                }catch(Exception e)
-                {
-                    Console.WriteLine("Erreur, vous n'avez pas saisi un entier");
-                    error = true;
-                }
-            } while (error);
-            Console.WriteLine("Valeur de a " + a);
+
+                int a = 130;
+                //if(a >= 0 && a < 100)
+                //{
+                //    p.Age = a;
+                //}
+                p.Age = a;
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             #endregion
         }
 

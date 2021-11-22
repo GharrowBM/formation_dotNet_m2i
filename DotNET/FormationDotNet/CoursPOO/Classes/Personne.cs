@@ -5,6 +5,7 @@ namespace CoursPOO.Classes
     {
         private string nom;
         private string prenom;
+        private int age;
         public Personne()
         {
         }
@@ -18,6 +19,17 @@ namespace CoursPOO.Classes
 
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
+        public int Age
+        {
+            get => age; set
+            {
+                if (value >= 0 && value < 110)
+                    age = value;
+                else
+                    //throw new Exception("Erreur de saisi d'age");
+                    throw new AgeException();
+            }
+        }
 
         public abstract void Afficher();
         protected void AfficherInfo()
