@@ -60,5 +60,20 @@ namespace CorrectionPile.Classes
 
             return element;
         }
+
+        public List<T> SearchAll(Func<T, bool> searchMethod)
+        {
+            List<T> list = new List<T>();
+            
+            foreach (T t in elements)
+            {
+                if (searchMethod(t))
+                {
+                    list.Add(t);
+                }
+            }
+
+            return list;
+        }
     }
 }

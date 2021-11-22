@@ -1,5 +1,6 @@
 ﻿using CorrectionPile.Classes;
 using System;
+using System.Collections.Generic;
 
 namespace CorrectionPile
 {
@@ -23,8 +24,8 @@ namespace CorrectionPile
             voitures.Empiler(new Voiture("opel"));
 
             //Voiture voiture = voitures.Search(v => v.Model == "kia");
-            Voiture voiture = voitures.Search(v => v.Model.Contains("o"));
-
+            //Voiture voiture = voitures.Search(v => v.Model.Contains("o"));
+            List<Voiture> v = voitures.SearchAll(v => v.Model.Contains("o"));
         }
     }
 }
