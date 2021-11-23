@@ -11,7 +11,7 @@
 --	model varchar(100)
 --);
 ----Supprimer une table
---DROP TABLE personne;
+DROP TABLE personne;
 
 ----Modification
 --ALTER TABLE personne ADD  telephone varchar(100);
@@ -28,4 +28,6 @@ DELETE from voiture where id =1;
 
 --Selection des données
 SELECT model as toto, id from voiture where id < 3 
-OR model like '%o%';
+OR model like '%o%' order by model asc;
+SELECT model as toto, id from voiture  order by model desc;
+SELECT TOP 2 * FROM voiture order by model asc;
