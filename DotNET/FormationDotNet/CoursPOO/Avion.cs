@@ -11,6 +11,10 @@ namespace CoursPOO
     {
         public string couleur;
         public int nbPlaces;
+        private decimal prix;
+        public event Action<decimal> Promotion;
+
+        public decimal Prix { get => prix; set => prix = value; }
 
         //Constructeur
 
@@ -51,6 +55,18 @@ namespace CoursPOO
         public void SpecialAvion()
         {
             Console.WriteLine("Special avion");
+        }
+
+        public void Reduction(decimal reduction)
+        {
+            Prix -= reduction;
+            //Logique de communication suite à la réduction.
+
+            // on démarre l'event promotion.
+            if(Promotion != null)
+            {
+                Promotion(Prix);
+            }
         }
     }
 }

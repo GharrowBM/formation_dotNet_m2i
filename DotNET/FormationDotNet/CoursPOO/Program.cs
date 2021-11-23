@@ -186,15 +186,50 @@ namespace CoursPOO
             #endregion
 
             #region cours expression lambda
-            Calculatrice calculatrice = new Calculatrice();
-            calculatrice.Calculer(10, 20, Soustraction);
-            calculatrice.Calculer(10, 30, delegate (double a, double b) { return a * b; });
-            calculatrice.Calculer(10, 30,  (a,b) =>  a / b  );
+            //Calculatrice calculatrice = new Calculatrice();
+            //calculatrice.Calculer(10, 20, Soustraction);
+            //calculatrice.Calculer(10, 30, delegate (double a, double b) { return a * b; });
+            //calculatrice.Calculer(10, 30,  (a,b) =>  a / b  );
 
-            
+
+            #endregion
+
+            #region cours event
+            Avion avion = new Avion();
+            avion.Prix = 100000;
+            avion.Promotion += EnvoieSMS;
+            avion.Promotion += EnvoieEmail;
+            string choix;
+            int compteur = 0;
+            do
+            {
+                Console.WriteLine("Est ce qu'il y a une promotion sur l'avion ? ");
+                choix = Console.ReadLine();
+                if(choix == "o")
+                {
+                    decimal reduction = Convert.ToDecimal(Console.ReadLine());
+                    avion.Reduction(reduction);
+                    compteur++;
+                    if(compteur >= 2)
+                    {
+                        avion.Promotion -= EnvoieSMS;
+                    }
+                }
+
+            } while (choix != "0");
             #endregion
         }
 
+
+        static void EnvoieSMS(decimal prix)
+        {
+            Console.WriteLine("SMS : Il y a une promotion sur l'avion, voici le noueau prix : " + prix);
+        }
+
+        static void EnvoieEmail(decimal prix)
+        {
+            Console.WriteLine("Email : Il y a une promotion sur l'avion, voici le noueau prix : " + prix);
+        }
         static double Soustraction(double x, double y)
         {
             return x - y;
