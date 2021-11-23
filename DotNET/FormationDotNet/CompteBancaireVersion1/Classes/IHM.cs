@@ -79,6 +79,7 @@ namespace CompteBancaireVersion1.Classes
                 Compte compte = banque.CreationCompte(client, solde, choix);
                 if(compte != default(Compte))
                 {
+                    compte.ADecouvert += NotificationCompteADecouvert;
                     Console.WriteLine($"Compte crée avec le numéro {compte.Id}");
                 }
                 else
@@ -161,6 +162,10 @@ namespace CompteBancaireVersion1.Classes
             return compte;
         }
 
+        private void NotificationCompteADecouvert(int id, decimal solde)
+        {
+            Console.WriteLine($"Le compte {id} est à decouvert de {solde} euros");
+        }
         private void ActionCalculeInteret()
         {
             Compte compte = RechercheCompte();

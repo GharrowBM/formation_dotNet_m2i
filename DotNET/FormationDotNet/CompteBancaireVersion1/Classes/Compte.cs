@@ -18,6 +18,7 @@ namespace CompteBancaireVersion1.Classes
         public Client Client { get => client; set => client = value; }
         public List<Operation> Operations { get => operations; }
 
+        public event Action<int, decimal> ADecouvert;
         public Compte()
         {
             operations = new List<Operation>();
@@ -38,13 +39,16 @@ namespace CompteBancaireVersion1.Classes
 
         public virtual bool Retrait(Operation operation)
         {
-            if(solde >= operation.Montant * -1)
+            operations.Add(operation);
+            solde += operation.Montant;
+            if (solde < 0)
             {
-                operations.Add(operation);
-                solde += operation.Montant;
-                return true;
-            }
-            return false;
+                if (ADecouvert != null)
+                    ADecouvert(id, Solde);
+            }    
+            return true;
+            
+
         }
     }
 }
