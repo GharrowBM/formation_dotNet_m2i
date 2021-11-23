@@ -19,13 +19,22 @@ namespace CorrectionPile
             //Pile<int> pileInt = new Pile<int>(5);
 
             Pile<Voiture> voitures = new Pile<Voiture>(3);
+            voitures.PilePleine += ActionPilePleine;
             voitures.Empiler(new Voiture("ford"));
             voitures.Empiler(new Voiture("kia"));
+            voitures.Empiler(new Voiture("opel"));
+            voitures.Empiler(new Voiture("opel"));
             voitures.Empiler(new Voiture("opel"));
 
             //Voiture voiture = voitures.Search(v => v.Model == "kia");
             //Voiture voiture = voitures.Search(v => v.Model.Contains("o"));
             List<Voiture> v = voitures.SearchAll(v => v.Model.Contains("o"));
+        }
+
+
+        static void ActionPilePleine()
+        {
+            Console.WriteLine("La pile est pleine");
         }
     }
 }

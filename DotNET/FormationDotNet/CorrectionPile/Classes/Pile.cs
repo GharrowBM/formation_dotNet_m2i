@@ -10,6 +10,7 @@ namespace CorrectionPile.Classes
     {
         private T[] elements;
         private int compteur;
+        public event Action PilePleine;
 
         public Pile(int t)
         {
@@ -23,6 +24,11 @@ namespace CorrectionPile.Classes
             {
                 elements[compteur++] = element;
                 return true;
+            }
+            else
+            {
+                if(PilePleine != null)
+                    PilePleine();
             }
             return false;
         }
