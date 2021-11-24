@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
+using System.Data;
 
 namespace CoursAdoDotNet
 {
@@ -28,10 +29,14 @@ namespace CoursAdoDotNet
             //1ere façon d'executer une commande => si aucun retour attendu.
             //int nbRow = command.ExecuteNonQuery();
             //2eme façon d'executer une commande => une seul et unique resultat attendu.
-            int id = (int)command.ExecuteScalar();
-            command.Dispose();
-            connection.Close();
-            Console.WriteLine(id);
+            if(connection.State == ConnectionState.Open)
+            {
+                int id = (int)command.ExecuteScalar();
+                command.Dispose();
+                connection.Close();
+                Console.WriteLine(id);
+            }
+            
         }
     }
 }
