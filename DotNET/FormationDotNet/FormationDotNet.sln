@@ -136,9 +136,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForumNouvelle", "ForumNouve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciceRappelPOO", "ExerciceRappelPOO\ExerciceRappelPOO.csproj", "{8E73BEC8-DFAD-48AF-8E85-8C9BD4A8B05E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectionPile", "CorrectionPile\CorrectionPile.csproj", "{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorrectionPile", "CorrectionPile\CorrectionPile.csproj", "{2449A1C3-5C36-4035-8D6E-EBF25DFBD0A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireVersion1", "CompteBancaireVersion1\CompteBancaireVersion1.csproj", "{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompteBancaireVersion1", "CompteBancaireVersion1\CompteBancaireVersion1.csproj", "{15395E3C-B2BA-43A9-AF1B-390BEF294CBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{157BC659-3C62-417C-910B-FFD4FEA66EA6}"
+	ProjectSection(SolutionItems) = preProject
+		CoursSQL.sql = CoursSQL.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
