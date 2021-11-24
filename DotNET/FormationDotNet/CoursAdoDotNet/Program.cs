@@ -17,26 +17,37 @@ namespace CoursAdoDotNet
             //connection.Close();
             //Console.WriteLine(connection.State);
             //Pour executer des requêtes, on aura besoin des objets de types SqlCommand;
-            string titre = "produit en c# 2";
-            decimal prix = 1200;
-            string request = "INSERT INTO produit(titre, prix) " +
-                " OUTPUT INSERTED.id values (@t, @p)";
-            SqlCommand command = new SqlCommand(request, connection);
-            //Ajouter des paramètres de requête
-            command.Parameters.Add(new SqlParameter("@t", titre));
-            command.Parameters.Add(new SqlParameter("@p", prix));
+            //string titre = "produit en c# 2";
+            //decimal prix = 1200;
+            //string request = "INSERT INTO produit(titre, prix) " +
+            //    " OUTPUT INSERTED.id values (@t, @p)";
+            //SqlCommand command = new SqlCommand(request, connection);
+            ////Ajouter des paramètres de requête
+            //command.Parameters.Add(new SqlParameter("@t", titre));
+            //command.Parameters.Add(new SqlParameter("@p", prix));
+            //connection.Open();
+            ////1ere façon d'executer une commande => si aucun retour attendu.
+            ////int nbRow = command.ExecuteNonQuery();
+            ////2eme façon d'executer une commande => une seul et unique resultat attendu.
+            //if(connection.State == ConnectionState.Open)
+            //{
+            //    int id = (int)command.ExecuteScalar();
+            //    command.Dispose();
+            //    connection.Close();
+            //    Console.WriteLine(id);
+            //}
+            string request = "SELECT titre, prix FROM produit";
+            SqlCommand cmd = new SqlCommand(request, connection);
             connection.Open();
-            //1ere façon d'executer une commande => si aucun retour attendu.
-            //int nbRow = command.ExecuteNonQuery();
-            //2eme façon d'executer une commande => une seul et unique resultat attendu.
-            if(connection.State == ConnectionState.Open)
+            //3eme façon d'executer une commande.
+            SqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
             {
-                int id = (int)command.ExecuteScalar();
-                command.Dispose();
-                connection.Close();
-                Console.WriteLine(id);
+                Console.WriteLine($"Titre : {reader.GetString(0)}, prix : {reader.GetDecimal(1)}");
             }
-            
+            reader.Close();
+            cmd.Dispose();
+            connection.Close();
         }
     }
 }
