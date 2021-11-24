@@ -16,7 +16,7 @@ namespace PersonneAdresse.Classes
         private int personneId;
         private static SqlConnection connection;
         private static SqlCommand command;
-        private string request;
+        private static string request;
         public string Rue { get => rue; set => rue = value; }
         public string Ville { get => ville; set => ville = value; }
         public string CodePostal { get => codePostal; set => codePostal = value; }
@@ -38,6 +38,30 @@ namespace PersonneAdresse.Classes
             command.Dispose();
             connection.Close();
             return id > 0;
+        }
+
+        public static Adresse GetAdresseByPersonne(int personneId)
+        {
+            Adresse adresse = default(Adresse);
+            connection = DataBase.Connection;
+            request = "SELECT * FROM adresse where personne_id = @personne_id";
+            command = new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@personne_id", personneId));
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                adresse = new Adresse()
+                {
+                    Rue = reader.GetString(1),
+                    Ville = reader.GetString(2),
+                    CodePostal = reader.GetString(3)
+                };
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close ();
+            return adresse;
         }
     }
 }

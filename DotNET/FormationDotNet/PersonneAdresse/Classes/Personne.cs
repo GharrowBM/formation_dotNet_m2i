@@ -17,14 +17,15 @@ namespace PersonneAdresse.Classes
         private string titre;
         private static SqlConnection connection;
         private static SqlCommand command;
-        private string request;
+        private static string request;
 
-        public int Id { get { return id; }  }
+        
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
         public string Email { get => email; set => email = value; }
         public string Telephone { get => telephone; set => telephone = value; }
         public string Titre { get => titre; set => titre = value; }
+        public int Id { get => id; set => id = value; }
 
         public bool Save()
         {
@@ -39,10 +40,37 @@ namespace PersonneAdresse.Classes
             command.Parameters.Add(new SqlParameter("@telephone", Telephone));
             command.Parameters.Add(new SqlParameter("@email", Email));
             connection.Open();
-            id = (int)command.ExecuteScalar();
+            Id = (int)command.ExecuteScalar();
             command.Dispose();
             connection.Close();
-            return id > 0;
+            return Id > 0;
+        }
+
+        public static List<Personne> GetPersonnes()
+        {
+            List<Personne> personnes = new List<Personne>();
+            connection = DataBase.Connection;
+            request = "SELECT * FROM personne";
+            command = new SqlCommand(request,connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Personne person = new Personne()
+                {
+                    Id = reader.GetInt32(0),
+                    Titre = reader.GetString(1),
+                    Prenom = reader.GetString(2),
+                    Nom = reader.GetString(3),
+                    Telephone = reader.GetString(5),
+                    Email = reader.GetString(4),
+                };
+                personnes.Add(person);
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return personnes;
         }
     }
 }
