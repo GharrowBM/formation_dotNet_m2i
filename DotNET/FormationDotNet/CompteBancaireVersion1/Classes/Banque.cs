@@ -67,16 +67,17 @@ namespace CompteBancaireVersion1.Classes
 
         public Compte RechercherCompte(int id)
         {
-            Compte compte = default(Compte);
-            foreach(Compte c in comptes)
-            {
-                if(c.Id == id)
-                {
-                    compte = c;
-                    break;
-                }
-            }
-            return compte;
+            //Compte compte = default(Compte);
+            //foreach(Compte c in comptes)
+            //{
+            //    if(c.Id == id)
+            //    {
+            //        compte = c;
+            //        break;
+            //    }
+            //}
+            //return compte;
+            return Compte.GetCompte(id);
         }
     }
 }

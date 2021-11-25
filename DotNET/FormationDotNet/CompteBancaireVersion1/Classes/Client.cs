@@ -73,7 +73,24 @@ namespace CompteBancaireVersion1.Classes
 
         public static Client GetClient(int id)
         {
-            return null;
+            Client client = default(Client);
+            request = "SELECT nom, prenom, telephone from client where id=@id";
+            connection = DataBase.Connection;
+            command = new SqlCommand (request, connection);
+            command.Parameters.Add(new SqlParameter("@id", id));
+            connection.Open();
+            reader = command.ExecuteReader();
+            if(reader.Read())
+            {
+                client = new Client(reader.GetString(0), reader.GetString(1), reader.GetString(2))
+                {
+                    Id = id
+                };
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return client;
         }
     }
 }

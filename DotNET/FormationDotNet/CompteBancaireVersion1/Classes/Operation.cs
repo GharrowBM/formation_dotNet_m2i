@@ -17,7 +17,7 @@ namespace CompteBancaireVersion1.Classes
         private static SqlCommand command;
         private static SqlDataReader reader;
         public decimal Montant { get => montant;  }
-        public DateTime DateEtheureOperation { get => dateEtheureOperation; }
+        public DateTime DateEtheureOperation { get => dateEtheureOperation; set => dateEtheureOperation = value; }
         public int Id { get => id; set => id = value; }
 
         public Operation(decimal montant)
@@ -49,7 +49,24 @@ namespace CompteBancaireVersion1.Classes
 
         public static List<Operation> GetOperations(int compteId)
         {
-            return null;
+            List<Operation> operations = new List<Operation>();
+            request = "SELECT id, montant, date_operation from operation where " +
+                "compte_id = @compteId";
+            connection = DataBase.Connection;
+            command = new SqlCommand(request,connection);
+            command.Parameters.Add(new SqlParameter("@compteId", compteId));
+            connection.Open();
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Operation o = new Operation(reader.GetDecimal(1))
+                {
+                    Id = reader.GetInt32(0),
+                    DateEtheureOperation = reader.GetDateTime(2),
+                };
+                operations.Add(o);
+            }
+            return operations;
         }
     }
 }

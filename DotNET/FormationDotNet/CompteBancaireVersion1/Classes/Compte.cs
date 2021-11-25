@@ -22,7 +22,7 @@ namespace CompteBancaireVersion1.Classes
         public int Id { get => id; set => id = value; }
         public decimal Solde { get => solde; }
         public Client Client { get => client; set => client = value; }
-        public List<Operation> Operations { get => operations; }
+        public List<Operation> Operations { get => operations; set => operations = value; }
 
         public event Action<int, decimal> ADecouvert;
         public Compte()
@@ -30,6 +30,13 @@ namespace CompteBancaireVersion1.Classes
             operations = new List<Operation>();
             solde = 0;
             //id = ++compteur;
+        }
+
+        public Compte(decimal solde)
+        {
+            this.solde = solde;
+            operations = new List<Operation>();
+
         }
 
         public virtual bool Depot(Operation operation)
@@ -97,7 +104,31 @@ namespace CompteBancaireVersion1.Classes
 
         public static Compte GetCompte(int id)
         {
-            return null;
+            Compte compte = default(Compte);
+            int clientId=0;
+            request = "SELECT solde, client_id from compte where id=@id";
+            connection= DataBase.Connection;
+            command= new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@id", id));
+            connection.Open();
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                compte = new Compte(reader.GetDecimal(0))
+                {
+                    Id = id
+                };
+                clientId = reader.GetInt32(1);
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            if(compte != default(Compte))
+            {
+                compte.Client = Client.GetClient(clientId);
+                compte.Operations = Operation.GetOperations(compte.id);
+            }
+            return compte;
         }
     }
 }
