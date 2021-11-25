@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,13 @@ namespace CompteBancaireVersion1.Classes
         private decimal solde;
         private Client client;
         private List<Operation> operations;
-        private static int compteur = 0;
-        public int Id { get => id; }
+       // private static int compteur = 0;
+
+        private static string request;
+        private static SqlConnection connection;
+        private static SqlCommand command;
+        private static SqlDataReader reader;
+        public int Id { get => id; set => id = value; }
         public decimal Solde { get => solde; }
         public Client Client { get => client; set => client = value; }
         public List<Operation> Operations { get => operations; }
@@ -23,37 +29,75 @@ namespace CompteBancaireVersion1.Classes
         {
             operations = new List<Operation>();
             solde = 0;
-            id = ++compteur;
+            //id = ++compteur;
         }
 
         public virtual bool Depot(Operation operation)
         {
             if(operation.Montant >= 0)
             {
-                operations.Add(operation);
-                solde += operation.Montant;
-                return true;
+                //operations.Add(operation);
+                if(operation.Save(Id))
+                {
+                    solde += operation.Montant;
+
+                    return Update();
+                }
+                return false;
             }
             return false;
         }
 
         public virtual bool Retrait(Operation operation)
         {
-            operations.Add(operation);
-            solde += operation.Montant;
-            if (solde < 0)
+            //operations.Add(operation);
+            if(operation.Save(Id))
             {
-                if (ADecouvert != null)
-                    ADecouvert(id, Solde);
-            }    
-            return true;
+                solde += operation.Montant;
+                if (solde < 0)
+                {
+                    if (ADecouvert != null)
+                        ADecouvert(id, Solde);
+                }
+                return Update();
+            }
+            return false;
             
 
         }
 
         public bool Save()
         {
-            return false;
+            request = "INSERT INTO compte (solde, client_id) " +
+                "OUTPUT INSERTED.ID values (@solde, @client_id)";
+            connection = DataBase.Connection;
+            command = new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@solde", Solde));
+            command.Parameters.Add(new SqlParameter("@client_id", Client.Id));
+            connection.Open();
+            Id = (int)command.ExecuteScalar();
+            command.Dispose();
+            connection.Close();
+            return Id > 0;
+        }
+
+        public bool Update()
+        {
+            request = "UPDATE compte set solde=@solde where id=@id";
+            connection = DataBase.Connection;
+            command = new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@solde", Solde));
+            command.Parameters.Add(new SqlParameter("@id", Id));
+            connection.Open();
+            int nbRow = command.ExecuteNonQuery();
+            command.Dispose();
+            connection.Close();
+            return nbRow == 1;
+        }
+
+        public static Compte GetCompte(int id)
+        {
+            return null;
         }
     }
 }

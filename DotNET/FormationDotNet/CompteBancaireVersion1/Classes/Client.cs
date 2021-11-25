@@ -70,5 +70,10 @@ namespace CompteBancaireVersion1.Classes
             connection.Close ();
             return exist;
         }
+
+        public static Client GetClient(int id)
+        {
+            return null;
+        }
     }
 }
