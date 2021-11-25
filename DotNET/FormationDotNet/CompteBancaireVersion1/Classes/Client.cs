@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,18 @@ namespace CompteBancaireVersion1.Classes
 {
     internal class Client
     {
+        private int id;
         private string nom;
         private string prenom;
         private string telephone;
-
+        private static string request;
+        private static SqlConnection connection;
+        private static SqlCommand command;
+        private static SqlDataReader reader;
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
         public string Telephone { get => telephone; set => telephone = value; }
+        public int Id { get => id; set => id = value; }
 
         public Client(string nom, string prenom, string telephone)
         {
@@ -26,6 +32,43 @@ namespace CompteBancaireVersion1.Classes
         public override string ToString()
         {
             return $"Client : {Nom} {Prenom}, Tel : {Telephone}";
+        }
+
+
+        public bool Save()
+        {
+            request = "INSERT INTO client (nom, prenom, telephone) " +
+                "OUTPUT INSERTED.ID values " +
+                "(@nom, @prenom, @telephone)";
+            connection = DataBase.Connection;
+            command = new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@nom", Nom));
+            command.Parameters.Add(new SqlParameter("@prenom", Prenom));
+            command.Parameters.Add(new SqlParameter("@telephone", Telephone));
+            connection.Open();
+            Id = (int)command.ExecuteScalar();
+            command.Dispose();
+            connection.Close();
+            return Id > 0;
+        }
+
+        public static bool ClientExist(string telephone)
+        {
+            bool exist = false;
+            request = "SELECT count(*) from client where telephone=@telephone";
+            connection= DataBase.Connection;
+            command= new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@telephone", telephone));
+            connection.Open();
+            reader = command.ExecuteReader();
+            if(reader.Read())
+            {
+                exist = reader.GetInt32(0) > 0;
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close ();
+            return exist;
         }
     }
 }

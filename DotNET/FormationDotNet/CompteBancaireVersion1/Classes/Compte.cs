@@ -50,5 +50,10 @@ namespace CompteBancaireVersion1.Classes
             
 
         }
+
+        public bool Save()
+        {
+            return false;
+        }
     }
 }

@@ -17,18 +17,25 @@ namespace CompteBancaireVersion1.Classes
 
         public Client CreerClient(string nom, string prenom, string telephone)
         {
-            bool exist = false;
-            foreach(Compte compte in comptes)
+            //On verifie dans la base de données
+            //bool exist = false;
+            //foreach(Compte compte in comptes)
+            //{
+            //    if(compte.Client.Telephone == telephone)
+            //    {
+            //        exist = true;
+            //        break;
+            //    }
+            //}
+            if (!Client.ClientExist(telephone))
             {
-                if(compte.Client.Telephone == telephone)
+                Client client = new Client(nom, prenom, telephone);
+                if(client.Save())
                 {
-                    exist = true;
-                    break;
+                    return client;
                 }
-            }
-            if (!exist)
-            {
-                return new Client(nom, prenom, telephone); 
+                return default(Client);
+                
             }
             return default(Client);
         }
@@ -49,8 +56,12 @@ namespace CompteBancaireVersion1.Classes
                 compte = new Compte();
             }
             compte.Client = client;
-            compte.Depot(new Operation(soldeInitial));
-            comptes.Add(compte);
+            //enregister le compte dans la base
+            if(compte.Save())
+            {
+                compte.Depot(new Operation(soldeInitial));
+            }
+            //comptes.Add(compte);
             return compte;
         } 
 
