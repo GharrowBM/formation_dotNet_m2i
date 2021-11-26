@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CaisseEnregistreuse.DAO;
+using CaisseEnregistreuse.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace CaisseEnregistreuse.Classes
@@ -18,13 +20,28 @@ namespace CaisseEnregistreuse.Classes
 
         public bool AjouterProduit(Produit produit)
         {
-            produits.Add(produit);
-            return true;
+            //produits.Add(produit);
+            ProduitDAO produitDAO = new ProduitDAO();
+            return produitDAO.Save(produit);
         }
-        public bool AjouterVente(Vente vente)
+        public bool AjouterVente(Vente vente, IPaiement paiement)
         {
-            Ventes.Add(vente);
-            return true;
+            //Ventes.Add(vente);
+            VenteDAO venteDAO = new VenteDAO();
+            if(venteDAO.Save(vente, paiement))
+            {
+                if(venteDAO.SaveVenteProduit(vente))
+                {
+                    ProduitDAO produitDAO = new ProduitDAO();
+                    vente.Produits.ForEach(p =>
+                    {
+                        p.Stock--;
+                        produitDAO.Update(p);
+                    });
+                    return true;
+                }
+            }
+            return false;
         }
         public Produit RechercherProduit(int id)
         {
@@ -39,7 +56,8 @@ namespace CaisseEnregistreuse.Classes
             //}
 
             //return produit;
-            return Produits.Find(x => x.Id == id);
+           // ProduitDAO produitDAO = new ProduitDAO();
+            return new ProduitDAO().GetProduit(id);
         }
     }
 }

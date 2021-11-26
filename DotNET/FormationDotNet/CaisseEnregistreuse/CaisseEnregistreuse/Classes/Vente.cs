@@ -6,14 +6,14 @@ namespace CaisseEnregistreuse.Classes
 {
     public class Vente
     {
-        private static int compteur = 0; 
+        //private static int compteur = 0; 
         private int id;
         private string etat;
         private List<Produit> produits;
 
         public Vente()
         {
-            id = ++compteur;
+            //id = ++compteur;
             produits = new List<Produit>();
             etat = "En cours";
         }
@@ -33,6 +33,8 @@ namespace CaisseEnregistreuse.Classes
                 return total;
             }
         }
+
+        public int Id { get => id; set => id = value; }
 
         public bool Valider(IPaiement paiement)
         {

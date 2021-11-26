@@ -7,7 +7,7 @@ namespace CaisseEnregistreuse.Classes
         private string titre;
         private decimal prix;
         private int stock;
-        private static int compteur = 0;
+        //private static int compteur = 0;
 
         //public Produit()
         //{
@@ -15,13 +15,13 @@ namespace CaisseEnregistreuse.Classes
         //}
         public Produit(string titre, decimal prix, int stock)
         {
-            id = ++compteur;
+            //id = ++compteur;
             Titre = titre;
             Prix = prix;
             Stock = stock;
         }
 
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
         public string Titre
         {
             get => titre;

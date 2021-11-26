@@ -136,7 +136,7 @@ namespace CaisseEnregistreuse.Classes
             if(paiement.Payer(vente.Total))
             {
                 vente.Etat = "payé";
-                caisse.AjouterVente(vente);
+                caisse.AjouterVente(vente, paiement);
                 ActionAfficherProduitVente();
                 Console.WriteLine($"======Total : {vente.Total} euros=====");
             }
