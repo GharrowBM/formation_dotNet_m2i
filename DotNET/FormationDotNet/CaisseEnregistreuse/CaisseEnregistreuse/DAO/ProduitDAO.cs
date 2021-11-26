@@ -26,17 +26,18 @@ namespace CaisseEnregistreuse.DAO
             return produit.Id > 0;
         }
 
-        public bool Update(Produit produit)
+        public bool Update(Produit produit, SqlConnection connection, SqlTransaction transaction)
         {
-            connection = Connection;
+            //connection = Connection;
             request = "UPDATE produit set stock=@stock where id=@id";
             command = new SqlCommand(request, connection);
+            command.Transaction = transaction;
             command.Parameters.Add(new SqlParameter("@stock", produit.Stock));
             command.Parameters.Add(new SqlParameter("@id", produit.Id));
-            connection.Open();
+            //connection.Open();
             int nbRow = command.ExecuteNonQuery();
             command.Dispose();
-            connection.Close();
+            //connection.Close();
             return nbRow == 1;
         }
 

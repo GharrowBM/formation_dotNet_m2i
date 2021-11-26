@@ -11,32 +11,34 @@ namespace CaisseEnregistreuse.DAO
 {
     internal class VenteDAO : BaseDAO
     {
-        public bool Save(Vente vente,  IPaiement paiement)
+        public bool Save(Vente vente,  IPaiement paiement, SqlConnection connection, SqlTransaction transaction)
         {
-            connection = Connection;
+            //connection = Connection;
             request = "INSERT INTO vente (total, etat, type_paiement) " +
                 "OUTPUT INSERTED.ID values (@total, @etat, @type_paiement)";
             command = new SqlCommand(request, connection);
+            command.Transaction = transaction;
             command.Parameters.Add(new SqlParameter("@total", vente.Total));
             command.Parameters.Add(new SqlParameter("@etat", vente.Etat));
             command.Parameters.Add(new SqlParameter("@type_paiement", paiement.ToString()));
-            connection.Open();
+            //connection.Open();
             vente.Id = (int)command.ExecuteScalar();
             command.Dispose();
-            connection.Close();
+            //connection.Close();
             return vente.Id > 0;
         }
 
-        public bool SaveVenteProduit(Vente vente)
+        public bool SaveVenteProduit(Vente vente, SqlConnection connection, SqlTransaction transaction)
         {
             bool result = true;
-            connection = Connection;
-            connection.Open();
+            //connection = Connection;
+            //connection.Open();
             foreach(Produit p in vente.Produits)
             {
                 request = "INSERT INTO vente_produit (produit_id, vente_id) " +
                 "values (@produit_id, @vente_id)";
                 command = new SqlCommand(request, connection);
+                command.Transaction= transaction;
                 command.Parameters.Add(new SqlParameter("@produit_id", p.Id));
                 command.Parameters.Add(new SqlParameter("@vente_id", vente.Id));
                 int nbRow = command.ExecuteNonQuery();
@@ -47,7 +49,7 @@ namespace CaisseEnregistreuse.DAO
                     break;
                 }
             }
-            connection.Close();
+            //connection.Close();
             return result;
         }
     }

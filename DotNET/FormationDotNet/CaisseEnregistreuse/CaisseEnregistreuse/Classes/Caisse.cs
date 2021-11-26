@@ -1,5 +1,6 @@
 ﻿using CaisseEnregistreuse.DAO;
 using CaisseEnregistreuse.Interfaces;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 
@@ -26,22 +27,51 @@ namespace CaisseEnregistreuse.Classes
         }
         public bool AjouterVente(Vente vente, IPaiement paiement)
         {
+            bool result = true;
             //Ventes.Add(vente);
-            VenteDAO venteDAO = new VenteDAO();
-            if(venteDAO.Save(vente, paiement))
+            SqlConnection connection = BaseDAO.Connection;
+            SqlTransaction transaction = null;
+            try
             {
-                if(venteDAO.SaveVenteProduit(vente))
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                VenteDAO venteDAO = new VenteDAO();
+                venteDAO.Save(vente, paiement, connection, transaction);
+                venteDAO.SaveVenteProduit(vente, connection, transaction);
+                ProduitDAO produitDAO = new ProduitDAO();
+                vente.Produits.ForEach(p =>
                 {
-                    ProduitDAO produitDAO = new ProduitDAO();
-                    vente.Produits.ForEach(p =>
-                    {
-                        p.Stock--;
-                        produitDAO.Update(p);
-                    });
-                    return true;
-                }
+                    p.Stock--;
+                    produitDAO.Update(p, connection, transaction);
+                });
+
+                transaction.Commit();
             }
-            return false;
+            catch (Exception e) {
+                transaction.Rollback();
+                result = false;
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+            //if (venteDAO.Save(vente, paiement))
+            //{
+            //    if (venteDAO.SaveVenteProduit(vente))
+            //    {
+            //        ProduitDAO produitDAO = new ProduitDAO();
+            //        vente.Produits.ForEach(p =>
+            //        {
+            //            p.Stock--;
+            //            produitDAO.Update(p);
+            //        });
+            //        return true;
+            //    }
+            //}
+            return result;
         }
         public Produit RechercherProduit(int id)
         {
