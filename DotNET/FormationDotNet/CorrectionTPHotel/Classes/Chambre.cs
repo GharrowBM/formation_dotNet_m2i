@@ -41,6 +41,10 @@ namespace CorrectionTPHotel.Classes
                 Statut = ChambreStatut.Libre;
             }
         }
+        public override string ToString()
+        {
+            return $"Numéro : {Id}, Statut : {Statut}, Prix : {Prix}";
+        }
     }
 
     public enum ChambreStatut

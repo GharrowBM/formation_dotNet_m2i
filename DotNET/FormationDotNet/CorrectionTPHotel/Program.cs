@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CorrectionTPHotel.Classes;
+using System;
 
 namespace CorrectionTPHotel
 {
@@ -6,7 +7,7 @@ namespace CorrectionTPHotel
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new IHM().Demarrer();
         }
     }
 }
