@@ -51,5 +51,16 @@ namespace CorrectionTPHotel.DAO
             command.ExecuteNonQuery();
             command.Dispose();
         }
+
+        public Reservation Get(int id)
+        {
+            Reservation reservation = default(Reservation);
+            return reservation;
+        }
+
+        public bool Update(Reservation reservation)
+        {
+            return false;
+        }
     }
 }
