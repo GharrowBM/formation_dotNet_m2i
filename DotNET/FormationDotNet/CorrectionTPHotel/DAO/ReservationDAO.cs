@@ -63,9 +63,9 @@ namespace CorrectionTPHotel.DAO
         public Reservation Get(int id, SqlConnection _connection = null)
         {
             Reservation reservation = default(Reservation);
-            request = "SELECT statut, client_id form reservation where id=@id";
+            request = "SELECT statut, client_id from reservation where id=@id";
             connection = _connection == null ? Connection : _connection;
-            command = new SqlCommand(request, _connection);
+            command = new SqlCommand(request, connection);
             command.Parameters.Add(new SqlParameter("@id", id));
             int clientId = 0;
             if (_connection == null)
@@ -97,7 +97,7 @@ namespace CorrectionTPHotel.DAO
 
         public bool Update(Reservation reservation, SqlConnection _connection = null, SqlTransaction _transaction = null)
         {
-            request = "UPDATE reservation set statut = @statut" +
+            request = "UPDATE reservation set statut = @statut " +
                 "where id=@id";
             connection = (_connection == null) ? Connection : _connection;
             command = new SqlCommand(request, connection);

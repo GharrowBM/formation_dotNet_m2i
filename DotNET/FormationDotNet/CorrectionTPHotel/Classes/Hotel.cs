@@ -77,5 +77,11 @@ namespace CorrectionTPHotel.Classes
             return reservationDAO.Save(reservation);
         }
 
+        public bool AnnulerReservation(Reservation reservation)
+        {
+            ReservationDAO reservationDAO=new ReservationDAO();
+            return reservationDAO.Update(reservation);
+        }
+
     }
 }

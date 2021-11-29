@@ -25,6 +25,7 @@ namespace CorrectionTPHotel.Classes
                         ActionAjouterReservation();
                         break;
                     case "2":
+                        ActionAnnulerReservation();
                         break;
                         default:
                         Environment.Exit(0);
@@ -110,9 +111,49 @@ namespace CorrectionTPHotel.Classes
             }
         }
 
-        private void ActionAfficherRervation()
+        private void ActionAnnulerReservation()
         {
+            Reservation reservation = ActionAfficherRervation();
+            if(reservation != default(Reservation))
+            {
+                Console.Write("Merci de confirmer l'annulation : ");
+                string choix = Console.ReadLine();
+                if(choix == "oui")
+                {
+                    reservation.Statut = ReservationStatut.Annulee;
+                    if (hotel.AnnulerReservation(reservation))
+                    {
+                        Console.Write("Reservation annulée");
+                    }
+                    else
+                    {
+                        AfficherErreur("Erreur annulation réservation");
+                    }
+                }
+                Continue();
+            }
+        }
 
+        private Reservation ActionAfficherRervation()
+        {
+            Reservation reservation = default(Reservation);
+            Console.Write("Merci de saisir le numéro de réservation : ");
+            if(Int32.TryParse(Console.ReadLine(),out int n))
+            {
+                reservation = hotel.GetReservation(n);
+                Console.WriteLine(reservation.Client);
+                reservation.ChambreList.ForEach(
+                    chambre =>
+                    {
+                        Console.WriteLine(chambre);
+                    }
+                 );
+            }
+            if(reservation == default(Reservation))
+            {
+                AfficherErreur("Aucune réservation avec ce numéro");
+            }
+            return reservation;
         }
 
         private void ActionAfficherChambres(List<Chambre> chambres)

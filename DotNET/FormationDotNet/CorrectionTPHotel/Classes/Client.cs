@@ -29,5 +29,10 @@ namespace CorrectionTPHotel.Classes
         {
             Id = id;      
         }
+
+        public override string ToString()
+        {
+            return $"Nom : {Nom}, Prénom : {Prenom}, Téléphone : {Telephone}";
+        }
     }
 }
