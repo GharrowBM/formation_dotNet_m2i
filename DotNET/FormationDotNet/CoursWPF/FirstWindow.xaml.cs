@@ -22,6 +22,29 @@ namespace CoursWPF
         public FirstWindow()
         {
             InitializeComponent();
+            Grid grid = new Grid();
+           
+            for(int i = 1; i <= 3; i++)
+            {
+                grid.RowDefinitions.Add(new RowDefinition() { Height =new GridLength(i, GridUnitType.Star)});
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(i, GridUnitType.Star)}); 
+            }
+            for(int i = 0;i < 3;i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    Button button = new Button()
+                    {
+                        Content = $"{i} X {j}",
+                        Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#cd2127")),
+                    };
+                    grid.Children.Add(button);
+                    Grid.SetColumn(button, j);
+                    Grid.SetRow(button, i);
+                }
+            }
+           
+            Content = grid;
         }
     }
 }
