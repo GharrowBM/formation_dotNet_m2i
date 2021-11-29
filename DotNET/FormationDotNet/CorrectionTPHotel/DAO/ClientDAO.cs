@@ -14,7 +14,7 @@ namespace CorrectionTPHotel.DAO
         public Client Save(Client client, SqlConnection _connection = null, SqlTransaction _transaction = null)
         {
             request = "INSERT INTO client (nom, prenom, telephone) " +
-                " OUPTUT INSERTED.ID values (@nom, @prenom, @telephone)";
+                " OUTPUT INSERTED.ID values (@nom, @prenom, @telephone)";
             connection = (_connection == null) ? Connection : _connection;
             command = new SqlCommand(request, connection);
             if(_transaction != null)
