@@ -26,15 +26,23 @@ namespace CorrectionTPHotel.DAO
                 command.Parameters.Add(new SqlParameter("@statut", reservation.Statut));
                 reservation.Id = (int)command.ExecuteScalar();
                 command.Dispose();
-                reservation.ChambreList.ForEach(chambre => SaveReservationChambre(reservation.Id, chambre.Id, connection, _transaction));                            
+                ChambreDAO chambreDAO = new ChambreDAO();
+                reservation.ChambreList.ForEach(chambre =>
+                 {
+                     chambre.Statut = ChambreStatut.Occupe;
+                     chambreDAO.Update(chambre, connection, _transaction);
+                     SaveReservationChambre(reservation.Id, chambre.Id, connection, _transaction);
+                 }
+                 );
                 _transaction.Commit();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _transaction.Rollback();
-            }finally
+            }
+            finally
             {
-                connection.Close();          
+                connection.Close();
             }
             return reservation;
         }
@@ -60,12 +68,12 @@ namespace CorrectionTPHotel.DAO
             command = new SqlCommand(request, _connection);
             command.Parameters.Add(new SqlParameter("@id", id));
             int clientId = 0;
-            if(_connection == null)
+            if (_connection == null)
             {
                 connection.Open();
             }
             reader = command.ExecuteReader();
-            if(reader.Read())
+            if (reader.Read())
             {
                 reservation = new Reservation();
                 reservation.Id = id;
@@ -74,13 +82,13 @@ namespace CorrectionTPHotel.DAO
             }
             reader.Close();
             command.Dispose();
-            if(clientId != 0)
+            if (clientId != 0)
             {
 
                 reservation.Client = new ClientDAO().GetClientById(clientId, connection);
                 reservation.ChambreList = new ChambreDAO().GetByReservationId(reservation.Id, connection);
             }
-            if(_connection == null)
+            if (_connection == null)
             {
                 connection.Close();
             }
@@ -104,6 +112,15 @@ namespace CorrectionTPHotel.DAO
                 connection.Open();
             }
             int nbRow = command.ExecuteNonQuery();
+            ChambreDAO chambreDAO = new ChambreDAO();
+            reservation.ChambreList.ForEach(chambre =>
+            {
+                chambre.Statut = (reservation.Statut == ReservationStatut.Annulee) ? ChambreStatut.Libre : ChambreStatut.Occupe;
+                chambreDAO.Update(chambre, connection, _transaction);    
+            }
+             );
+
+
             if (_connection == null)
             {
                 connection.Close();
