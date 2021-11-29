@@ -1,4 +1,5 @@
-﻿CREATE TABLE client (
+﻿
+CREATE TABLE client (
 id int PRIMARY KEY IDENTITY(1,1) NOT NULL,
 nom varchar(100) NOT NULL,
 prenom varchar(100) NOT NULL,
