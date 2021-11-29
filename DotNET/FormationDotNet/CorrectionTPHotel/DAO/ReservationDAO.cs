@@ -87,9 +87,29 @@ namespace CorrectionTPHotel.DAO
             return reservation;
         }
 
-        public bool Update(Reservation reservation)
+        public bool Update(Reservation reservation, SqlConnection _connection = null, SqlTransaction _transaction = null)
         {
-            return false;
+            request = "UPDATE reservation set statut = @statut" +
+                "where id=@id";
+            connection = (_connection == null) ? Connection : _connection;
+            command = new SqlCommand(request, connection);
+            if (_transaction != null)
+            {
+                command.Transaction = _transaction;
+            }
+            command.Parameters.Add(new SqlParameter("@statut", reservation.Statut));
+            command.Parameters.Add(new SqlParameter("@id", reservation.Id));
+            if (_connection == null)
+            {
+                connection.Open();
+            }
+            int nbRow = command.ExecuteNonQuery();
+            if (_connection == null)
+            {
+                connection.Close();
+            }
+            command.Dispose();
+            return nbRow == 1;
         }
     }
 }
