@@ -52,9 +52,38 @@ namespace CorrectionTPHotel.DAO
             command.Dispose();
         }
 
-        public Reservation Get(int id)
+        public Reservation Get(int id, SqlConnection _connection = null)
         {
             Reservation reservation = default(Reservation);
+            request = "SELECT statut, client_id form reservation where id=@id";
+            connection = _connection == null ? Connection : _connection;
+            command = new SqlCommand(request, _connection);
+            command.Parameters.Add(new SqlParameter("@id", id));
+            int clientId = 0;
+            if(_connection == null)
+            {
+                connection.Open();
+            }
+            reader = command.ExecuteReader();
+            if(reader.Read())
+            {
+                reservation = new Reservation();
+                reservation.Id = id;
+                reservation.Statut = (ReservationStatut)reader.GetInt32(0);
+                clientId = reader.GetInt32(1);
+            }
+            reader.Close();
+            command.Dispose();
+            if(clientId != 0)
+            {
+
+                reservation.Client = new ClientDAO().GetClientById(clientId, connection);
+                reservation.ChambreList = new ChambreDAO().GetByReservationId(reservation.Id, connection);
+            }
+            if(_connection == null)
+            {
+                connection.Close();
+            }
             return reservation;
         }
 
