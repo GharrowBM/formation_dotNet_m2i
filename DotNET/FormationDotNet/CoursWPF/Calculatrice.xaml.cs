@@ -21,6 +21,9 @@ namespace CoursWPF
     {
         private Label label;
         private string[] valTab = { "AC", "+/-", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
+        bool isFirstNumber = true;
+        bool isFirstOperation = true;
+        string lastOperation = "";
         public Calculatrice()
         {
             InitializeComponent();
@@ -111,11 +114,35 @@ namespace CoursWPF
 
         public void ClickButtonCalculatrice(object sender, RoutedEventArgs eventArgs)
         {
-            if(sender is Button b)
+           
+           
+            if (sender is Button b)
             {
                 string contentButton = b.Content.ToString();
                 string oldContent = label.Content.ToString();
-                label.Content = oldContent+contentButton;
+                if (Int32.TryParse(contentButton, out int nombre))
+                {
+                    if(isFirstNumber)
+                    {
+                        label.Content = nombre.ToString();
+                        isFirstNumber = false;
+                    }else
+                    {
+                        label.Content = oldContent + nombre;
+                    }
+                }
+                else
+                {
+                    switch(contentButton)
+                    {
+                        case "AC":
+                            label.Content = 0;
+                            isFirstNumber = true;
+                            isFirstOperation = true;
+                            lastOperation = "";
+                            break;
+                    }
+                }
 
             }
         }
