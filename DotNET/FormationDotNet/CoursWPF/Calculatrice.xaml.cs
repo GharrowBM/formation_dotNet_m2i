@@ -21,8 +21,9 @@ namespace CoursWPF
     {
         private Label label;
         private string[] valTab = { "AC", "+/-", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
-        bool isFirstNumber = true;
+        bool newNumber = true;
         bool isFirstOperation = true;
+        decimal firstNumber;
         string lastOperation = "";
         public Calculatrice()
         {
@@ -113,33 +114,237 @@ namespace CoursWPF
         }
 
         public void ClickButtonCalculatrice(object sender, RoutedEventArgs eventArgs)
-        {
-           
-           
+        {          
             if (sender is Button b)
             {
                 string contentButton = b.Content.ToString();
                 string oldContent = label.Content.ToString();
-                if (Int32.TryParse(contentButton, out int nombre))
+                if (Int32.TryParse(contentButton, out int nombre) || (contentButton == "," && !oldContent.Contains(",")))
                 {
-                    if(isFirstNumber)
+                    if(newNumber)
                     {
-                        label.Content = nombre.ToString();
-                        isFirstNumber = false;
+                        label.Content = (contentButton == ",") ? "0," : nombre.ToString();
+                        newNumber = false;
                     }else
                     {
-                        label.Content = oldContent + nombre;
+                        label.Content = oldContent + contentButton;
                     }
                 }
                 else
                 {
-                    switch(contentButton)
+                    newNumber = true;
+                    decimal currentNumber;
+                    switch (contentButton)
                     {
                         case "AC":
                             label.Content = 0;
-                            isFirstNumber = true;
+                            
                             isFirstOperation = true;
                             lastOperation = "";
+                            break;
+                        case "+":
+                            if(isFirstOperation)
+                            {
+                                isFirstOperation = false;   
+                                decimal.TryParse(label.Content.ToString(),out firstNumber);
+                            }
+                            else
+                            {
+                                switch(lastOperation)
+                                {
+                                    case "+":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = currentNumber + firstNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "-":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber - currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "*":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber * currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "/":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber / currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                }
+                            }
+                            lastOperation = "+";
+                            break;
+                        case "-":
+                            if (isFirstOperation)
+                            {
+                                isFirstOperation = false;
+                                decimal.TryParse(label.Content.ToString(), out firstNumber);
+                            }
+                            else
+                            {
+                                switch (lastOperation)
+                                {
+                                    case "+":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = currentNumber + firstNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "-":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber - currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "*":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber * currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "/":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber / currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                }
+                            }
+                            lastOperation = "-";
+                            break;
+                        case "*":
+                            if (isFirstOperation)
+                            {
+                                isFirstOperation = false;
+                                decimal.TryParse(label.Content.ToString(), out firstNumber);
+                            }
+                            else
+                            {
+                                switch (lastOperation)
+                                {
+                                    case "+":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = currentNumber + firstNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "-":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber - currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "*":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber *currentNumber ;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "/":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber /  currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                }
+                            }
+                            lastOperation = "*";
+                            break;
+                        case "/":
+                            if (isFirstOperation)
+                            {
+                                isFirstOperation = false;
+                                decimal.TryParse(label.Content.ToString(), out firstNumber);
+                            }
+                            else
+                            {
+                                switch (lastOperation)
+                                {
+                                    case "+":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = currentNumber + firstNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "-":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber - currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "*":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber * currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                    case "/":
+                                        if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                        {
+                                            firstNumber = firstNumber / currentNumber;
+                                            label.Content = firstNumber;
+                                        }
+                                        break;
+                                }
+                            }
+                            lastOperation = "/";
+                            break;
+                        case "=":
+                            switch (lastOperation)
+                            {
+                                case "+":
+                                    if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                    {
+                                        firstNumber = currentNumber + firstNumber;
+                                        label.Content = firstNumber;
+                                    }
+                                    break;
+                                case "-":
+                                    if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                    {
+                                        firstNumber = firstNumber - currentNumber;
+                                        label.Content = firstNumber;
+                                    }
+                                    break;
+                                case "*":
+                                    if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                    {
+                                        firstNumber = firstNumber * currentNumber;
+                                        label.Content = firstNumber;
+                                    }
+                                    break;
+                                case "/":
+                                    if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                                    {
+                                        firstNumber = firstNumber / currentNumber;
+                                        label.Content = firstNumber;
+                                    }
+                                    break;
+                            }
+                            lastOperation = "";
+                            isFirstOperation = true;
+                            newNumber = true;
                             break;
                     }
                 }
