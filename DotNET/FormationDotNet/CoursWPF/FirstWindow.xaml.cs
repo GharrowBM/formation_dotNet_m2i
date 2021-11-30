@@ -50,17 +50,21 @@ namespace CoursWPF
 
         public void MethodeClick(object sender, RoutedEventArgs eventArgs)
         {
-            if (eventArgs.RoutedEvent.Name == "Click")
-            {
-                if (sender is Button b)
-                {
-                    MessageBox.Show(b.Content.ToString());
-                }
-            }
-            else if(eventArgs.RoutedEvent.Name == "MouseEnter")
-            {
-                MessageBox.Show("In button");
-            }
+            //if (eventArgs.RoutedEvent.Name == "Click")
+            //{
+            //    if (sender is Button b)
+            //    {
+            //        //MessageBox.Show(b.Content.ToString());
+            //        l1.Content = b.Content.ToString();
+            //    }
+            //}
+
+            Button b = (Button)sender;
+            //MessageBox.Show(b.Content);
+            //else if(eventArgs.RoutedEvent.Name == "MouseEnter")
+            //{
+            //    MessageBox.Show("In button");
+            //}
         }
     }
 }

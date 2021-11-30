@@ -19,6 +19,7 @@ namespace CoursWPF
     /// </summary>
     public partial class Calculatrice : Window
     {
+        private Label label;
         private string[] valTab = { "AC", "+/-", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ",", "=" };
         public Calculatrice()
         {
@@ -83,13 +84,14 @@ namespace CoursWPF
                 {
                     col++;
                 }
+                button.Click += ClickButtonCalculatrice;
                 maGrille.Children.Add(button);
             }
         }
 
         private void CreateLabel()
         {
-            Label label = new Label()
+            label = new Label()
             {
                 Content = "0",
                 FontSize = 60,
@@ -105,6 +107,17 @@ namespace CoursWPF
             Grid.SetColumn(label, 0);
             Grid.SetColumnSpan(label, 4);
             //maGrille.Background = new SolidColorBrush(Colors.Black);
+        }
+
+        public void ClickButtonCalculatrice(object sender, RoutedEventArgs eventArgs)
+        {
+            if(sender is Button b)
+            {
+                string contentButton = b.Content.ToString();
+                string oldContent = label.Content.ToString();
+                label.Content = oldContent+contentButton;
+
+            }
         }
     }
 }
