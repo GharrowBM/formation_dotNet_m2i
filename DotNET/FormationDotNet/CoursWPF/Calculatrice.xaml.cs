@@ -346,6 +346,21 @@ namespace CoursWPF
                             isFirstOperation = true;
                             newNumber = true;
                             break;
+                        case "+/-":
+                            newNumber = false;
+                            if(Decimal.TryParse(label.Content.ToString(),out currentNumber))
+                            {
+                                label.Content = currentNumber*-1;
+                            }
+                            break;
+                        case "%":
+                            newNumber = false;
+                            if (Decimal.TryParse(label.Content.ToString(), out currentNumber))
+                            {
+                                label.Content = currentNumber / 100;
+                            }
+                            break;
+                            break;
                     }
                 }
 
