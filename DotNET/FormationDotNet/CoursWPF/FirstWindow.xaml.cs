@@ -44,15 +44,22 @@ namespace CoursWPF
             //        Grid.SetRow(button, i);
             //    }
             //}
-           //Content = maGrille;
-           
+            //Content = maGrille;
+
         }
 
-        public void MethodeClick(object sender, EventArgs eventArgs)
+        public void MethodeClick(object sender, RoutedEventArgs eventArgs)
         {
-            if(sender is Button b)
+            if (eventArgs.RoutedEvent.Name == "Click")
             {
-                MessageBox.Show(b.Content.ToString());
+                if (sender is Button b)
+                {
+                    MessageBox.Show(b.Content.ToString());
+                }
+            }
+            else if(eventArgs.RoutedEvent.Name == "MouseEnter")
+            {
+                MessageBox.Show("In button");
             }
         }
     }
