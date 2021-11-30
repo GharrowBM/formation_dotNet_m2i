@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonneAdresse.Classes
 {
-    internal class DataBase
+    public class DataBase
     {
         private static string connectionString = @"Data Source=(LocalDb)\coursDotNet;Integrated Security=True";
         public static SqlConnection Connection

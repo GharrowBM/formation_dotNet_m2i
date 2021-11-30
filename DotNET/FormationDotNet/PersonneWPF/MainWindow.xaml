@@ -1,0 +1,24 @@
+﻿<Window x:Class="PersonneWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonneWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Titre : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="titre" HorizontalAlignment="Left" Margin="58,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nom : " HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nom" HorizontalAlignment="Left" Margin="58,37,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Prénom : " HorizontalAlignment="Left" Margin="1,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="prenom" HorizontalAlignment="Left" Margin="58,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tel : " HorizontalAlignment="Left" Margin="1,87,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="telephone" HorizontalAlignment="Left" Margin="58,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Email : " HorizontalAlignment="Left" Margin="1,117,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="email" HorizontalAlignment="Left" Margin="58,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Click="AjouterPersonne" Content="Ajouter" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="168"/>
+        <ListBox x:Name="listBoxPersonne" Margin="10,184,601,10" />
+
+    </Grid>
+</Window>

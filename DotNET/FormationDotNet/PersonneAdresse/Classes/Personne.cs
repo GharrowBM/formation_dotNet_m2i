@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonneAdresse.Classes
 {
-    internal class Personne
+    public class Personne
     {
         private int id;
         private string nom;
@@ -71,6 +71,10 @@ namespace PersonneAdresse.Classes
             command.Dispose();
             connection.Close();
             return personnes;
+        }
+        public override string ToString()
+        {
+            return $"Titre {Titre}, Nom {Nom}, Prénom:{Prenom}, Email : {Email}, Telephone : {Telephone}";
         }
     }
 }
