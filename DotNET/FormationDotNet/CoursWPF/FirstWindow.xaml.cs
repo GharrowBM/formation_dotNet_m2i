@@ -23,28 +23,37 @@ namespace CoursWPF
         {
             InitializeComponent();
             //Grid grid = new Grid();
-           
-            for(int i = 1; i <= 3; i++)
-            {
-                maGrille.RowDefinitions.Add(new RowDefinition() { Height =new GridLength(i, GridUnitType.Star)});
-                maGrille.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(i, GridUnitType.Star)}); 
-            }
-            for(int i = 0;i < 3;i++)
-            {
-                for(int j = 0; j < 3; j++)
-                {
-                    Button button = new Button()
-                    {
-                        Content = $"{i} X {j}",
-                        Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#cd2127")),
-                    };
-                    maGrille.Children.Add(button);
-                    Grid.SetColumn(button, j);
-                    Grid.SetRow(button, i);
-                }
-            }
+            l1.Content = "Bonjour tout le monde";
+            b3.Click += MethodeClick;
+            //for(int i = 1; i <= 3; i++)
+            //{
+            //    maGrille.RowDefinitions.Add(new RowDefinition() { Height =new GridLength(i, GridUnitType.Star)});
+            //    maGrille.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(i, GridUnitType.Star)}); 
+            //}
+            //for(int i = 0;i < 3;i++)
+            //{
+            //    for(int j = 0; j < 3; j++)
+            //    {
+            //        Button button = new Button()
+            //        {
+            //            Content = $"{i} X {j}",
+            //            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#cd2127")),
+            //        };
+            //        maGrille.Children.Add(button);
+            //        Grid.SetColumn(button, j);
+            //        Grid.SetRow(button, i);
+            //    }
+            //}
            //Content = maGrille;
            
+        }
+
+        public void MethodeClick(object sender, EventArgs eventArgs)
+        {
+            if(sender is Button b)
+            {
+                MessageBox.Show(b.Content.ToString());
+            }
         }
     }
 }

@@ -6,20 +6,21 @@
         xmlns:local="clr-namespace:CoursWPF"
         mc:Ignorable="d"
         Title="FirstWindow" Height="450" Width="800">
-    <!--<StackPanel>
-        <Button>b1</Button>
-        <Button>b2</Button>
+    <StackPanel>
+        <Label  x:Name="l1" Content="toto"></Label>
+        <Button Click="MethodeClick">b1</Button>
+        <Button Click="MethodeClick" >b2</Button>
         <StackPanel Orientation="Horizontal">
-            <Button>b3</Button>
+            <Button x:Name="b3">b3</Button>
             <Button>b4</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button>b5</Button>
             <Button>b6</Button>
         </StackPanel>
-    </StackPanel>-->
-    <Grid x:Name="maGrille">
-        <!--<Grid.ColumnDefinitions>
+    </StackPanel>
+    <!--<Grid x:Name="maGrille">
+        --><!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -31,6 +32,6 @@
         </Grid.RowDefinitions>
         
         <Button x:Name="b1" Content="b1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Background="#FFEC3333"></Button>
-        <Button x:Name="b2" Grid.RowSpan="2" Content="b2" Grid.Column="0" Grid.Row="0"></Button>-->
-    </Grid>
+        <Button x:Name="b2" Grid.RowSpan="2" Content="b2" Grid.Column="0" Grid.Row="0"></Button>--><!--
+    </Grid>-->
 </Window>
