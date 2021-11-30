@@ -43,7 +43,7 @@ namespace CoursWPF
                     Grid.SetRow(button, i);
                 }
             }
-           
+           //Content = maGrille;
            
         }
     }

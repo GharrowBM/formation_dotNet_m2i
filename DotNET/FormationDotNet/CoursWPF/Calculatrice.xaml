@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:CoursWPF"
         mc:Ignorable="d"
         Title="Calculatrice" Height="450" Width="350">
-    <Grid>
-        <Grid.ColumnDefinitions>
+    <Grid x:Name="maGrille">
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -40,7 +40,7 @@
         <Button Background="Orange" Foreground="White" Grid.Column="3" Grid.Row="2" Content="*"></Button>
         <Button Background="Orange" Foreground="White" Grid.Column="3" Grid.Row="3" Content="-"></Button>
         <Button Background="Orange" Foreground="White" Grid.Column="3" Grid.Row="4" Content="+"></Button>
-        <Button Background="Orange" Foreground="White" Grid.Column="3" Grid.Row="5" Content="="></Button>
+        <Button Background="Orange" Foreground="White" Grid.Column="3" Grid.Row="5" Content="="></Button>-->
 
     </Grid>
 </Window>
