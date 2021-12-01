@@ -28,6 +28,7 @@ namespace CoursWPF
             InitializeComponent();
             voitureList = new ObservableCollection<Voiture>();
             maListeVoiture.ItemsSource = voitureList;
+            listViewVoiture.ItemsSource = voitureList;
         }
 
         public void ValidClick(object sender, RoutedEventArgs eventArgs)
@@ -43,6 +44,14 @@ namespace CoursWPF
             marque.Text = "";
             model.Text = "";
 
+        }
+
+        public void EditClick(object sender, RoutedEventArgs eventArgs)
+        {
+            Voiture v = (Voiture)maListeVoiture.SelectedItem;
+            marque.Text = v.Marque;
+            model.Text = v.Model;
+            MessageBox.Show(v.Model + " "+v.Marque);
         }
     }
 }
