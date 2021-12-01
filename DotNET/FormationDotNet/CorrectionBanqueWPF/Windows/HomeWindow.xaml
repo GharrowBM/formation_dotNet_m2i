@@ -25,5 +25,36 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
+        <GroupBox Header="Recherche compte :">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Numéro de compte : "></Label>
+                    <TextBox x:Name="searchCompte" Width="200" />
+                    <Button Content="Rechercher" Width="250" Click="SearchClick"></Button>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock x:Name="resultClient"></TextBlock>
+                </StackPanel>
+                <GroupBox Header="Operations">
+                    <ListView x:Name="listViewOperations">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Date Opération" Width="350" DisplayMemberBinding="{Binding DateEtheureOperation}">
+                                    
+                                </GridViewColumn>
+                                <GridViewColumn Header="Montant" Width="350" DisplayMemberBinding="{Binding Montant}">
+
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </GroupBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Solde : "></Label>
+                    <TextBlock x:Name="resultSolde"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            
+        </GroupBox>
     </StackPanel>
 </Window>

@@ -21,6 +21,7 @@ namespace CorrectionBanqueWPF.Windows
     public partial class HomeWindow : Window
     {
         Banque banque;
+        Compte compte;
         public HomeWindow()
         {
             InitializeComponent();
@@ -53,6 +54,27 @@ namespace CorrectionBanqueWPF.Windows
             else
             {
                 createResult.Text = "Erreur création client";
+            }
+        }
+
+        private void SearchClick(object sender, RoutedEventArgs eventArgs)
+        {
+            if(int.TryParse(searchCompte.Text, out int numero))
+            {
+                compte = banque.RechercherCompte(numero);
+                if(compte != default(Compte))
+                {
+                    resultClient.Text = compte.Client.ToString();
+                    listViewOperations.ItemsSource = compte.Operations;
+                    resultSolde.Text = compte.Solde.ToString();
+                }
+                else
+                {
+                    resultClient.Text = "";
+                    listViewOperations.ItemsSource = null;
+                    resultSolde.Text = "";
+                    MessageBox.Show("Aucun compte trouvé");
+                }
             }
         }
     }
