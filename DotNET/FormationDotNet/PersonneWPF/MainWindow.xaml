@@ -17,7 +17,7 @@
         <TextBox x:Name="telephone" HorizontalAlignment="Left" Margin="58,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Email : " HorizontalAlignment="Left" Margin="1,117,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="email" HorizontalAlignment="Left" Margin="58,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Click="AjouterPersonne" Content="Ajouter" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="168"/>
+        <Button Click="ValidClick" Content="Valider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="168"/>
         <ListBox SelectionMode="Multiple" x:Name="listBoxPersonne" Margin="10,184,601,10" />
         <ListView x:Name="listViewPersonne"  Margin="199,14,10,255">
             <ListView.View>

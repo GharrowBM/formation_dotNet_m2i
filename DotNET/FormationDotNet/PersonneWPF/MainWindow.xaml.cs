@@ -33,18 +33,40 @@ namespace PersonneWPF
             listViewPersonne.ItemsSource = personneList;
         }
 
-        public void AjouterPersonne(object sender, RoutedEventArgs eventArgs)
+        public void ValidClick(object sender, RoutedEventArgs eventArgs)
         {
-            personne = new Personne();
-            personne.Nom = nom.Text;
-            personne.Titre = titre.Text;
-            personne.Prenom = prenom.Text;
-            personne.Email = email.Text;
-            personne.Telephone = telephone.Text;
-            if(personne.Save())
+            if(SelectedPersonne != default(Personne))
             {
-                personneList.Add(personne);
+                SelectedPersonne.Titre = titre.Text;
+                SelectedPersonne.Nom = nom.Text;
+                SelectedPersonne.Prenom = prenom.Text;
+                SelectedPersonne.Telephone = telephone.Text;
+                SelectedPersonne.Email = email.Text;
+                if(SelectedPersonne.Update())
+                {
+                    SelectedPersonne = default(Personne);
+                    personneList = new ObservableCollection<Personne>(Personne.GetPersonnes());
+                    listViewPersonne.ItemsSource=personneList;
+                }
             }
+            else
+            {
+                personne = new Personne();
+                personne.Nom = nom.Text;
+                personne.Titre = titre.Text;
+                personne.Prenom = prenom.Text;
+                personne.Email = email.Text;
+                personne.Telephone = telephone.Text;
+                if (personne.Save())
+                {
+                    personneList.Add(personne);
+                }
+            }
+            nom.Text = "";
+            prenom.Text = "";
+            titre.Text = "";
+            telephone.Text = "";
+            email.Text = "";
         }
         public void DeleteClick(object sender, RoutedEventArgs eventArgs)
         {
@@ -57,7 +79,15 @@ namespace PersonneWPF
         }
         public void EditClick(object sender, RoutedEventArgs eventArgs)
         {
-
+            SelectedPersonne = (Personne)listViewPersonne.SelectedItem;
+            if(SelectedPersonne != default(Personne))
+            {
+                titre.Text = SelectedPersonne.Titre;
+                nom.Text = SelectedPersonne.Nom;
+                prenom.Text = SelectedPersonne.Prenom;
+                email.Text = SelectedPersonne.Email;
+                telephone.Text = SelectedPersonne.Telephone;
+            }
         }
     }
 }

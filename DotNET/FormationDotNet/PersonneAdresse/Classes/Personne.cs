@@ -59,6 +59,26 @@ namespace PersonneAdresse.Classes
             return nbRow == 1;
         }
 
+        public bool Update()
+        {
+            connection = DataBase.Connection;
+            request = "UPDATE personne set titre=@titre," +
+                " nom=@nom, prenom=@prenom, email=@email, telephone=@telephone " +
+                "where id=@id";
+            command = new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@id", Id));
+            command.Parameters.Add(new SqlParameter("@titre", Titre));
+            command.Parameters.Add(new SqlParameter("@nom", Nom));
+            command.Parameters.Add(new SqlParameter("@prenom", Prenom));
+            command.Parameters.Add(new SqlParameter("@telephone", Telephone));
+            command.Parameters.Add(new SqlParameter("@email", Email));
+            connection.Open();
+            int nbRow = command.ExecuteNonQuery();
+            command.Dispose();
+            connection.Close();
+            return nbRow == 1;
+        }
+
         public static List<Personne> GetPersonnes()
         {
             List<Personne> personnes = new List<Personne>();
