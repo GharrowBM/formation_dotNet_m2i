@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CompteBancaireVersion1.Classes
 {
-    internal class Client
+    public class Client
     {
         private int id;
         private string nom;

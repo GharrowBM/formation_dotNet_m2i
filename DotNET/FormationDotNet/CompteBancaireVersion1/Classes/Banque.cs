@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompteBancaireVersion1.Classes
 {
-    internal class Banque
+    public class Banque
     {
         List<Compte> comptes;
 

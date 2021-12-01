@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CompteBancaireVersion1.Classes
 {
-    internal class Compte
+    public class Compte
     {
         private int id;
         private decimal solde;

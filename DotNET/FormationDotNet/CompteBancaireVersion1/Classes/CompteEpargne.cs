@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompteBancaireVersion1.Classes
 {
-    internal class CompteEpargne : Compte
+    public class CompteEpargne : Compte
     {
         private decimal tauxInteret = 2;
 

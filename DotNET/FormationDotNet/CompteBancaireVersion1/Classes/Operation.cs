@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CompteBancaireVersion1.Classes
 {
-    internal class Operation
+    public class Operation
     {
         private int id;
         private decimal montant;
