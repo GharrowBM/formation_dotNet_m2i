@@ -19,6 +19,19 @@
         <TextBox x:Name="email" HorizontalAlignment="Left" Margin="58,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Click="AjouterPersonne" Content="Ajouter" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="168"/>
         <ListBox SelectionMode="Multiple" x:Name="listBoxPersonne" Margin="10,184,601,10" />
+        <ListView x:Name="listViewPersonne"  Margin="199,14,10,255">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Titre" Width="80" DisplayMemberBinding="{Binding Titre}"/>
+                    <GridViewColumn Header="Nom" Width="100" DisplayMemberBinding="{Binding Nom}"/>
+                    <GridViewColumn Header="Prénom" Width="100" DisplayMemberBinding="{Binding Prenom}"/>
+                    <GridViewColumn Header="Téléphone" Width="150" DisplayMemberBinding="{Binding Telephone}"/>
+                    <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Email}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Supprimer" Click="DeleteClick" HorizontalAlignment="Left" Margin="204,0,0,0" VerticalAlignment="Center" Height="50" Width="285"/>
+        <Button Content="Modifier" Click="EditClick" HorizontalAlignment="Left" Margin="494,0,0,0" VerticalAlignment="Center" Height="50" Width="296"/>
 
     </Grid>
 </Window>

@@ -46,6 +46,19 @@ namespace PersonneAdresse.Classes
             return Id > 0;
         }
 
+        public bool Delete()
+        {
+            connection= DataBase.Connection;
+            request = "DELETE FROM personne where id=@id";
+            command= new SqlCommand(request, connection);
+            command.Parameters.Add(new SqlParameter("@id", Id));
+            connection.Open();
+            int nbRow = command.ExecuteNonQuery();
+            command.Dispose();
+            connection.Close();
+            return nbRow == 1;
+        }
+
         public static List<Personne> GetPersonnes()
         {
             List<Personne> personnes = new List<Personne>();

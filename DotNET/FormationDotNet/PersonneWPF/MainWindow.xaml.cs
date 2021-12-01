@@ -24,11 +24,13 @@ namespace PersonneWPF
     {
         Personne personne;
         ObservableCollection<Personne> personneList;
+        Personne SelectedPersonne;
         public MainWindow()
         {
             InitializeComponent();
             personneList = new ObservableCollection<Personne>(Personne.GetPersonnes());
             listBoxPersonne.ItemsSource = personneList;
+            listViewPersonne.ItemsSource = personneList;
         }
 
         public void AjouterPersonne(object sender, RoutedEventArgs eventArgs)
@@ -43,6 +45,19 @@ namespace PersonneWPF
             {
                 personneList.Add(personne);
             }
+        }
+        public void DeleteClick(object sender, RoutedEventArgs eventArgs)
+        {
+            SelectedPersonne = (Personne)listViewPersonne.SelectedItem;
+            if(SelectedPersonne != default(Personne) && SelectedPersonne.Delete())
+            {
+                personneList.Remove(SelectedPersonne);  
+                SelectedPersonne = default(Personne);
+            }
+        }
+        public void EditClick(object sender, RoutedEventArgs eventArgs)
+        {
+
         }
     }
 }
