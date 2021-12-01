@@ -35,18 +35,18 @@ namespace PersonneWPF
 
         public void ValidClick(object sender, RoutedEventArgs eventArgs)
         {
-            if(SelectedPersonne != default(Personne))
+            if (SelectedPersonne != default(Personne))
             {
                 SelectedPersonne.Titre = titre.Text;
                 SelectedPersonne.Nom = nom.Text;
                 SelectedPersonne.Prenom = prenom.Text;
                 SelectedPersonne.Telephone = telephone.Text;
                 SelectedPersonne.Email = email.Text;
-                if(SelectedPersonne.Update())
+                if (SelectedPersonne.Update())
                 {
                     SelectedPersonne = default(Personne);
                     personneList = new ObservableCollection<Personne>(Personne.GetPersonnes());
-                    listViewPersonne.ItemsSource=personneList;
+                    listViewPersonne.ItemsSource = personneList;
                 }
             }
             else
@@ -71,22 +71,33 @@ namespace PersonneWPF
         public void DeleteClick(object sender, RoutedEventArgs eventArgs)
         {
             SelectedPersonne = (Personne)listViewPersonne.SelectedItem;
-            if(SelectedPersonne != default(Personne) && SelectedPersonne.Delete())
+            if (SelectedPersonne != default(Personne) && SelectedPersonne.Delete())
             {
-                personneList.Remove(SelectedPersonne);  
+                personneList.Remove(SelectedPersonne);
                 SelectedPersonne = default(Personne);
             }
         }
         public void EditClick(object sender, RoutedEventArgs eventArgs)
         {
             SelectedPersonne = (Personne)listViewPersonne.SelectedItem;
-            if(SelectedPersonne != default(Personne))
+            if (SelectedPersonne != default(Personne))
             {
                 titre.Text = SelectedPersonne.Titre;
                 nom.Text = SelectedPersonne.Nom;
                 prenom.Text = SelectedPersonne.Prenom;
                 email.Text = SelectedPersonne.Email;
                 telephone.Text = SelectedPersonne.Telephone;
+            }
+        }
+
+        public void DetailClick(object sender, RoutedEventArgs eventArgs)
+        {
+            SelectedPersonne = (Personne)listViewPersonne.SelectedItem;
+            if (SelectedPersonne != default(Personne))
+            {
+                DetailPersonneWindow w = new DetailPersonneWindow(SelectedPersonne);
+                w.Show();
+                Close();
             }
         }
     }

@@ -1,0 +1,14 @@
+﻿<Window x:Class="PersonneWPF.DetailPersonneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonneWPF"
+        mc:Ignorable="d"
+        Title="DetailPersonneWindow" Height="450" Width="292">
+    <Grid>
+        <TextBlock x:Name="textBlockPersonne" HorizontalAlignment="Center" Margin="0,34,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="71" Width="272"/>
+        <Button Click="BackClick" Content="Retour" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Height="79" Width="272"/>
+
+    </Grid>
+</Window>
