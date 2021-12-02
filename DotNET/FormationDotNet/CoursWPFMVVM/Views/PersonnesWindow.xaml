@@ -13,7 +13,7 @@
         <TextBox HorizontalAlignment="Left" Margin="92,37,0,0" TextWrapping="Wrap" Text="{Binding Prenom}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Téléphone : " HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="92,60,0,0" TextWrapping="Wrap" Text="{Binding Telephone}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Valider" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button Content="Valider" Command="{Binding ValidCommand}" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="202"/>
         <Label Content="Result : " HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="73,136,0,0" VerticalAlignment="Top"/>
 

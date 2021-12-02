@@ -1,18 +1,22 @@
 ﻿using CoursWPFMVVM.Models;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CoursWPFMVVM.ViewModels
 {
-    internal class PersonnesViewModel : INotifyPropertyChanged
+    internal class PersonnesViewModel : ViewModelBase
     {
         private Personne personne;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        //public event PropertyChangedEventHandler? PropertyChanged;
 
         public string Nom
         {
@@ -43,7 +47,6 @@ namespace CoursWPFMVVM.ViewModels
             {
                 personne.Telephone = value;
                 RaisePropertyChanged("Result");
-
             }
         }
 
@@ -52,17 +55,28 @@ namespace CoursWPFMVVM.ViewModels
             get => $"{personne.Nom} {personne.Prenom} {personne.Telephone}";
         }
 
+        public ICommand ValidCommand
+        {
+            get; set;
+        }
+
         public PersonnesViewModel()
         {
             personne = new Personne();
+            ValidCommand = new RelayCommand(ActionValid);
         }
 
-        private void RaisePropertyChanged(string propertyName)
+        //private void RaisePropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //    }
+        //}
+
+        private void ActionValid()
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            MessageBox.Show("Je viens de cliquer sur valider avec une commande");
         }
     }
 }
