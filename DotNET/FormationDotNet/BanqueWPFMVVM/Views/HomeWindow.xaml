@@ -51,7 +51,7 @@
                 </GroupBox>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Solde : "></Label>
-                    <TextBlock ></TextBlock>
+                    <TextBlock Text="{Binding SoldeResult}" ></TextBlock>
                 </StackPanel>
             </StackPanel>
 

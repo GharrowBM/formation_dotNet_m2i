@@ -50,6 +50,8 @@ namespace BanqueWPFMVVM.ViewModels
         public int CompteId { get; set; }
         public Compte SearchCompte { get; set; }
         public string SearchClient { get; set; }
+
+        public decimal SoldeResult { get; set; }
         public List<Operation> Operations { get; set; }
         public ICommand CreateCommand { get; set; } 
         public ICommand SearchCommand { get; set; }
@@ -64,6 +66,8 @@ namespace BanqueWPFMVVM.ViewModels
                 RaisePropertyChanged("SearchClient");
                 Operations = SearchCompte.Operations;
                 RaisePropertyChanged("Operations");
+                SoldeResult = SearchCompte.Solde;
+                RaisePropertyChanged("SoldeResult");
             }
         }
 
