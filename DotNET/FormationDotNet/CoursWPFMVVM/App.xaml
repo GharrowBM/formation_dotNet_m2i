@@ -1,0 +1,9 @@
+﻿<Application x:Class="CoursWPFMVVM.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CoursWPFMVVM"
+             StartupUri="Views/PersonnesWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
