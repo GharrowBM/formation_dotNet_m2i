@@ -29,14 +29,14 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Numéro de compte : "></Label>
-                    <TextBox  Width="200" />
-                    <Button Content="Rechercher" Width="250" ></Button>
+                    <TextBox Text="{Binding CompteId}"  Width="200" />
+                    <Button Command="{Binding SearchCommand}" Content="Rechercher" Width="250" ></Button>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock ></TextBlock>
+                    <TextBlock Text="{Binding SearchClient}"></TextBlock>
                 </StackPanel>
                 <GroupBox Header="Operations">
-                    <ListView >
+                    <ListView ItemsSource="{Binding Operations}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Date Opération" Width="350" DisplayMemberBinding="{Binding DateEtheureOperation}">

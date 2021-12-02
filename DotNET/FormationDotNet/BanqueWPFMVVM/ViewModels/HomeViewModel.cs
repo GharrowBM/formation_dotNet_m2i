@@ -13,12 +13,15 @@ namespace BanqueWPFMVVM.ViewModels
     internal class HomeViewModel : ViewModelBase
     {
         private Compte compte;
-
+        private Banque banque;
         public HomeViewModel()
         {
             compte = new Compte();
             compte.Client = new Client();
             CreateCommand = new RelayCommand(ActionCreate);
+            banque = new Banque();
+            Operations = new List<Operation>();
+            SearchCommand = new RelayCommand(ActionSearch);
         }
 
         public string Nom
@@ -44,8 +47,25 @@ namespace BanqueWPFMVVM.ViewModels
         }
 
         public string CreateResult { get; set; }
-
+        public int CompteId { get; set; }
+        public Compte SearchCompte { get; set; }
+        public string SearchClient { get; set; }
+        public List<Operation> Operations { get; set; }
         public ICommand CreateCommand { get; set; } 
+        public ICommand SearchCommand { get; set; }
+        
+
+        public void ActionSearch()
+        {
+            SearchCompte = banque.RechercherCompte(CompteId);
+            if(SearchCompte != default(Compte))
+            {
+                SearchClient = SearchCompte.Client.ToString();
+                RaisePropertyChanged("SearchClient");
+                Operations = SearchCompte.Operations;
+                RaisePropertyChanged("Operations");
+            }
+        }
 
         public void ActionCreate()
         {
