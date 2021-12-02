@@ -20,7 +20,7 @@ namespace CompteBancaireVersion1.Classes
         private static SqlCommand command;
         private static SqlDataReader reader;
         public int Id { get => id; set => id = value; }
-        public decimal Solde { get => solde; }
+        public decimal Solde { get => solde; set => solde = value; }
         public Client Client { get => client; set => client = value; }
         public List<Operation> Operations { get => operations; set => operations = value; }
 

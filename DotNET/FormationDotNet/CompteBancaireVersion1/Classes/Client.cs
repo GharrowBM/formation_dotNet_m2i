@@ -21,7 +21,10 @@ namespace CompteBancaireVersion1.Classes
         public string Prenom { get => prenom; set => prenom = value; }
         public string Telephone { get => telephone; set => telephone = value; }
         public int Id { get => id; set => id = value; }
+        public Client()
+        {
 
+        }
         public Client(string nom, string prenom, string telephone)
         {
             Nom = nom;

@@ -1,0 +1,66 @@
+﻿<Window x:Class="BanqueWPFMVVM.Views.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BanqueWPFMVVM.Views"
+        mc:Ignorable="d"
+        Title="Accueil Banque" Height="450" Width="800">
+    <StackPanel>
+        <GroupBox Header="Création Compte">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Nom : "></Label>
+                    <TextBox Text="{Binding Nom}"  Width="150"></TextBox>
+                    <Label Content="Prénom : "></Label>
+                    <TextBox Text="{Binding Prenom}" Width="150"></TextBox>
+                    <Label  Content="Téléphone : "></Label>
+                    <TextBox Text="{Binding Telephone}" Width="150"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Solde initial : "></Label>
+                    <TextBox Text="{Binding Solde}" Width="300"></TextBox>
+                    <Button Command="{Binding CreateCommand}" Content="Créer" Width="250"></Button>
+                    <TextBlock  Text="{Binding CreateResult}"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Recherche compte :">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Numéro de compte : "></Label>
+                    <TextBox  Width="200" />
+                    <Button Content="Rechercher" Width="250" ></Button>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock ></TextBlock>
+                </StackPanel>
+                <GroupBox Header="Operations">
+                    <ListView >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Date Opération" Width="350" DisplayMemberBinding="{Binding DateEtheureOperation}">
+
+                                </GridViewColumn>
+                                <GridViewColumn Header="Montant" Width="350" DisplayMemberBinding="{Binding Montant}">
+
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </GroupBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Solde : "></Label>
+                    <TextBlock ></TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+        </GroupBox>
+        <GroupBox Header="Opération">
+            <StackPanel>
+                <Button Content="Effectuer un retrait" ></Button>
+                <Button Content="Effectuer un dépôt" ></Button>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</Window>
