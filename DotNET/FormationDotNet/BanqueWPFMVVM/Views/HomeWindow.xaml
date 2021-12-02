@@ -58,8 +58,8 @@
         </GroupBox>
         <GroupBox Header="Opération">
             <StackPanel>
-                <Button Content="Effectuer un retrait" ></Button>
-                <Button Content="Effectuer un dépôt" ></Button>
+                <Button Command="{Binding RetraitCommand}" Content="Effectuer un retrait" ></Button>
+                <Button Command="{Binding DepotCommand}" Content="Effectuer un dépôt" ></Button>
             </StackPanel>
         </GroupBox>
     </StackPanel>

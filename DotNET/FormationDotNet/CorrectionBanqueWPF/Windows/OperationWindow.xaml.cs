@@ -24,6 +24,7 @@ namespace CorrectionBanqueWPF.Windows
         private string type;
         private ListView listViewOperations;
         private TextBlock textBlockSolde;
+
         public OperationWindow()
         {
             InitializeComponent();

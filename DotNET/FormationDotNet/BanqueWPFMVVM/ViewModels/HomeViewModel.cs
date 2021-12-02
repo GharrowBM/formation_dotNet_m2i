@@ -1,4 +1,5 @@
-﻿using CompteBancaireVersion1.Classes;
+﻿using BanqueWPFMVVM.Views;
+using CompteBancaireVersion1.Classes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -10,7 +11,7 @@ using System.Windows.Input;
 
 namespace BanqueWPFMVVM.ViewModels
 {
-    internal class HomeViewModel : ViewModelBase
+    public class HomeViewModel : ViewModelBase
     {
         private Compte compte;
         private Banque banque;
@@ -22,6 +23,8 @@ namespace BanqueWPFMVVM.ViewModels
             banque = new Banque();
             Operations = new List<Operation>();
             SearchCommand = new RelayCommand(ActionSearch);
+            DepotCommand = new RelayCommand(ActionDepot);
+            RetraitCommand = new RelayCommand(ActionRetrait);
         }
 
         public string Nom
@@ -55,8 +58,8 @@ namespace BanqueWPFMVVM.ViewModels
         public List<Operation> Operations { get; set; }
         public ICommand CreateCommand { get; set; } 
         public ICommand SearchCommand { get; set; }
-        
-
+        public ICommand DepotCommand { get; set; }
+        public ICommand RetraitCommand { get; set; }
         public void ActionSearch()
         {
             SearchCompte = banque.RechercherCompte(CompteId);
@@ -87,6 +90,25 @@ namespace BanqueWPFMVVM.ViewModels
                     RaisePropertyChanged("Solde");
                 }
             }
+        }
+
+        private void ActionRetrait()
+        {
+            OpenOperation("retrait");
+        }
+
+        private void ActionDepot()
+        {
+            OpenOperation("depot");
+        }
+
+        private  void OpenOperation(string type)
+        {
+            if(SearchCompte != default(Compte))
+            {
+                OperationWindow window = new OperationWindow(type, SearchCompte, this);
+                window.Show();
+            } 
         }
     }
 }
