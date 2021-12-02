@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoursWPFMVVM.Views"
         mc:Ignorable="d"
-        Title="PersonnesWindow" Height="236" Width="237">
+        Title="PersonnesWindow" Height="236" Width="464">
     <Grid>
         <Label Content="Nom : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="92,14,0,0" TextWrapping="Wrap" Text="{Binding Nom}" VerticalAlignment="Top" Width="120"/>
@@ -16,6 +16,15 @@
         <Button Content="Valider" Command="{Binding ValidCommand}" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="202"/>
         <Label Content="Result : " HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="73,136,0,0" VerticalAlignment="Top"/>
+        <ListView SelectedItem="{Binding SelectedPersonne}" ItemsSource="{Binding Personnes}" Margin="232,14,10,25">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="50"/>
+                    <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding Prenom}" Width="80"/>
+                    <GridViewColumn Header="Telephone" DisplayMemberBinding="{Binding Telephone}" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

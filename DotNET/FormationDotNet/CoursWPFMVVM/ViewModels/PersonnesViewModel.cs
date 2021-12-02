@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace CoursWPFMVVM.ViewModels
     internal class PersonnesViewModel : ViewModelBase
     {
         private Personne personne;
-
+        private Personne selectedPersonne;
         //public event PropertyChangedEventHandler? PropertyChanged;
-
+        private ObservableCollection<Personne> personnes;
         public string Nom
         {
             get => personne.Nom;
@@ -29,12 +30,30 @@ namespace CoursWPFMVVM.ViewModels
             }
         }
 
+        public Personne SelectedPersonne
+        {
+            get => selectedPersonne;
+            set
+            {
+                selectedPersonne = value;
+                //Nom = SelectedPersonne.Nom;
+                //Prenom = SelectedPersonne.Prenom;
+                //Telephone = SelectedPersonne.Telephone;
+                personne = selectedPersonne;
+                RaisePropertyChanged("Nom");
+                RaisePropertyChanged("Prenom");
+                RaisePropertyChanged("Telephone");
+                RaisePropertyChanged("Result");
+            }
+        }
+
         public string Prenom
         {
             get => personne.Prenom;
             set
             {
                 personne.Prenom = value;
+                RaisePropertyChanged("Prenom");
                 RaisePropertyChanged("Result");
 
             }
@@ -46,6 +65,7 @@ namespace CoursWPFMVVM.ViewModels
             set
             {
                 personne.Telephone = value;
+                RaisePropertyChanged("Telephone");
                 RaisePropertyChanged("Result");
             }
         }
@@ -59,10 +79,12 @@ namespace CoursWPFMVVM.ViewModels
         {
             get; set;
         }
+        public ObservableCollection<Personne> Personnes { get => personnes; set => personnes = value; }
 
         public PersonnesViewModel()
         {
             personne = new Personne();
+            Personnes = new ObservableCollection<Personne>();
             ValidCommand = new RelayCommand(ActionValid);
         }
 
@@ -76,6 +98,12 @@ namespace CoursWPFMVVM.ViewModels
 
         private void ActionValid()
         {
+            Personnes.Add(personne);
+            personne = new Personne();
+            RaisePropertyChanged("Nom");
+            RaisePropertyChanged("Prenom");
+            RaisePropertyChanged("Telephone");
+            RaisePropertyChanged("Result");
             MessageBox.Show("Je viens de cliquer sur valider avec une commande");
         }
     }
