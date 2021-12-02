@@ -56,5 +56,11 @@
             </StackPanel>
             
         </GroupBox>
+        <GroupBox Header="Opération">
+            <StackPanel>
+                <Button Content="Effectuer un retrait" Click="RetraitClick"></Button>
+                <Button Content="Effectuer un dépôt" Click="DepotClick"></Button>
+            </StackPanel>
+        </GroupBox>
     </StackPanel>
 </Window>

@@ -77,5 +77,25 @@ namespace CorrectionBanqueWPF.Windows
                 }
             }
         }
+
+        private void RetraitClick(object sender, RoutedEventArgs eventArgs)
+        {
+            OpenOperationWindow("retrait");
+        }
+
+        private void DepotClick(object sender, RoutedEventArgs eventArgs)
+        {
+            OpenOperationWindow("depot");
+        }
+
+        private void OpenOperationWindow(string type)
+        {
+            if (compte != default(Compte))
+            {
+                OperationWindow window = new OperationWindow(compte, type, listViewOperations, resultSolde);
+                window.Show();
+
+            }
+        }
     }
 }
