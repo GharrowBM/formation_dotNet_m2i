@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorrectionWPF.Views"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800">
+        Title="Accueil Caisse enregistreuse" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Vente" FontSize="30" FontWeight="Bold"></Label>
+        </StackPanel>
+        <GroupBox Grid.Column="0" Grid.Row="1" Header="Menu">
+            <StackPanel>
+                <Button Content="Liste produits" Command="{Binding ListProduitsCommand}"></Button>
+                <Button Content="Nouvelle vente" Command="{Binding NouvelleVenteCommand}"></Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Panier" Grid.Row="1" Grid.Column="2">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Numéro produit : "></Label>
+                    <TextBox Text="{Binding IdProduit}" Width="150"></TextBox>
+                    <Button Content="Ajouter" Command="{Binding AjouterProduitCommand}"></Button>
+                </StackPanel>
+                <ListView MinHeight="200" ItemsSource="{Binding ProduitsVente}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Titre produit" DisplayMemberBinding="{Binding Titre}" Width="270"></GridViewColumn>
+                            <GridViewColumn Header="Prix produit" DisplayMemberBinding="{Binding Prix}" Width="270"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Label Content="Total : "></Label>
+                    <Label Content="{Binding Total}"></Label>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Button Content="Payer" Command="{Binding PayerCommand}" Width="300"></Button>
+        </StackPanel>
     </Grid>
 </Window>
