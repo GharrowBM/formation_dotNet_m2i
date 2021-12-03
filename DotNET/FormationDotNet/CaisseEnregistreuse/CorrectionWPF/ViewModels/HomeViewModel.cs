@@ -20,6 +20,8 @@ namespace CorrectionWPF.ViewModels
         private Vente vente;
         private Produit produit;
         private Caisse caisse;
+
+        private Produit selectedProduit;
         public int IdProduit { get; set; }
         public decimal Total { get => Vente.Total; }
         public Vente Vente { get => vente; set => vente = value; }
@@ -31,6 +33,9 @@ namespace CorrectionWPF.ViewModels
         public ICommand PayerCommand { get; set; }
         public ICommand ListProduitsCommand { get; set; }
 
+        public ICommand SupprimerProduitCommand { get; set; }
+        public Produit SelectedProduit { get => selectedProduit; set => selectedProduit = value; }
+
         public HomeViewModel()
         {
             caisse = new Caisse();
@@ -40,6 +45,7 @@ namespace CorrectionWPF.ViewModels
             NouvelleVenteCommand = new RelayCommand(ActionNouvelleVente);
             PayerCommand = new RelayCommand(ActionPayer);
             ListProduitsCommand = new RelayCommand(ActionListProduits);
+            SupprimerProduitCommand = new RelayCommand(ActionSupprimerCommand);
         }
 
         private void ActionAjouterProduit()
@@ -97,6 +103,18 @@ namespace CorrectionWPF.ViewModels
         {
             ProductWindow w = new ProductWindow(caisse);
             w.Show();
+        }
+
+        private void ActionSupprimerCommand()
+        {
+            if(SelectedProduit != default(Produit))
+            {
+                if(Vente.SupprimerProduit(selectedProduit.Id))
+                {
+                    ProduitsVente.Remove(SelectedProduit);
+                    RaisePropertyChanged("Total");
+                }
+            }
         }
     }
 }

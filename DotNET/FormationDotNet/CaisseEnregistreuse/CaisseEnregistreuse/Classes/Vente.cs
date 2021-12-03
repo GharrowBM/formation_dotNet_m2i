@@ -47,5 +47,10 @@ namespace CaisseEnregistreuse.Classes
             Produits.Add(produit);
             return true;
         }
+
+        public bool SupprimerProduit(int id)
+        {
+            return Produits.Remove(Produits.Find(p => p.Id == id));
+        }
     }
 }

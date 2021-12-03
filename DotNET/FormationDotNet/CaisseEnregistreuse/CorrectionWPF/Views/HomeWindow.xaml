@@ -31,8 +31,9 @@
                     <Label Content="Numéro produit : "></Label>
                     <TextBox Text="{Binding IdProduit}" Width="150"></TextBox>
                     <Button Content="Ajouter" Command="{Binding AjouterProduitCommand}"></Button>
+                    <Button Content="Supprimer" Command="{Binding SupprimerProduitCommand}"></Button>
                 </StackPanel>
-                <ListView MinHeight="200" ItemsSource="{Binding ProduitsVente}">
+                <ListView SelectedItem="{Binding SelectedProduit}" MinHeight="200" ItemsSource="{Binding ProduitsVente}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Titre produit" DisplayMemberBinding="{Binding Titre}" Width="270"></GridViewColumn>
