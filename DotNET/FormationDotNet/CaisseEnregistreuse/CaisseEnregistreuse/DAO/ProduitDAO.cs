@@ -62,5 +62,27 @@ namespace CaisseEnregistreuse.DAO
             connection.Close();
             return produit;
         }
+
+        public List<Produit> GetProduits()
+        {
+            List<Produit> produits = new List<Produit>();
+            connection = Connection;
+            request = "SELECT titre, prix, stock, id from produit";
+            command = new SqlCommand(request, connection);
+            connection.Open();
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Produit produit = new Produit(reader.GetString(0), reader.GetDecimal(1), reader.GetInt32(2))
+                {
+                    Id = reader.GetInt32(3)
+                };
+                produits.Add(produit);
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return produits;
+        }
     }
 }

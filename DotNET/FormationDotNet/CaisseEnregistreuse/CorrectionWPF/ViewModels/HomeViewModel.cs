@@ -95,7 +95,7 @@ namespace CorrectionWPF.ViewModels
 
         private void ActionListProduits()
         {
-            ProductWindow w = new ProductWindow();
+            ProductWindow w = new ProductWindow(caisse);
             w.Show();
         }
     }

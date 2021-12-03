@@ -1,4 +1,5 @@
-﻿using CorrectionWPF.ViewModels;
+﻿using CaisseEnregistreuse.Classes;
+using CorrectionWPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,11 @@ namespace CorrectionWPF.Views
         public ProductWindow()
         {
             InitializeComponent();
-            DataContext = new ProductViewModel();
+        }
+
+        public ProductWindow(Caisse caisse) : this()
+        {
+            DataContext = new ProductViewModel(caisse);
         }
     }
 }

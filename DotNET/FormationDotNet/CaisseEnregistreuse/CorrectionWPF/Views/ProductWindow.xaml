@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorrectionWPF.Views"
         mc:Ignorable="d"
-        Title="ProductWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Gestion produit" Height="336" Width="508">
+
+    <StackPanel>
+        <GroupBox Header="Formulaire produit">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="Titre : "></Label>
+                <TextBox Text="{Binding Titre}" Width="100"></TextBox>
+                <Label Content="Prix : "></Label>
+                <TextBox Text="{Binding Prix}" Width="100"></TextBox>
+                <Label Content="Stock : "></Label>
+                <TextBox Text="{Binding Stock}" Width="100"></TextBox>
+                <Button Content="Valider" Command="{Binding AjouterProduitCommand}"></Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Liste produits">
+            <ListView ItemsSource="{Binding Produits}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                        <GridViewColumn Header="Titre" Width="150" DisplayMemberBinding="{Binding Titre}"></GridViewColumn>
+                        <GridViewColumn Header="Prix" Width="150" DisplayMemberBinding="{Binding Prix}"></GridViewColumn>
+                        <GridViewColumn Header="Stock" Width="150" DisplayMemberBinding="{Binding Stock}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+    </StackPanel>
 </Window>

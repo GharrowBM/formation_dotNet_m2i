@@ -89,5 +89,10 @@ namespace CaisseEnregistreuse.Classes
            // ProduitDAO produitDAO = new ProduitDAO();
             return new ProduitDAO().GetProduit(id);
         }
+
+        public List<Produit> RecupererProduits()
+        {
+            return new ProduitDAO().GetProduits();
+        } 
     }
 }
