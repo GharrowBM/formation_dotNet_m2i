@@ -1,5 +1,7 @@
 ﻿
 using CaisseEnregistreuse.Classes;
+using CaisseEnregistreuse.Interfaces;
+using CorrectionWPF.Views;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -35,6 +37,9 @@ namespace CorrectionWPF.ViewModels
             Vente = new Vente();
             ProduitsVente = new ObservableCollection<Produit>();
             AjouterProduitCommand = new RelayCommand(ActionAjouterProduit);
+            NouvelleVenteCommand = new RelayCommand(ActionNouvelleVente);
+            PayerCommand = new RelayCommand(ActionPayer);
+            ListProduitsCommand = new RelayCommand(ActionListProduits);
         }
 
         private void ActionAjouterProduit()
@@ -57,6 +62,41 @@ namespace CorrectionWPF.ViewModels
             {
                 MessageBox.Show("Aucun produit avec ce numéro");
             }
+        }
+
+        private void ActionNouvelleVente()
+        {
+            ProduitsVente.Clear();
+            Vente = new Vente();
+            RaisePropertyChanged("Total");
+            IdProduit = 0;
+            RaisePropertyChanged("IdProduit");
+        }
+
+        private void ActionPayer()
+        {
+            IPaiement paiement = new PaiementCB();
+            if(paiement.Payer(Total))
+            {
+                if(caisse.AjouterVente(Vente, paiement))
+                {
+                    MessageBox.Show("Vente effectuée");
+                    ActionNouvelleVente();
+                }else
+                {
+                    MessageBox.Show("Erreur vente");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Paiement refusé");
+            }
+        }
+
+        private void ActionListProduits()
+        {
+            ProductWindow w = new ProductWindow();
+            w.Show();
         }
     }
 }
