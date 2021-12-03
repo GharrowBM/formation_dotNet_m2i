@@ -1,11 +1,14 @@
-﻿using CaisseEnregistreuse.Classes;
+﻿
+using CaisseEnregistreuse.Classes;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CorrectionWPF.ViewModels
@@ -28,8 +31,32 @@ namespace CorrectionWPF.ViewModels
 
         public HomeViewModel()
         {
+            caisse = new Caisse();
             Vente = new Vente();
             ProduitsVente = new ObservableCollection<Produit>();
+            AjouterProduitCommand = new RelayCommand(ActionAjouterProduit);
+        }
+
+        private void ActionAjouterProduit()
+        {
+            produit = caisse.RechercherProduit(IdProduit);
+            if(produit != default(Produit))
+            {
+                if(Vente.AjouterProduit(produit))
+                {
+                    ProduitsVente.Add(produit);
+                    RaisePropertyChanged("Total");
+                }
+                else
+                {
+                    MessageBox.Show("erreur d'ajout produit dans la vente");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Aucun produit avec ce numéro");
+            }
         }
     }
 }
