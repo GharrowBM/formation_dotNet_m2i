@@ -94,5 +94,10 @@ namespace CaisseEnregistreuse.Classes
         {
             return new ProduitDAO().GetProduits();
         } 
+
+        public List<Vente> RecupererVentes()
+        {
+            return new VenteDAO().RecupererVentes();
+        }
     }
 }

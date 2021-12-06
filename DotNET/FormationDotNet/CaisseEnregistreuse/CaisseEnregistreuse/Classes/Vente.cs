@@ -10,12 +10,19 @@ namespace CaisseEnregistreuse.Classes
         private int id;
         private string etat;
         private List<Produit> produits;
-
+        private decimal total;
         public Vente()
         {
             //id = ++compteur;
             produits = new List<Produit>();
             etat = "En cours";
+        }
+
+        public Vente(int id, decimal total, string etat)
+        {
+            Id = id;
+            this.total = total;
+            Etat = etat;
         }
 
         public string Etat { get => etat; set => etat = value; }
@@ -33,6 +40,8 @@ namespace CaisseEnregistreuse.Classes
                 return total;
             }
         }
+
+        public decimal TotalFromBase { get => total; set => total = value; }
 
         public int Id { get => id; set => id = value; }
 

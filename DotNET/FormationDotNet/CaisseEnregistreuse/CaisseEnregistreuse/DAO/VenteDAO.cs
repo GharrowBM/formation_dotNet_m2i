@@ -52,5 +52,24 @@ namespace CaisseEnregistreuse.DAO
             //connection.Close();
             return result;
         }
+
+        public List<Vente> RecupererVentes()
+        {
+            List<Vente> ventes = new List<Vente>();
+            request = "SELECT id, total, etat from vente";
+            connection = Connection;
+            command = new SqlCommand(request, connection);
+            connection.Open();
+            reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                Vente v = new Vente(reader.GetInt32(0), reader.GetDecimal(1), reader.GetString(2));
+                ventes.Add(v);
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return ventes;
+        }
     }
 }

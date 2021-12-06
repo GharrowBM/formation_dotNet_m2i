@@ -17,7 +17,7 @@ namespace CaisseEnregistreuse.DAO
 
         public static SqlConnection Connection
         {
-            get => new SqlConnection(@"Data Source=(LocalDb)\coursDotNet;Integrated Security=True");
+            get => new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ihab\source\repos\CoursAP2019\basededonnees.mdf;Integrated Security=True;Connect Timeout=30");
         }
     }
 }

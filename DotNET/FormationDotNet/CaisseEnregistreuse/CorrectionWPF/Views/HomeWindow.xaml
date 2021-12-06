@@ -23,6 +23,7 @@
             <StackPanel>
                 <Button Content="Liste produits" Command="{Binding ListProduitsCommand}"></Button>
                 <Button Content="Nouvelle vente" Command="{Binding NouvelleVenteCommand}"></Button>
+                <Button Content="Listes ventes" Command="{Binding ListVentesCommand}"></Button>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Panier" Grid.Row="1" Grid.Column="2">
