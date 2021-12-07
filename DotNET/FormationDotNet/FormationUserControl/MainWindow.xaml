@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <control:Product Title="produit 1" Price="10"></control:Product>
-        <control:Product Title="produit 2" Price="100"></control:Product>
+        <control:Product Title="produit 1" Visibility="Hidden" Price="10"></control:Product>
+        <control:Product Title="produit 2" Visibility="Visible"  IsEnabled="True" Price="100"></control:Product>
         <Label Content="Other content"></Label>
     </StackPanel>
 </Window>
