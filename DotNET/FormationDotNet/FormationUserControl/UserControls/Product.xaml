@@ -9,11 +9,11 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="Titre Produit"></Label>
-            <Label x:Name="titleLabel" Content=""></Label>
+            <Label  Content="{Binding Title}"></Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="Prix"></Label>
-            <Label x:Name="priceLabel" Content=""></Label>
+            <Label Content="{Binding Price}"></Label>
         </StackPanel>
     </StackPanel>
 </UserControl>

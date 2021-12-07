@@ -35,19 +35,42 @@ namespace FormationUserControl.UserControls
         public static readonly DependencyProperty TitleProperty =
             DependencyProperty.Register("Title", typeof(string), typeof(Product), new PropertyMetadata(null, new PropertyChangedCallback(TitleChanged)));
 
+        public decimal Price
+        {
+            get
+            {
+                return (decimal)GetValue(PriceProperty);
+            }
+            set
+            {
+                SetValue(PriceProperty, value);
+            }
+        }
+
+        // Using a DependencyProperty as the backing store for string Title.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PriceProperty=
+            DependencyProperty.Register("Price", typeof(decimal), typeof(Product), new PropertyMetadata(0M, new PropertyChangedCallback(PriceChanged)));
 
         private static void TitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             Product p = (Product)d;
-            p.titleLabel.Content= (string)e.NewValue;
+            (p.DataContext as ProductViewModel).Title = (string)e.NewValue;
+            //p.titleLabel.Content= (string)e.NewValue;
         }
 
-        public decimal Price { get; set; }
+        private static void PriceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            Product p = (Product)d;
+            (p.DataContext as ProductViewModel).Price = (decimal)e.NewValue;
+            //p.titleLabel.Content= (string)e.NewValue;
+        }
+
         public Product()
         {
             InitializeComponent();
-            titleLabel.Content = Title;
-            priceLabel.Content = Price;
+            ProductViewModel productViewModel = new ProductViewModel();
+           
+            DataContext = productViewModel;
         }
     }
 }
