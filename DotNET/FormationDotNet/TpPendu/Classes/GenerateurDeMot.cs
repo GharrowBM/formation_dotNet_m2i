@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TpPendu.Classes
 {
-    internal class GenerateurDeMot
+    public class GenerateurDeMot : IGenerateur
     {
         private Random random = new Random();
         private string[] mots = new string[] { "google", "apple", "microsoft", "amazon", "facebook" };

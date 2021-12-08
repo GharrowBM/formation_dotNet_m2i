@@ -46,7 +46,7 @@ namespace TpPendu.Classes
             //On crée notre générateur de mot
             generateurDeMot = new GenerateurDeMot();
             //On utilise la méthode generer masque de notre generateur de mots.
-            pendu.GenererMasque(generateurDeMot.Generer());
+            pendu.GenererMasque(generateurDeMot);
             Play();
         }
 

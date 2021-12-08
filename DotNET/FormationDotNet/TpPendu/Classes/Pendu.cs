@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TpPendu.Classes
 {
-    internal class Pendu
+    public class Pendu
     {
         private int nbEssai;
         private string masque;
@@ -49,9 +49,9 @@ namespace TpPendu.Classes
             return NbEssai > 0 && Masque == MotAtrouve;
         }
 
-        public void GenererMasque(string mot)
+        public void GenererMasque(IGenerateur generateurDeMot)
         {
-            motAtrouve = mot;
+            motAtrouve = generateurDeMot.Generer();
             masque = "";
             foreach(char c in MotAtrouve)
             {
