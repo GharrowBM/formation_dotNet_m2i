@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CorrectionPile\CorrectionPile.csproj" />
     <ProjectReference Include="..\CoursTDD\CoursTDD.csproj" />
+    <ProjectReference Include="..\DevEnTDD\DevEnTDD.csproj" />
     <ProjectReference Include="..\TpPendu\TpPendu.csproj" />
   </ItemGroup>
 
