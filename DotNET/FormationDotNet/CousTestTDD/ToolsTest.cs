@@ -32,7 +32,8 @@ namespace CousTestTDD
         public void TestSuffle_Suffle()
         {
             Tools<int> t = new Tools<int>();
-            int[] tab1 = new int[] { 1, 2, 3, 4 };            
+            int[] tab1 = new int[] { 1, 2, 3, 4 }; 
+            t.Shuffle(tab1);
             Assert.AreNotEqual(1, tab1[0]);
         }
     }
