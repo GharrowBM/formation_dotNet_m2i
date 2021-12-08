@@ -10,3 +10,17 @@ D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice12\obj\Deb
 D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.dll
 D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.pdb
 D:\Programation\Utopios\FormationC#-NET\Codes\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.genruntimeconfig.cache
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\bin\Debug\netcoreapp3.1\Exercice12.exe
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\bin\Debug\netcoreapp3.1\Exercice12.deps.json
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\bin\Debug\netcoreapp3.1\Exercice12.runtimeconfig.json
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\bin\Debug\netcoreapp3.1\Exercice12.runtimeconfig.dev.json
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\bin\Debug\netcoreapp3.1\Exercice12.dll
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\bin\Debug\netcoreapp3.1\Exercice12.pdb
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.csproj.AssemblyReference.cache
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.AssemblyInfoInputs.cache
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.AssemblyInfo.cs
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.csproj.CoreCompileInputs.cache
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.dll
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.pdb
+C:\Users\Administrateur\Documents\ReposM2i\m2iDotNet\DotNET\FormationDotNet\ExercicesCSharp\Exercice12\obj\Debug\netcoreapp3.1\Exercice12.genruntimeconfig.cache
