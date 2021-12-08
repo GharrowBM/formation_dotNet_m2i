@@ -8,6 +8,7 @@ namespace TpPendu.Classes
 {
     public interface IGenerateur
     {
+       
         public string Generer();
     }
 }
