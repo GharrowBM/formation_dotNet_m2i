@@ -29,6 +29,7 @@ namespace CoursTDD
         public static Personne RechercherPersonne(string nom)
         {
             Personne personne = default(Personne);
+           
             foreach(Personne person in personnes)
             {
                 if(person.Nom == nom)

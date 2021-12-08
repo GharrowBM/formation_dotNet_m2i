@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CorrectionPile.Classes
 {
-    internal class Pile<T>
+    public class Pile<T>
     {
         private T[] elements;
         private int compteur;
@@ -57,7 +57,7 @@ namespace CorrectionPile.Classes
             T element = default(T);
             foreach(T t in elements)
             {
-                if(searchMethod(t))
+                if (t != null && searchMethod(t))
                 {
                     element = t;
                     break;

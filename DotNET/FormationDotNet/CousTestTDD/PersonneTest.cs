@@ -20,7 +20,7 @@ namespace CousTestTDD
 
         [TestMethod]
         public void RechercherPersonne_Nom_Tata_Default()
-        {
+        {            
             Personne p = Personne.RechercherPersonne("tata");
             Assert.AreEqual(default(Personne), p);
         }

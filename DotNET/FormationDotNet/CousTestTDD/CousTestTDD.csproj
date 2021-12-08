@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CorrectionPile\CorrectionPile.csproj" />
     <ProjectReference Include="..\CoursTDD\CoursTDD.csproj" />
   </ItemGroup>
 
