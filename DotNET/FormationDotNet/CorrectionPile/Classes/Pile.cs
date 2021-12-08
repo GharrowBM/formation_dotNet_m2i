@@ -73,7 +73,7 @@ namespace CorrectionPile.Classes
             
             foreach (T t in elements)
             {
-                if (searchMethod(t))
+                if (t != null && searchMethod(t))
                 {
                     list.Add(t);
                 }
