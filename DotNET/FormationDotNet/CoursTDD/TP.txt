@@ -1,0 +1,12 @@
+le but de l'application est de créer un jeu de bowling en mode console en utilisant les TDD.
+On peut modéliser le jeu avec les classes suivantes : 
+
+- Game : 
+	attribut : globalScore
+		List<Frame> frames
+- Frame :
+	attribut: score
+		List<Roll> rolls
+	Method : bool Roll() 
+- Roll : 
+	attribut : int pins
