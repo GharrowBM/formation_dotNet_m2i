@@ -3,21 +3,22 @@ using CaisseEnregistreuse.Interfaces;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CaisseEnregistreuse.DAO
 {
-    internal class VenteDAO : BaseDAO
+    public class VenteDAO : BaseDAO
     {
-        public bool Save(Vente vente,  IPaiement paiement, SqlConnection connection, SqlTransaction transaction)
+        public virtual bool Save(Vente vente,  IPaiement paiement, IDbConnection connection, IDbTransaction transaction)
         {
             //connection = Connection;
             request = "INSERT INTO vente (total, etat, type_paiement) " +
                 "OUTPUT INSERTED.ID values (@total, @etat, @type_paiement)";
-            command = new SqlCommand(request, connection);
-            command.Transaction = transaction;
+            command = new SqlCommand(request, connection as SqlConnection);
+            command.Transaction = transaction as SqlTransaction;
             command.Parameters.Add(new SqlParameter("@total", vente.Total));
             command.Parameters.Add(new SqlParameter("@etat", vente.Etat));
             command.Parameters.Add(new SqlParameter("@type_paiement", paiement.ToString()));
@@ -28,7 +29,7 @@ namespace CaisseEnregistreuse.DAO
             return vente.Id > 0;
         }
 
-        public bool SaveVenteProduit(Vente vente, SqlConnection connection, SqlTransaction transaction)
+        public virtual bool SaveVenteProduit(Vente vente, IDbConnection connection, IDbTransaction transaction)
         {
             bool result = true;
             //connection = Connection;
@@ -37,8 +38,8 @@ namespace CaisseEnregistreuse.DAO
             {
                 request = "INSERT INTO vente_produit (produit_id, vente_id) " +
                 "values (@produit_id, @vente_id)";
-                command = new SqlCommand(request, connection);
-                command.Transaction= transaction;
+                command = new SqlCommand(request, connection as SqlConnection);
+                command.Transaction= transaction as SqlTransaction;
                 command.Parameters.Add(new SqlParameter("@produit_id", p.Id));
                 command.Parameters.Add(new SqlParameter("@vente_id", vente.Id));
                 int nbRow = command.ExecuteNonQuery();

@@ -3,6 +3,7 @@ using CaisseEnregistreuse.Interfaces;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace CaisseEnregistreuse.Classes
 {
@@ -11,6 +12,8 @@ namespace CaisseEnregistreuse.Classes
         private List<Produit> produits;
         private List<Vente> ventes;
         private ProduitDAO _produitDAO;
+        private VenteDAO _venteDAO;
+        private IDbConnection _sqlConnection;
         public Caisse()
         {
             Produits = new List<Produit>();
@@ -20,6 +23,15 @@ namespace CaisseEnregistreuse.Classes
         public Caisse(ProduitDAO produitDAO) : this()
         {
             _produitDAO = produitDAO;
+        }
+        public Caisse(ProduitDAO produitDAO, VenteDAO venteDAO) : this(produitDAO)
+        {
+            
+            _venteDAO = venteDAO;
+        }
+        public Caisse(ProduitDAO produitDAO, VenteDAO venteDAO, IDbConnection connection) : this(produitDAO, venteDAO)
+        {
+            _sqlConnection = connection;
         }
 
         public List<Produit> Produits { get => produits; set => produits = value; }
@@ -35,32 +47,32 @@ namespace CaisseEnregistreuse.Classes
         {
             bool result = true;
             //Ventes.Add(vente);
-            SqlConnection connection = BaseDAO.Connection;
+            SqlConnection connection = _sqlConnection != null ? _sqlConnection as SqlConnection : BaseDAO.Connection;
             SqlTransaction transaction = null;
             try
             {
-                connection.Open();
-                transaction = connection.BeginTransaction();
-                VenteDAO venteDAO = new VenteDAO();
+                if(connection != null) connection.Open();
+                transaction = connection != null ? connection.BeginTransaction() : null;
+                VenteDAO venteDAO = _venteDAO ?? new VenteDAO();
                 venteDAO.Save(vente, paiement, connection, transaction);
                 venteDAO.SaveVenteProduit(vente, connection, transaction);
-                ProduitDAO produitDAO = new ProduitDAO();
+                ProduitDAO produitDAO = _produitDAO ?? new ProduitDAO();
                 vente.Produits.ForEach(p =>
                 {
                     p.Stock--;
                     produitDAO.Update(p, connection, transaction);
                 });
 
-                transaction.Commit();
+                transaction?.Commit();
             }
             catch (Exception e) {
-                transaction.Rollback();
+                transaction?.Rollback();
                 result = false;
                 Console.WriteLine(e);
             }
             finally
             {
-                connection.Close();
+                connection?.Close();
             }
 
 

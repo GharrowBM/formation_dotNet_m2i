@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,12 +27,12 @@ namespace CaisseEnregistreuse.DAO
             return produit.Id > 0;
         }
 
-        public bool Update(Produit produit, SqlConnection connection, SqlTransaction transaction)
+        public virtual bool Update(Produit produit, IDbConnection connection, IDbTransaction transaction)
         {
             //connection = Connection;
             request = "UPDATE produit set stock=@stock where id=@id";
-            command = new SqlCommand(request, connection);
-            command.Transaction = transaction;
+            command = new SqlCommand(request, connection as SqlConnection);
+            command.Transaction = transaction as SqlTransaction;
             command.Parameters.Add(new SqlParameter("@stock", produit.Stock));
             command.Parameters.Add(new SqlParameter("@id", produit.Id));
             //connection.Open();
