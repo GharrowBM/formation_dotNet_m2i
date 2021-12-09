@@ -58,5 +58,72 @@ namespace BowlingTest
             //Assert
             Assert.AreEqual(9,frame.Score);
         }
+
+        [TestMethod]
+        public void SimpleFrameMoreRolls()
+        {
+            List<Roll> rolls = new List<Roll>() { new Roll(6), new Roll(2) };
+            Frame frame = new Frame(generator, false);
+            frame.Rolls = rolls;
+
+            bool result = frame.Roll();
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void LastFrameAfterStrike()
+        {
+            Mock.Get(generator).Setup(g => g.RandomPins(10)).Returns(3);
+
+            List<Roll> rolls = new List<Roll>() { new Roll(10) };
+            Frame frame = new Frame(generator, true);
+            frame.Rolls = rolls;
+
+            bool result = frame.Roll();
+
+            Assert.IsTrue(result && frame.Score == 13);
+
+        }
+        [TestMethod]
+        public void LastFrameAfterStrikeSecondRoll()
+        {
+            Mock.Get(generator).Setup(g => g.RandomPins(7)).Returns(3);
+
+            List<Roll> rolls = new List<Roll>() { new Roll(10), new Roll(3) };
+            Frame frame = new Frame(generator, true);
+            frame.Rolls = rolls;
+
+            bool result = frame.Roll();
+
+            Assert.IsTrue(result && frame.Score == 16);
+
+        }
+
+        [TestMethod]
+        public void LastFrameAfterSpare()
+        {
+            Mock.Get(generator).Setup(g => g.RandomPins(10)).Returns(3);
+
+            List<Roll> rolls = new List<Roll>() { new Roll(7), new Roll(3) };
+            Frame frame = new Frame(generator, true);
+            frame.Rolls = rolls;
+
+            bool result = frame.Roll();
+
+            Assert.IsTrue(result && frame.Score == 13);
+        }
+
+        [TestMethod]
+        public void LastFrameMoreThen3Rolls()
+        {
+            List<Roll> rolls = new List<Roll>() { new Roll(7), new Roll(3), new Roll(10) };
+            Frame frame = new Frame(generator, true);
+            frame.Rolls = rolls;
+
+            bool result = frame.Roll();
+
+            Assert.IsFalse(result);
+        }
     }
 }
