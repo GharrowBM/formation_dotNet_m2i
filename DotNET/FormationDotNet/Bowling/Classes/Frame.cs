@@ -37,56 +37,38 @@ namespace Bowling.Classes
             LastFrame = lastFrame;
         }
 
+
+        private void MakeRoll(int max)
+        {
+            int randomPins = generator.RandomPins(max);
+            Rolls.Add(new Roll(randomPins));
+        }
         public bool Roll()
         {
             int nbRolls = Rolls.Count;
-            int ramdomPins;
-            if (nbRolls == 0)
+            if (nbRolls == 0 || (nbRolls == 1 && Rolls[0].Pins == 10 && lastFrame))
             {
-                ramdomPins = generator.RandomPins(10);
-                Rolls.Add(new Roll(ramdomPins));
+                MakeRoll(10);
             }
-            else if (nbRolls == 1 )
+            else if (nbRolls == 1 && !(Rolls[0].Pins == 10 && !lastFrame))
             {
-                Roll r = Rolls[0];
-                if (r.Pins == 10 && !lastFrame)
-                {
-                    return false;
-                }
-                else if(r.Pins == 10 && lastFrame)
-                {
-                    ramdomPins = generator.RandomPins(10);
-                    Rolls.Add(new Roll(ramdomPins));
-                }
-                else
-                {
-                    ramdomPins = generator.RandomPins(10 - r.Pins);
-                    Rolls.Add(new Roll(ramdomPins));
-                }
+                MakeRoll(10 - Rolls[0].Pins);
             }
-            else if(nbRolls == 2)
+            else if(nbRolls == 2 && lastFrame)
             {
-                if(lastFrame)
+                Roll r1 = Rolls[0];
+                Roll r2 = Rolls[1];
+                if ((r1.Pins + r2.Pins) >= 10)
                 {
-                    Roll r1 = Rolls[0];
-                    Roll r2 = Rolls[1];
-                    if ((r1.Pins + r2.Pins) >= 10)
-                    {
-                        int max =20 - (r1.Pins + r2.Pins);
-                        ramdomPins = generator.RandomPins(max);
-                        Rolls.Add(new Roll(ramdomPins));
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    int max = 20 - (r1.Pins + r2.Pins);
+                    MakeRoll(max);
                 }
                 else
                 {
                     return false;
                 }
-
-            }else
+            }
+            else
             {
                 return false;
             }
