@@ -41,7 +41,7 @@ namespace CaisseEnregistreuse.DAO
             return nbRow == 1;
         }
 
-        public Produit GetProduit(int id)
+        public virtual Produit GetProduit(int id)
         {
             Produit produit =default(Produit);
             connection = Connection;
