@@ -43,6 +43,20 @@ namespace BowlingTest
         }
 
 
-        
+        [TestMethod]
+        public void SimpleFrameSecondRoll()
+        {
+            //Arrange
+            Mock.Get(generator).Setup(g => g.RandomPins(4)).Returns(3);
+            List<Roll> rolls = new List<Roll>() { new Roll(6) };
+            Frame frame = new Frame(generator, false);
+            frame.Rolls = rolls;
+
+            //Act
+            bool result = frame.Roll();
+
+            //Assert
+            Assert.AreEqual(9,frame.Score);
+        }
     }
 }
