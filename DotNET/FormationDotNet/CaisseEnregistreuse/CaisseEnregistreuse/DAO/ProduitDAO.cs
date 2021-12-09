@@ -63,7 +63,7 @@ namespace CaisseEnregistreuse.DAO
             return produit;
         }
 
-        public List<Produit> GetProduits()
+        public virtual List<Produit> GetProduits()
         {
             List<Produit> produits = new List<Produit>();
             connection = Connection;

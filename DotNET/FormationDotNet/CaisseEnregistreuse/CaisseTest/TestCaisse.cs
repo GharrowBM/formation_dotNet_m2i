@@ -1,5 +1,6 @@
 ﻿using CaisseEnregistreuse.Classes;
 using CaisseEnregistreuse.DAO;
+using FizzWare.NBuilder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -50,5 +51,19 @@ namespace CaisseTest
 
             Assert.AreEqual(default(Produit), result);
         }
+
+
+        [TestMethod]
+        public void TestRecupererProduits()
+        {
+            List<Produit> produits = Builder<Produit>.CreateListOfSize(10).Build().ToList();
+            ProduitDAO fakeProduitDAO = Mock.Of<ProduitDAO>();
+            Mock.Get(fakeProduitDAO).Setup(p => p.GetProduits()).Returns(produits);
+            Caisse caisse = new Caisse(fakeProduitDAO);
+            List<Produit> result = caisse.RecupererProduits();
+            Assert.AreEqual(produits.Count, result.Count);
+
+        }
+
     }
 }
