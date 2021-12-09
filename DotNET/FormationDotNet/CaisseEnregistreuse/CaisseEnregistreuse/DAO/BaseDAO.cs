@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaisseEnregistreuse.DAO
 {
-    abstract class BaseDAO
+    public abstract class BaseDAO
     {
         protected static SqlConnection connection;
         protected static string request;

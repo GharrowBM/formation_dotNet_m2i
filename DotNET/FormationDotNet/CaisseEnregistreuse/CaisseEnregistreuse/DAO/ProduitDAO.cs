@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CaisseEnregistreuse.DAO
 {
-    internal class ProduitDAO : BaseDAO
+    public class ProduitDAO : BaseDAO
     {
-        public bool Save(Produit produit)
+        public virtual bool Save(Produit produit)
         {
             connection = Connection;
             request = "INSERT INTO produit (titre, prix, stock) " +

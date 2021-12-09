@@ -10,10 +10,16 @@ namespace CaisseEnregistreuse.Classes
     {
         private List<Produit> produits;
         private List<Vente> ventes;
+        private ProduitDAO _produitDAO;
         public Caisse()
         {
             Produits = new List<Produit>();
             Ventes = new List<Vente>();
+        }
+
+        public Caisse(ProduitDAO produitDAO) : this()
+        {
+            _produitDAO = produitDAO;
         }
 
         public List<Produit> Produits { get => produits; set => produits = value; }
@@ -22,7 +28,7 @@ namespace CaisseEnregistreuse.Classes
         public bool AjouterProduit(Produit produit)
         {
             //produits.Add(produit);
-            ProduitDAO produitDAO = new ProduitDAO();
+            ProduitDAO produitDAO = _produitDAO ?? new ProduitDAO();
             return produitDAO.Save(produit);
         }
         public bool AjouterVente(Vente vente, IPaiement paiement)
