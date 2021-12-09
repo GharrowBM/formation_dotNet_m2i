@@ -46,12 +46,17 @@ namespace Bowling.Classes
                 ramdomPins = generator.RandomPins(10);
                 Rolls.Add(new Roll(ramdomPins));
             }
-            else if (nbRolls == 1)
+            else if (nbRolls == 1 )
             {
                 Roll r = Rolls[0];
-                if (r.Pins == 10)
+                if (r.Pins == 10 && !lastFrame)
                 {
                     return false;
+                }
+                else if(r.Pins == 10 && lastFrame)
+                {
+                    ramdomPins = generator.RandomPins(10);
+                    Rolls.Add(new Roll(ramdomPins));
                 }
                 else
                 {
@@ -59,7 +64,29 @@ namespace Bowling.Classes
                     Rolls.Add(new Roll(ramdomPins));
                 }
             }
-            else
+            else if(nbRolls == 2)
+            {
+                if(lastFrame)
+                {
+                    Roll r1 = Rolls[0];
+                    Roll r2 = Rolls[1];
+                    if ((r1.Pins + r2.Pins) >= 10)
+                    {
+                        int max =20 - (r1.Pins + r2.Pins);
+                        ramdomPins = generator.RandomPins(max);
+                        Rolls.Add(new Roll(ramdomPins));
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+
+            }else
             {
                 return false;
             }
