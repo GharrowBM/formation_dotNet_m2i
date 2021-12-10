@@ -41,7 +41,7 @@ namespace BanqueWPFMVVM.ViewModels
             }
             if(ok)
             {
-                _homeViewModel.Operations = Operation.GetOperations(Compte.Id);
+                //_homeViewModel.Operations = Operation.GetOperations(Compte.Id);
                 _homeViewModel.RaisePropertyChanged("Operations");
                 _homeViewModel.SoldeResult = Compte.Solde;
                 _homeViewModel.RaisePropertyChanged("SoldeResult");

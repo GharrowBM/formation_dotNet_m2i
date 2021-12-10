@@ -49,7 +49,7 @@ namespace CorrectionBanqueWPF.Windows
                 {
                     if(compte.Retrait(new Operation(valMontant * -1)))
                     {
-                        listViewOperations.ItemsSource =Operation.GetOperations(compte.Id);
+                        //listViewOperations.ItemsSource =Operation.GetOperations(compte.Id);
                         textBlockSolde.Text = compte.Solde.ToString();
                     }
                 }
@@ -57,7 +57,7 @@ namespace CorrectionBanqueWPF.Windows
                 {
                     if (compte.Depot(new Operation(valMontant)))
                     {
-                       listViewOperations.ItemsSource = Operation.GetOperations(compte.Id);
+                       //listViewOperations.ItemsSource = Operation.GetOperations(compte.Id);
 
                         textBlockSolde.Text = compte.Solde.ToString();
                     }
