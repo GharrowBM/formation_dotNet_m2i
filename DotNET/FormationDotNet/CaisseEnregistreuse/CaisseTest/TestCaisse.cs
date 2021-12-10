@@ -91,5 +91,29 @@ namespace CaisseTest
             Assert.IsTrue(result);
         }
 
+        public void TestAjouterVenteMiseAjourQuantite()
+        {
+            Vente vente = new Vente() { Id = 1 };
+            Produit produit = new Produit("produit 1", 10M, 10) { Id = 1 };
+            vente.Produits.Add(produit);           
+            vente.Produits.Add(produit);
+            ProduitDAO fakeProduitDAO = Mock.Of<ProduitDAO>();
+            VenteDAO fakeVenteDAO = Mock.Of<VenteDAO>();
+            IPaiement paiement = Mock.Of<IPaiement>();
+            IDbConnection connection = Mock.Of<IDbConnection>();
+            IDbTransaction transaction = Mock.Of<IDbTransaction>();
+            Mock.Get(paiement).Setup(p => p.Payer(vente.Total)).Returns(true);
+
+            Mock.Get(fakeVenteDAO).Setup(v => v.Save(vente, paiement, connection, transaction)).Returns(true);
+            Mock.Get(fakeVenteDAO).Setup(v => v.SaveVenteProduit(vente, connection, transaction)).Returns(true);
+            Mock.Get(fakeProduitDAO).Setup(p => p.Update(null, connection, transaction)).Returns(true);
+
+            Caisse caisse = new Caisse(fakeProduitDAO, fakeVenteDAO, connection);
+
+            caisse.AjouterVente(vente, paiement);
+
+            Assert.AreEqual(8, produit.Stock);
+        }
+
     }
 }
