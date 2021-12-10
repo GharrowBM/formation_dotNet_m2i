@@ -24,7 +24,9 @@ namespace CoursEFCore
             //    City = "tourcoing",
             //    PostalCode = "59200"
             //};
-            //personne.Adresse = adresse;
+            ////personne.Adresse = adresse;
+            //personne.Adresses.Add(adresse);
+            //personne.Adresses.Add(adresse);
             //data.Personnes.Add(personne);
             //int nbRow = data.SaveChanges();
             //if (nbRow > 0)
@@ -33,10 +35,10 @@ namespace CoursEFCore
             //}
 
             //Pour afficher les données
-            //foreach (Personne p in data.Personnes.Include(p => p.Adresse))
-            //{
-            //    Console.WriteLine($"Nom : {p.FirstName}, Prénom : {p.LastName}");
-            //}
+            foreach (Personne p in data.Personnes.Include(p => p.Adresses))
+            {
+                Console.WriteLine($"Nom : {p.FirstName}, Prénom : {p.LastName}");
+            }
 
             //Pour selctionner une personne
             //Personne p = data.Personnes.Include(p=>p.Adresse).FirstOrDefault(p=> p.Id == 1);
@@ -49,7 +51,7 @@ namespace CoursEFCore
             //}
 
             ////Pour rechercher plusieurs éléments
-            List<Personne> pers = data.Personnes.Include(p=>p.Adresse).Where(e =>e.FirstName.Contains("a")).ToList();
+            //List<Personne> pers = data.Personnes.Include(p=>p.Adresse).Where(e =>e.FirstName.Contains("a")).ToList();
 
             //Pour la modification
             //Personne p = data.Personnes.Find(1);

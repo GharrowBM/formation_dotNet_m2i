@@ -29,9 +29,14 @@ namespace CoursEFCore.Classes
         public string Email { get; set; }
 
 
-        public int AdresseId { get; set; }
+        //public int AdresseId { get; set; }
 
-        [ForeignKey("AdresseId")]
-        public virtual Adresse Adresse { get; set; }
+        //[ForeignKey("AdresseId")]
+        public virtual List<Adresse> Adresses { get; set; }
+
+        public Personne()
+        {
+            Adresses = new List<Adresse>();
+        }
     }
 }
