@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace CaisseEnregistreuse.Classes
 {
     public class Produit
@@ -8,10 +10,10 @@ namespace CaisseEnregistreuse.Classes
         private decimal prix;
         private int stock;
         //private static int compteur = 0;
-
+        public virtual List<Vente> Ventes { get; set; }
         public Produit()
         {
-
+            Ventes = new List<Vente>();
         }
         public Produit(string titre, decimal prix, int stock)
         {

@@ -11,6 +11,8 @@ namespace CaisseEnregistreuse.Classes
         private string etat;
         private List<Produit> produits;
         private decimal total;
+
+        private string typePaiement;
         public Vente()
         {
             //id = ++compteur;
@@ -26,7 +28,7 @@ namespace CaisseEnregistreuse.Classes
         }
 
         public string Etat { get => etat; set => etat = value; }
-        public List<Produit> Produits { get => produits; set => produits = value; }
+        public virtual List<Produit> Produits { get => produits; set => produits = value; }
 
         public decimal Total
         {
@@ -44,6 +46,7 @@ namespace CaisseEnregistreuse.Classes
         public decimal TotalFromBase { get => total; set => total = value; }
 
         public int Id { get => id; set => id = value; }
+        public string TypePaiement { get => typePaiement; set => typePaiement = value; }
 
         public bool Valider(IPaiement paiement)
         {

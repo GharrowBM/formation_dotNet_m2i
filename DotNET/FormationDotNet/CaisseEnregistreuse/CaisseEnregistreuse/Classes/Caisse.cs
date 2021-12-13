@@ -1,5 +1,6 @@
 ﻿using CaisseEnregistreuse.DAO;
 using CaisseEnregistreuse.Interfaces;
+using CaisseEnregistreuse.Repository;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -40,40 +41,41 @@ namespace CaisseEnregistreuse.Classes
         public bool AjouterProduit(Produit produit)
         {
             //produits.Add(produit);
-            ProduitDAO produitDAO = _produitDAO ?? new ProduitDAO();
-            return produitDAO.Save(produit);
+            //ProduitDAO produitDAO = _produitDAO ?? new ProduitDAO();
+            //return produitDAO.Save(produit);
+            return new ProduitRepository(DataContext.Instance).Save(produit);
         }
         public bool AjouterVente(Vente vente, IPaiement paiement)
         {
-            bool result = true;
-            //Ventes.Add(vente);
-            SqlConnection connection = _sqlConnection != null ? _sqlConnection as SqlConnection : BaseDAO.Connection;
-            SqlTransaction transaction = null;
-            try
-            {
-                if(connection != null) connection.Open();
-                transaction = connection != null ? connection.BeginTransaction() : null;
-                VenteDAO venteDAO = _venteDAO ?? new VenteDAO();
-                venteDAO.Save(vente, paiement, connection, transaction);
-                venteDAO.SaveVenteProduit(vente, connection, transaction);
-                ProduitDAO produitDAO = _produitDAO ?? new ProduitDAO();
-                vente.Produits.ForEach(p =>
-                {
-                    p.Stock--;
-                    produitDAO.Update(p, connection, transaction);
-                });
+            //bool result = true;
+            ////Ventes.Add(vente);
+            //SqlConnection connection = _sqlConnection != null ? _sqlConnection as SqlConnection : BaseDAO.Connection;
+            //SqlTransaction transaction = null;
+            //try
+            //{
+            //    if(connection != null) connection.Open();
+            //    transaction = connection != null ? connection.BeginTransaction() : null;
+            //    VenteDAO venteDAO = _venteDAO ?? new VenteDAO();
+            //    venteDAO.Save(vente, paiement, connection, transaction);
+            //    venteDAO.SaveVenteProduit(vente, connection, transaction);
+            //    ProduitDAO produitDAO = _produitDAO ?? new ProduitDAO();
+            //    vente.Produits.ForEach(p =>
+            //    {
+            //        p.Stock--;
+            //        produitDAO.Update(p, connection, transaction);
+            //    });
 
-                transaction?.Commit();
-            }
-            catch (Exception e) {
-                transaction?.Rollback();
-                result = false;
-                Console.WriteLine(e);
-            }
-            finally
-            {
-                connection?.Close();
-            }
+            //    transaction?.Commit();
+            //}
+            //catch (Exception e) {
+            //    transaction?.Rollback();
+            //    result = false;
+            //    Console.WriteLine(e);
+            //}
+            //finally
+            //{
+            //    connection?.Close();
+            //}
 
 
             //if (venteDAO.Save(vente, paiement))
@@ -89,7 +91,14 @@ namespace CaisseEnregistreuse.Classes
             //        return true;
             //    }
             //}
-            return result;
+
+            vente.Produits.ForEach(p =>
+                {
+                    p.Stock--;                    
+                });
+            vente.TotalFromBase = vente.Total;
+            vente.TypePaiement = paiement.ToString();
+            return new VenteRepository(DataContext.Instance).Save(vente);
         }
         public Produit RechercherProduit(int id)
         {
@@ -104,18 +113,22 @@ namespace CaisseEnregistreuse.Classes
             //}
 
             //return produit;
-           // ProduitDAO produitDAO = new ProduitDAO();
-            return (_produitDAO ?? new ProduitDAO()).GetProduit(id);
+            // ProduitDAO produitDAO = new ProduitDAO();
+            //return (_produitDAO ?? new ProduitDAO()).GetProduit(id);
+            return new ProduitRepository(DataContext.Instance).GetProduit(id);
         }
 
         public List<Produit> RecupererProduits()
         {
-            return (_produitDAO ?? new ProduitDAO()).GetProduits();
+            //return (_produitDAO ?? new ProduitDAO()).GetProduits();
+
+            return new ProduitRepository(DataContext.Instance).GetProduits();
         } 
 
         public List<Vente> RecupererVentes()
         {
-            return new VenteDAO().RecupererVentes();
+            return new VenteRepository(DataContext.Instance).GetVentes();
+            //return new VenteDAO().RecupererVentes();
         }
     }
 }
