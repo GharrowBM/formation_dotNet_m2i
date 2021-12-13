@@ -11,6 +11,10 @@ namespace CoursEFCore.Classes
     {
         public DbSet<Personne> Personnes { get; set; }
 
+        public DbSet<Ecole> Ecoles { get; set; }
+
+        public DbSet<Formateur> Formateurs { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(LocalDb)\coursEF;Integrated Security=True");
