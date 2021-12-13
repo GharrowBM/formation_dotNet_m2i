@@ -71,8 +71,8 @@ namespace CaisseTest
         public void TestAjouterVente()
         {
             Vente vente = new Vente() { Id = 1};
-            vente.Produits.Add(new Produit("produit 1", 10M, 10) { Id = 1 });
-            vente.Produits.Add(new Produit("produit 2", 100M, 10) { Id = 2});
+            //vente.Produits.Add(new Produit("produit 1", 10M, 10) { Id = 1 });
+            //vente.Produits.Add(new Produit("produit 2", 100M, 10) { Id = 2});
             ProduitDAO fakeProduitDAO = Mock.Of<ProduitDAO>();
             VenteDAO fakeVenteDAO = Mock.Of<VenteDAO>();
             IPaiement paiement = Mock.Of<IPaiement>();
@@ -95,8 +95,8 @@ namespace CaisseTest
         {
             Vente vente = new Vente() { Id = 1 };
             Produit produit = new Produit("produit 1", 10M, 10) { Id = 1 };
-            vente.Produits.Add(produit);           
-            vente.Produits.Add(produit);
+            //vente.Produits.Add(produit);           
+            //vente.Produits.Add(produit);
             ProduitDAO fakeProduitDAO = Mock.Of<ProduitDAO>();
             VenteDAO fakeVenteDAO = Mock.Of<VenteDAO>();
             IPaiement paiement = Mock.Of<IPaiement>();

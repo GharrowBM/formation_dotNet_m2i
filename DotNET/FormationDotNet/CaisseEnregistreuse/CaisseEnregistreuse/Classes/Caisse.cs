@@ -94,7 +94,7 @@ namespace CaisseEnregistreuse.Classes
 
             vente.Produits.ForEach(p =>
                 {
-                    p.Stock--;                    
+                    p.Produit.Stock-= p.Qty;                    
                 });
             vente.TotalFromBase = vente.Total;
             vente.TypePaiement = paiement.ToString();

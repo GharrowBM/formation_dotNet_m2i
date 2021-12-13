@@ -34,22 +34,22 @@ namespace CaisseEnregistreuse.DAO
             bool result = true;
             //connection = Connection;
             //connection.Open();
-            foreach(Produit p in vente.Produits)
-            {
-                request = "INSERT INTO vente_produit (produit_id, vente_id) " +
-                "values (@produit_id, @vente_id)";
-                command = new SqlCommand(request, connection as SqlConnection);
-                command.Transaction= transaction as SqlTransaction;
-                command.Parameters.Add(new SqlParameter("@produit_id", p.Id));
-                command.Parameters.Add(new SqlParameter("@vente_id", vente.Id));
-                int nbRow = command.ExecuteNonQuery();
-                result = nbRow == 1;
-                command.Dispose();
-                if (!result)
-                {
-                    break;
-                }
-            }
+            //foreach(Produit p in vente.Produits)
+            //{
+            //    request = "INSERT INTO vente_produit (produit_id, vente_id) " +
+            //    "values (@produit_id, @vente_id)";
+            //    command = new SqlCommand(request, connection as SqlConnection);
+            //    command.Transaction= transaction as SqlTransaction;
+            //    command.Parameters.Add(new SqlParameter("@produit_id", p.Id));
+            //    command.Parameters.Add(new SqlParameter("@vente_id", vente.Id));
+            //    int nbRow = command.ExecuteNonQuery();
+            //    result = nbRow == 1;
+            //    command.Dispose();
+            //    if (!result)
+            //    {
+            //        break;
+            //    }
+            //}
             //connection.Close();
             return result;
         }

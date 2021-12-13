@@ -10,10 +10,10 @@ namespace CaisseEnregistreuse.Classes
         private decimal prix;
         private int stock;
         //private static int compteur = 0;
-        public virtual List<Vente> Ventes { get; set; }
+        public virtual List<ProduitVente> Ventes { get; set; }
         public Produit()
         {
-            Ventes = new List<Vente>();
+            Ventes = new List<ProduitVente>();
         }
         public Produit(string titre, decimal prix, int stock)
         {

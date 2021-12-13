@@ -10,7 +10,6 @@
     <None Remove="Interface\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>

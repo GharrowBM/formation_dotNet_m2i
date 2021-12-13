@@ -14,7 +14,7 @@ namespace CaisseEnregistreuse.Repository
         public DbSet<Vente> Ventes { get; set; }
 
         private static DataContext instance = null;
-        private DataContext() : base()
+        public DataContext() : base()
         {
 
         }

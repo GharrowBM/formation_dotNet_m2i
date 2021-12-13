@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CaisseEnregistreuse.Interfaces;
 
 namespace CaisseEnregistreuse.Classes
@@ -9,14 +10,14 @@ namespace CaisseEnregistreuse.Classes
         //private static int compteur = 0; 
         private int id;
         private string etat;
-        private List<Produit> produits;
+        private List<ProduitVente> produits;
         private decimal total;
 
         private string typePaiement;
         public Vente()
         {
             //id = ++compteur;
-            produits = new List<Produit>();
+            produits = new List<ProduitVente>();
             etat = "En cours";
         }
 
@@ -28,7 +29,7 @@ namespace CaisseEnregistreuse.Classes
         }
 
         public string Etat { get => etat; set => etat = value; }
-        public virtual List<Produit> Produits { get => produits; set => produits = value; }
+        public virtual List<ProduitVente> Produits { get => produits; set => produits = value; }
 
         public decimal Total
         {
@@ -37,7 +38,7 @@ namespace CaisseEnregistreuse.Classes
                 decimal total = 0;
                 Produits.ForEach(p =>
                 {
-                    total += p.Prix;
+                    total += p.Produit.Prix * p.Qty;
                 });
                 return total;
             }
@@ -56,13 +57,17 @@ namespace CaisseEnregistreuse.Classes
 
         public bool AjouterProduit(Produit produit)
         {
-            Produits.Add(produit);
+            ProduitVente p = Produits.FirstOrDefault(p => p.Produit.Id == produit.Id);
+            if(p != null)
+                p.Qty++;
+            else 
+             Produits.Add(new ProduitVente() { Produit = produit, Qty = 1} );
             return true;
         }
 
         public bool SupprimerProduit(int id)
         {
-            return Produits.Remove(Produits.Find(p => p.Id == id));
+            return Produits.Remove(Produits.Find(p => p.Produit.Id == id));
         }
     }
 }

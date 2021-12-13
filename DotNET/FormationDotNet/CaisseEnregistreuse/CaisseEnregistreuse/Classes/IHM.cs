@@ -126,7 +126,7 @@ namespace CaisseEnregistreuse.Classes
         {
             vente.Produits.ForEach(p =>
             {
-                Console.WriteLine(p.Titre);
+                Console.WriteLine(p.Produit.Titre);
             });
         }
 
