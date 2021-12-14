@@ -185,6 +185,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursEFCore", "CoursEFCore\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RendezVous", "RendezVous\RendezVous.csproj", "{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormationMultithreading", "FormationMultithreading", "{D2C6F76A-7968-4897-9F9D-D87DCE8AC18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursMultithreading", "CoursMultithreading\CoursMultithreading.csproj", "{C444E8CE-B997-4DFE-B65A-F64D870F6C25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -463,6 +467,10 @@ Global
 		{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C444E8CE-B997-4DFE-B65A-F64D870F6C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C444E8CE-B997-4DFE-B65A-F64D870F6C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C444E8CE-B997-4DFE-B65A-F64D870F6C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C444E8CE-B997-4DFE-B65A-F64D870F6C25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -550,6 +558,7 @@ Global
 		{6A70EB98-8F20-4E48-9B83-58ED8E30C3D1} = {4C082C18-1B1F-46D6-BB54-DD45744261EE}
 		{7D19C26C-7498-4980-AEAE-EC7D47254AD0} = {CAAA5D2E-D91C-4A6A-93FC-A754C099103F}
 		{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3} = {CAAA5D2E-D91C-4A6A-93FC-A754C099103F}
+		{C444E8CE-B997-4DFE-B65A-F64D870F6C25} = {D2C6F76A-7968-4897-9F9D-D87DCE8AC18A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D04D9408-6251-4750-92D5-423A8E21360A}

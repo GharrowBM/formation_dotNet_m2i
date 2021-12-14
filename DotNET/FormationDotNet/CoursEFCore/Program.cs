@@ -11,7 +11,7 @@ namespace CoursEFCore
         static void Main(string[] args)
         {
             //Pour ajouter des données à l'aide de notre dataContext
-            DataContext data = new DataContext();
+            //DataContext data = new DataContext();
             //Personne personne = new Personne()
             //{
             //    FirstName = "abadi",
@@ -77,8 +77,15 @@ namespace CoursEFCore
             //data.Ecoles.Add(ecole);
             //data.Ecoles.Add(ecole2);
 
-            Formateur f = data.Formateurs.Include(e => e.Ecoles).FirstOrDefault(p => p.Id == 1);
-            Ecole e = data.Ecoles.Include(f => f.Formateurs).FirstOrDefault(f => f.Id == 1);
+            //Formateur f = data.Formateurs.Include(e => e.Ecoles).FirstOrDefault(p => p.Id == 1);
+            //Ecole e = data.Ecoles.Include(f => f.Formateurs).FirstOrDefault(f => f.Id == 1);
+            int i = 1;
+            while (true)
+            {
+                
+                string[] tab = new string[i++];
+                Console.WriteLine(tab.Length);
+            }
             //data.SaveChanges();
         }
     }
