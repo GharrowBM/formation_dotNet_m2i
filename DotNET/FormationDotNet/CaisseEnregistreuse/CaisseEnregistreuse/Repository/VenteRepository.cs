@@ -13,10 +13,10 @@ namespace CaisseEnregistreuse.Repository
         {
         }
 
-        public bool Save(Vente vente)
+        public async Task<bool> Save(Vente vente)
         {
             _data.Ventes.Add(vente);
-            return _data.SaveChanges() > 0;
+            return await _data.SaveChangesAsync() > 0;
         }
 
         public List<Vente> GetVentes()

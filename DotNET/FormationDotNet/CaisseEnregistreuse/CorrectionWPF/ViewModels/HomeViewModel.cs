@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -22,12 +23,12 @@ namespace CorrectionWPF.ViewModels
         private Caisse caisse;
         private VentesViewModel viewModelVenteWindow;
 
-        private Produit selectedProduit;
+        private ProduitVente selectedProduit;
         public int IdProduit { get; set; }
         public decimal Total { get => Vente.Total; }
         public Vente Vente { get => vente; set => vente = value; }
 
-        public ObservableCollection<Produit> ProduitsVente { get; set; }
+        public ObservableCollection<ProduitVente> ProduitsVente { get; set; }
 
         public ICommand AjouterProduitCommand { get; set; }
         public ICommand NouvelleVenteCommand { get; set; }
@@ -36,13 +37,13 @@ namespace CorrectionWPF.ViewModels
 
         public ICommand SupprimerProduitCommand { get; set; }
         public ICommand ListVentesCommand { get; set; }
-        public Produit SelectedProduit { get => selectedProduit; set => selectedProduit = value; }
+        public ProduitVente SelectedProduit { get => selectedProduit; set => selectedProduit = value; }
 
         public HomeViewModel()
         {
             caisse = new Caisse();
             Vente = new Vente();
-            ProduitsVente = new ObservableCollection<Produit>();
+            ProduitsVente = new ObservableCollection<ProduitVente>();
             AjouterProduitCommand = new RelayCommand(ActionAjouterProduit);
             NouvelleVenteCommand = new RelayCommand(ActionNouvelleVente);
             PayerCommand = new RelayCommand(ActionPayer);
@@ -53,12 +54,19 @@ namespace CorrectionWPF.ViewModels
 
         private void ActionAjouterProduit()
         {
-            produit = caisse.RechercherProduit(IdProduit);
-            if(produit != default(Produit))
+            Task<Produit> taskProduit = Task.Run(() =>
             {
-                if(Vente.AjouterProduit(produit))
+                Thread.Sleep(3000);
+                return caisse.RechercherProduit(IdProduit);
+                }
+            );
+            taskProduit.Wait();
+            //produit = caisse.RechercherProduit(IdProduit);
+            if (taskProduit.Result != default(Produit))
+            {
+                if (Vente.AjouterProduit(taskProduit.Result))
                 {
-                    ProduitsVente.Add(produit);
+                    ProduitsVente.Add(new ProduitVente() { Produit = taskProduit.Result });
                     RaisePropertyChanged("Total");
                 }
                 else
@@ -91,18 +99,19 @@ namespace CorrectionWPF.ViewModels
         private void ActionPayer()
         {
             IPaiement paiement = new PaiementCB();
-            if(paiement.Payer(Total))
+            if (paiement.Payer(Total))
             {
-                if(caisse.AjouterVente(Vente, paiement))
+                if (caisse.AjouterVente(Vente, paiement))
                 {
                     MessageBox.Show("Vente effectuée");
-                    if(viewModelVenteWindow != default(VentesViewModel))
+                    if (viewModelVenteWindow != default(VentesViewModel))
                     {
                         Vente.TotalFromBase = Vente.Total;
                         viewModelVenteWindow.Ventes.Add(Vente);
                     }
                     ActionNouvelleVente();
-                }else
+                }
+                else
                 {
                     MessageBox.Show("Erreur vente");
                 }
@@ -121,9 +130,9 @@ namespace CorrectionWPF.ViewModels
 
         private void ActionSupprimerCommand()
         {
-            if(SelectedProduit != default(Produit))
+            if (SelectedProduit != default(ProduitVente))
             {
-                if(Vente.SupprimerProduit(selectedProduit.Id))
+                if (Vente.SupprimerProduit(selectedProduit.Produit.Id))
                 {
                     ProduitsVente.Remove(SelectedProduit);
                     RaisePropertyChanged("Total");

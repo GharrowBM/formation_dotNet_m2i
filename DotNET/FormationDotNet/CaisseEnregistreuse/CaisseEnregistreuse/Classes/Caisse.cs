@@ -98,7 +98,7 @@ namespace CaisseEnregistreuse.Classes
                 });
             vente.TotalFromBase = vente.Total;
             vente.TypePaiement = paiement.ToString();
-            return new VenteRepository(DataContext.Instance).Save(vente);
+            return new VenteRepository(DataContext.Instance).Save(vente).Result;
         }
         public Produit RechercherProduit(int id)
         {

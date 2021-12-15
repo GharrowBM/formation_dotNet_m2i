@@ -37,8 +37,8 @@
                 <ListView SelectedItem="{Binding SelectedProduit}" MinHeight="200" ItemsSource="{Binding ProduitsVente}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Titre produit" DisplayMemberBinding="{Binding Titre}" Width="270"></GridViewColumn>
-                            <GridViewColumn Header="Prix produit" DisplayMemberBinding="{Binding Prix}" Width="270"></GridViewColumn>
+                            <GridViewColumn Header="Titre produit" DisplayMemberBinding="{Binding Produit.Titre}" Width="270"></GridViewColumn>
+                            <GridViewColumn Header="Prix produit" DisplayMemberBinding="{Binding Produit.Prix}" Width="270"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

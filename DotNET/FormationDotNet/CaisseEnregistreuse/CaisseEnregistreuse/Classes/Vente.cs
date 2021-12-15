@@ -38,6 +38,7 @@ namespace CaisseEnregistreuse.Classes
                 decimal total = 0;
                 Produits.ForEach(p =>
                 {
+                    if(p.Produit != null)
                     total += p.Produit.Prix * p.Qty;
                 });
                 return total;
