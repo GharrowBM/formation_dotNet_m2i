@@ -50,30 +50,51 @@ namespace CorrectionWPF.ViewModels
             {
                 List<Produit> produits = caisse.RecupererProduits();
                 Thread.Sleep(3000);
-                dispatcher.Invoke(() => {
+                dispatcher.Invoke(() =>
+                {
                     Produits = new ObservableCollection<Produit>(produits);
                     RaisePropertyChanged("Produits");
                 });
-                
+
             });
             AjouterProduitCommand = new RelayCommand(ActionAjouterProduit);
         }
 
         private void ActionAjouterProduit()
         {
-            if(caisse.AjouterProduit(produit))
+            Task.Run(() =>
             {
-                Produits.Add(produit);
-                MessageBox.Show("Produit ajouté");
-                produit = new Produit();
-                RaisePropertyChanged("Titre");
-                RaisePropertyChanged("Prix");
-                RaisePropertyChanged("Stock");
-            }
-            else
-            {
-                MessageBox.Show("Erreur ajout prduit");
-            }
+                bool result = caisse.AjouterProduit(produit);
+                dispatcher.Invoke(() =>
+                {
+                    if (result)
+                    {
+                        Produits.Add(produit);
+                        MessageBox.Show("Produit ajouté");
+                        produit = new Produit();
+                        RaisePropertyChanged("Titre");
+                        RaisePropertyChanged("Prix");
+                        RaisePropertyChanged("Stock");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur ajout prduit");
+                    }
+                });
+            });
+            //if(caisse.AjouterProduit(produit))
+            //{
+            //    Produits.Add(produit);
+            //    MessageBox.Show("Produit ajouté");
+            //    produit = new Produit();
+            //    RaisePropertyChanged("Titre");
+            //    RaisePropertyChanged("Prix");
+            //    RaisePropertyChanged("Stock");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Erreur ajout prduit");
+            //}
         }
 
     }
