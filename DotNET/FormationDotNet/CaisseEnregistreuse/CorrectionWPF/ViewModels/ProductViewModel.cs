@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace CorrectionWPF.ViewModels
 {
@@ -16,7 +18,7 @@ namespace CorrectionWPF.ViewModels
     {
         private Produit produit;
         private Caisse caisse;
-
+        private Dispatcher dispatcher;
         public string Titre
         {
             get => produit.Titre;
@@ -38,11 +40,22 @@ namespace CorrectionWPF.ViewModels
 
         public ICommand AjouterProduitCommand { get; set; }
 
-        public ProductViewModel(Caisse _caisse)
+        public ProductViewModel(Caisse _caisse, Dispatcher _dispatcher)
         {
             produit = new Produit();
             caisse = _caisse;
-            Produits = new ObservableCollection<Produit>(caisse.RecupererProduits());
+            dispatcher = _dispatcher;
+
+            Task.Run(() =>
+            {
+                List<Produit> produits = caisse.RecupererProduits();
+                Thread.Sleep(3000);
+                dispatcher.Invoke(() => {
+                    Produits = new ObservableCollection<Produit>(produits);
+                    RaisePropertyChanged("Produits");
+                });
+                
+            });
             AjouterProduitCommand = new RelayCommand(ActionAjouterProduit);
         }
 

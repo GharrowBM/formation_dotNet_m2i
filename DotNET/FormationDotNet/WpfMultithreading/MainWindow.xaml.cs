@@ -24,6 +24,7 @@ namespace WpfMultithreading
         public MainWindow()
         {
             InitializeComponent();
+
             
            
         }
@@ -33,7 +34,7 @@ namespace WpfMultithreading
             Task.Run(() =>
             {
                 Thread.Sleep(10000);
-                Dispatcher.Invoke(() =>
+                Application.Current.Dispatcher.Invoke(() =>
                 {
                     b1.Content = "end";
                 });

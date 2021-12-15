@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CorrectionWPF.Views
 {
@@ -28,7 +29,7 @@ namespace CorrectionWPF.Views
 
         public ProductWindow(Caisse caisse) : this()
         {
-            DataContext = new ProductViewModel(caisse);
+            DataContext = new ProductViewModel(caisse, Dispatcher);
         }
     }
 }
