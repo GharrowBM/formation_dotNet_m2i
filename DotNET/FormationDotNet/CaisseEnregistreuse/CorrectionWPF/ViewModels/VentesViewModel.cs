@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CorrectionWPF.ViewModels
 {
@@ -16,7 +17,15 @@ namespace CorrectionWPF.ViewModels
         public VentesViewModel(Caisse caisse)
         {
             this.caisse = caisse;
-            Ventes = new ObservableCollection<Vente>(this.caisse.RecupererVentes());
+            Task.Run(() =>
+            {
+                List<Vente> ventes = this.caisse.RecupererVentes();
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Ventes = new ObservableCollection<Vente>(ventes);
+                    RaisePropertyChanged("Ventes");
+                });
+            });
         }
     }
 }
