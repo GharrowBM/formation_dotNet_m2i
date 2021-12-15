@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace BanqueWPFMVVM.ViewModels
@@ -56,34 +57,40 @@ namespace BanqueWPFMVVM.ViewModels
 
         public decimal SoldeResult { get; set; }
         public List<Operation> Operations { get; set; }
-        public ICommand CreateCommand { get; set; } 
+        public ICommand CreateCommand { get; set; }
         public ICommand SearchCommand { get; set; }
         public ICommand DepotCommand { get; set; }
         public ICommand RetraitCommand { get; set; }
         public void ActionSearch()
         {
-            SearchCompte = banque.RechercherCompte(CompteId);
-            if(SearchCompte != default(Compte))
+            Task.Run(() =>
             {
-                SearchClient = SearchCompte.Client.ToString();
-                RaisePropertyChanged("SearchClient");
-                Operations = SearchCompte.Operations;
-                RaisePropertyChanged("Operations");
-                SoldeResult = SearchCompte.Solde;
-                RaisePropertyChanged("SoldeResult");
-            }
+                SearchCompte = banque.RechercherCompte(CompteId);
+                if (SearchCompte != default(Compte))
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        SearchClient = SearchCompte.Client.ToString();
+                        RaisePropertyChanged("SearchClient");
+                        Operations = SearchCompte.Operations;
+                        RaisePropertyChanged("Operations");
+                        SoldeResult = SearchCompte.Solde;
+                        RaisePropertyChanged("SoldeResult");
+                    });
+                }
+            });
         }
 
         public void ActionCreate()
         {
-            if(compte.Client.Save())
+            if (compte.Client.Save())
             {
                 if (compte.Save())
                 {
                     CreateResult = "Compte crée avec l'id " + compte.Id;
                     RaisePropertyChanged("CreateResult");
                     compte = new Compte();
-                    compte.Client=new Client();
+                    compte.Client = new Client();
                     RaisePropertyChanged("Nom");
                     RaisePropertyChanged("Prenom");
                     RaisePropertyChanged("Telephone");
@@ -102,13 +109,13 @@ namespace BanqueWPFMVVM.ViewModels
             OpenOperation("depot");
         }
 
-        private  void OpenOperation(string type)
+        private void OpenOperation(string type)
         {
-            if(SearchCompte != default(Compte))
+            if (SearchCompte != default(Compte))
             {
                 OperationWindow window = new OperationWindow(type, SearchCompte, this);
                 window.Show();
-            } 
+            }
         }
     }
 }
