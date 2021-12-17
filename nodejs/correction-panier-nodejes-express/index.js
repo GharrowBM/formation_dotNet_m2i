@@ -5,9 +5,9 @@ const bodyParser = require("body-parser")
 
 const fs = require("fs")
 //stock nos produits dans un tableau js
-let products = JSON.parse(fs.readFileSync("produits.json"))
+let products = JSON.parse(fs.readFileSync("data/produits.json"))
 const update = () => {
-    fs.writeFileSync('produits.json', JSON.stringify(products))
+    fs.writeFileSync('data/produits.json', JSON.stringify(products))
 }
 //Dossier pour les ressources statiques (css, javascript)
 app.use(express.static(__dirname+"/assets"))
