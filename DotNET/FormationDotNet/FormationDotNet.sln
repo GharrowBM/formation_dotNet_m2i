@@ -183,13 +183,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormationEntityFrameWorkCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursEFCore", "CoursEFCore\CoursEFCore.csproj", "{7D19C26C-7498-4980-AEAE-EC7D47254AD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RendezVous", "RendezVous\RendezVous.csproj", "{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RendezVous", "RendezVous\RendezVous.csproj", "{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormationMultithreading", "FormationMultithreading", "{D2C6F76A-7968-4897-9F9D-D87DCE8AC18A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursMultithreading", "CoursMultithreading\CoursMultithreading.csproj", "{C444E8CE-B997-4DFE-B65A-F64D870F6C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursMultithreading", "CoursMultithreading\CoursMultithreading.csproj", "{C444E8CE-B997-4DFE-B65A-F64D870F6C25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMultithreading", "WpfMultithreading\WpfMultithreading.csproj", "{9007E35E-7F76-4117-A408-C691F042545E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfMultithreading", "WpfMultithreading\WpfMultithreading.csproj", "{9007E35E-7F76-4117-A408-C691F042545E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormationASPNETCORE", "FormationASPNETCORE", "{F5BAF795-CD50-413C-91F8-1FBEE1990948}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormationAspNetCoreMVC", "FormationAspNetCoreMVC\FormationAspNetCoreMVC.csproj", "{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -477,6 +481,10 @@ Global
 		{9007E35E-7F76-4117-A408-C691F042545E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9007E35E-7F76-4117-A408-C691F042545E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9007E35E-7F76-4117-A408-C691F042545E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -566,6 +574,7 @@ Global
 		{6A3D38FA-CD2F-4D3E-882A-9FF3BD53F2A3} = {CAAA5D2E-D91C-4A6A-93FC-A754C099103F}
 		{C444E8CE-B997-4DFE-B65A-F64D870F6C25} = {D2C6F76A-7968-4897-9F9D-D87DCE8AC18A}
 		{9007E35E-7F76-4117-A408-C691F042545E} = {D2C6F76A-7968-4897-9F9D-D87DCE8AC18A}
+		{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9} = {F5BAF795-CD50-413C-91F8-1FBEE1990948}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D04D9408-6251-4750-92D5-423A8E21360A}
