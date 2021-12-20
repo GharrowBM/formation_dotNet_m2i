@@ -1,4 +1,5 @@
 ﻿using FormationAspNetCoreMVC.Models;
+using FormationAspNetCoreMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,12 +22,17 @@ namespace FormationAspNetCoreMVC.Controllers
         public IActionResult Index()
         {
             List<Personne> personnes = Personne.GetPersonnes();
+            List<Adresse> adresses  = Adresse.GetAdresses();
             //Pour partager les données avec la view, 
             // 1 => on peut utiliser la propriété ViewData
             //ViewData["personnes"] = personnes;
             //2 => on peut utiliser la propriété ViewBag
-            ViewBag.Personnes = personnes;
-            return View();
+            //ViewBag.Personnes = personnes;
+            //3 => on peut utiliser les models de views
+            PersonneViewModel vm = new PersonneViewModel();
+            vm.Personnes = personnes;
+            vm.Adresses = adresses;
+            return View(vm);
         }
 
         public IActionResult Privacy()

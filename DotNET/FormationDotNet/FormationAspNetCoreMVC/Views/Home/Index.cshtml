@@ -1,4 +1,5 @@
-﻿@{
+﻿@model PersonneViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -11,7 +12,15 @@
             Nom : @p.Name
         </div>
     }*@
-     @foreach (Personne p in ViewBag.Personnes)
+    @* @foreach (Personne p in ViewBag.Personnes)
+    {
+        <div>
+            Age : @p.Age
+            Nom : @p.Name
+        </div>
+    }*@
+
+    @foreach(Personne p in Model.Personnes)
     {
         <div>
             Age : @p.Age
