@@ -3,6 +3,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">personnes</h1>
+    @foreach (Personne p in ViewData["personnes"] as List<Personne>)
+    {
+        <div>
+            Age : @p.Age
+            Nom : @p.Name
+        </div>
+    }
 </div>

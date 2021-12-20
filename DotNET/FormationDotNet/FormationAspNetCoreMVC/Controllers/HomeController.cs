@@ -20,6 +20,10 @@ namespace FormationAspNetCoreMVC.Controllers
 
         public IActionResult Index()
         {
+            List<Personne> personnes = Personne.GetPersonnes();
+            //Pour partager les données avec la view, 
+            // 1 => on peut utiliser la propriété ViewData
+            ViewData["personnes"] = personnes;
             return View();
         }
 
