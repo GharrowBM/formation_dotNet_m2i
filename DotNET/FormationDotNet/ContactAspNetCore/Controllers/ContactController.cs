@@ -9,6 +9,12 @@ namespace ContactAspNetCore.Controllers
             return View();
         }
 
+        public IActionResult List2()
+        {
+            //return View("List");
+            return View("~/Views/Contact/List.cshtml");
+        }
+
         public IActionResult Detail()
         {
             return View();
