@@ -6,7 +6,8 @@ namespace FormationAspNetCoreMVC.Controllers
     {
         public IActionResult First()
         {
-            return new ContentResult() { Content = "<h1>Hello From our first action</h1>", ContentType="text/html" };
+            //return new ContentResult() { Content = "<h1>Hello From our first action</h1>", ContentType="text/html" };
+            return View();
         }
     }
 }
