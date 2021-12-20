@@ -45,6 +45,11 @@ namespace FormationAspNetCoreMVC
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "firstEndPoint",
+                    pattern: "f",
+                    defaults: new { controller = "Toto", action = "First"}
+                    );
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
