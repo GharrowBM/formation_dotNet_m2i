@@ -1,5 +1,6 @@
 ﻿using CoursEFCore.Classes;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace ContactAspNetCore.Controllers
@@ -8,8 +9,8 @@ namespace ContactAspNetCore.Controllers
     {
         public IActionResult List()
         {
-            ViewData["contacts"] = DataContext.Instance.Personnes.ToList();
-            return View();
+           // ViewData["contacts"] = DataContext.Instance.Personnes.ToList();
+            return View(DataContext.Instance.Personnes.Include(p => p.Adresses).ToList());
         }
 
         public IActionResult List2()

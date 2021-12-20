@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Personne>
+@{
     //Layout = "~Views/Shared/_SpecialLayout.cshtml";
     //Layout = "_SpecialLayout";
     ViewData["title"] = "Liste des contacts";
@@ -6,8 +7,17 @@
 
 <div>
     <h1>Liste des contacts</h1>
-    @foreach(Personne p in ViewData["contacts"] as List<Personne>)
+    @*@foreach(Personne p in ViewData["contacts"] as List<Personne>)
     {
             <div>Nom : @p.LastName, Prénom : @p.FirstName, Email: @p.Email</div>
+    }*@
+    @foreach(Personne p in Model)
+    {
+            <div>Nom : @p.LastName, Prénom : @p.FirstName, Email: @p.Email</div>
+            @foreach(Adresse a in p.Adresses) {
+                <div>
+                    @a.Street @a.City @a.PostalCode
+                </div>
+            }
     }
-</div>
+</>
