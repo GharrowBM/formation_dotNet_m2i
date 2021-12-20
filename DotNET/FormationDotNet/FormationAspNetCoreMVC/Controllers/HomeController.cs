@@ -23,7 +23,9 @@ namespace FormationAspNetCoreMVC.Controllers
             List<Personne> personnes = Personne.GetPersonnes();
             //Pour partager les données avec la view, 
             // 1 => on peut utiliser la propriété ViewData
-            ViewData["personnes"] = personnes;
+            //ViewData["personnes"] = personnes;
+            //2 => on peut utiliser la propriété ViewBag
+            ViewBag.Personnes = personnes;
             return View();
         }
 

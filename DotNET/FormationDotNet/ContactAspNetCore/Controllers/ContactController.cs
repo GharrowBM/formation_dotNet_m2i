@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoursEFCore.Classes;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ContactAspNetCore.Controllers
 {
@@ -6,6 +8,7 @@ namespace ContactAspNetCore.Controllers
     {
         public IActionResult List()
         {
+            ViewData["contacts"] = DataContext.Instance.Personnes.ToList();
             return View();
         }
 

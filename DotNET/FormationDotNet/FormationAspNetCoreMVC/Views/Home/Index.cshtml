@@ -4,7 +4,14 @@
 
 <div class="text-center">
     <h1 class="display-4">personnes</h1>
-    @foreach (Personne p in ViewData["personnes"] as List<Personne>)
+   @* @foreach (Personne p in ViewData["personnes"] as List<Personne>)
+    {
+        <div>
+            Age : @p.Age
+            Nom : @p.Name
+        </div>
+    }*@
+     @foreach (Personne p in ViewBag.Personnes)
     {
         <div>
             Age : @p.Age

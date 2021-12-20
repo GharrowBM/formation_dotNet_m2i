@@ -15,6 +15,18 @@ namespace CoursEFCore.Classes
 
         public DbSet<Formateur> Formateurs { get; set; }
 
+        private static DataContext _instance = null;
+
+        public static DataContext Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new DataContext();
+                return _instance;
+            }
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(LocalDb)\coursEF;Integrated Security=True");

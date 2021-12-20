@@ -1,8 +1,13 @@
 ﻿@{
     //Layout = "~Views/Shared/_SpecialLayout.cshtml";
     //Layout = "_SpecialLayout";
+    ViewData["title"] = "Liste des contacts";
 }
 
 <div>
     <h1>Liste des contacts</h1>
+    @foreach(Personne p in ViewData["contacts"] as List<Personne>)
+    {
+            <div>Nom : @p.LastName, Prénom : @p.FirstName, Email: @p.Email</div>
+    }
 </div>
