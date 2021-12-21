@@ -27,17 +27,23 @@ namespace ContactAspNetCore.Controllers
             return View(p);
         }
 
+        public IActionResult Edit(int id)
+        {
+            Personne p = DataContext.Instance.Personnes.Include(p => p.Adresses).FirstOrDefault(p => p.Id == id);
+            return View("Form", p);
+        }
+
         public IActionResult Delete(int id)
         {
             Personne p = DataContext.Instance.Personnes.Include(p => p.Adresses).FirstOrDefault(p => p.Id == id);
             string message = null;
-            if(p != null)
+            if (p != null)
             {
                 DataContext.Instance.Personnes.Remove(p);
                 DataContext.Instance.SaveChanges();
                 message = "Suppression effectuée";
             }
-            return RedirectToAction("List", "Contact", new {Message = message});
+            return RedirectToAction("List", "Contact", new { Message = message });
         }
 
         public IActionResult Form()
@@ -53,19 +59,38 @@ namespace ContactAspNetCore.Controllers
             //    LastName = lastName,
             //    Email = email,
             //};
-            
+
             try
             {
-                DataContext.Instance.Personnes.Add(personne);
-                if (DataContext.Instance.SaveChanges() > 0)
+                if (personne.Id > 0)
                 {
-                    return RedirectToAction("List", "Contact", new { message = "Contact ajouté" });
+                    Personne personneEdit = DataContext.Instance.Personnes.Include(p => p.Adresses).FirstOrDefault(p => p.Id == personne.Id);
+                    personneEdit.FirstName = personne.FirstName;
+                    personneEdit.LastName = personne.LastName;
+                    personneEdit.Email = personne.Email;
+                    if (DataContext.Instance.SaveChanges() > 0)
+                    {
+                        return RedirectToAction("List", "Contact", new { message = "Contact modifié" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Form");
+                    }
                 }
                 else
                 {
-                    return RedirectToAction("Form");
+                    DataContext.Instance.Personnes.Add(personne);
+                    if (DataContext.Instance.SaveChanges() > 0)
+                    {
+                        return RedirectToAction("List", "Contact", new { message = "Contact ajouté" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Form");
+                    }
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 DataContext.Instance.Personnes.Remove(personne);
                 return View("Form", personne);

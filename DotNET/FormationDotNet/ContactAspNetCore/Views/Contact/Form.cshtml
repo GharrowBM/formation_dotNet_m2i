@@ -2,6 +2,7 @@
 <div>
     <h1>Formulaire contact</h1>
     <form class="container" asp-action="SubmitForm" asp-controller="Contact" method="post">
+
         @if (Model == null)
         {
             <div class="row m-1 justify-content-center">
@@ -16,6 +17,10 @@
         }
         else
         {
+            if(Model.Id > 0)
+            {
+                <input type="hidden" name="id" value="@Model.Id" />
+            }
             <div class="row m-1 justify-content-center">
                 <input type="text" value="@Model.FirstName" name="firstName" placeholder="Votre prénom" class="col-8 form-control p-1" />
             </div>
