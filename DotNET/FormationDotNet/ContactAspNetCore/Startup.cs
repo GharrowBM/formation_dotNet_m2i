@@ -50,7 +50,7 @@ namespace ContactAspNetCore
 
                 endpoints.MapControllerRoute(
                     name: "detailContact",
-                    pattern: "detail-contact", defaults: new { controller = "Contact", action = "Detail" });
+                    pattern: "detail-contact/{id}", defaults: new { controller = "Contact", action = "Detail" });
                 endpoints.MapControllerRoute(
                     name: "formContact",
                     pattern: "formulaire-contact", defaults: new { controller = "Contact", action = "Form" });

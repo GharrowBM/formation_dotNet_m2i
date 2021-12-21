@@ -1,3 +1,22 @@
-﻿<div>
-    <h1>Detail du contact</h1>
-</div>
+﻿@model Personne
+@if (Model == null)
+{
+    <div>
+        Aucune personne avec cet id
+    </div>
+
+}
+else
+{
+    <div>
+        <h1>Detail du contact</h1>
+        <div>Nom  : @Model.LastName</div>
+        <div>Prénom : @Model.FirstName</div>
+        <div>Email: @Model.Email</div>
+        @foreach(Adresse a in Model.Adresses) {
+        <div>
+            @a.Street @a.City @a.PostalCode
+        </div>
+        }
+    </div>
+}

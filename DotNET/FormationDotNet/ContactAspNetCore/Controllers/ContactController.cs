@@ -13,15 +13,16 @@ namespace ContactAspNetCore.Controllers
             return View(DataContext.Instance.Personnes.Include(p => p.Adresses).ToList());
         }
 
-        public IActionResult List2()
-        {
-            //return View("List");
-            return View("~/Views/Contact/List.cshtml");
-        }
+        //public IActionResult List2()
+        //{
+        //    //return View("List");
+        //    return View("~/Views/Contact/List.cshtml");
+        //}
 
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            Personne p = DataContext.Instance.Personnes.Include(p=>p.Adresses).FirstOrDefault(p=>p.Id == id);
+            return View(p);
         }
 
         public IActionResult Form()

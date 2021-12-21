@@ -13,11 +13,11 @@
     }*@
     @foreach(Personne p in Model)
     {
-            <div>Nom : @p.LastName, Prénom : @p.FirstName, Email: @p.Email</div>
-            @foreach(Adresse a in p.Adresses) {
+            <div>Nom : @p.LastName, Prénom : @p.FirstName, Email: @p.Email <a asp-controller="Contact" asp-action="Detail" asp-route-id="@p.Id">Détail</a></div>
+            @*@foreach(Adresse a in p.Adresses) {
                 <div>
                     @a.Street @a.City @a.PostalCode
                 </div>
-            }
+            }*@
     }
 </>
