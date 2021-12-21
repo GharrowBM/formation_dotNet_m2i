@@ -27,6 +27,19 @@ namespace ContactAspNetCore.Controllers
             return View(p);
         }
 
+        public IActionResult Delete(int id)
+        {
+            Personne p = DataContext.Instance.Personnes.Include(p => p.Adresses).FirstOrDefault(p => p.Id == id);
+            string message = null;
+            if(p != null)
+            {
+                DataContext.Instance.Personnes.Remove(p);
+                DataContext.Instance.SaveChanges();
+                message = "Suppression effectuée";
+            }
+            return RedirectToAction("List", "Contact", new {Message = message});
+        }
+
         public IActionResult Form()
         {
             return View();
