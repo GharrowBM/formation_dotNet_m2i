@@ -53,5 +53,16 @@ namespace FormationAspNetCoreMVC.Controllers
             ViewBag.Nom = nom;
             return View();
         }
+
+        public IActionResult GetForm()
+        {
+            return View();
+        }
+
+        public IActionResult SubmitForm(int age)
+        {
+            //Logique métier
+            return RedirectToAction("Index");
+        }
     }
 }
