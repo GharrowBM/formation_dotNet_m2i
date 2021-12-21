@@ -29,5 +29,18 @@ namespace ContactAspNetCore.Controllers
         {
             return View();
         }
+
+        public IActionResult SubmitForm(string firstName, string lastName, string email)
+        {
+            Personne p = new Personne() 
+            { 
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+            };
+            DataContext.Instance.Personnes.Add(p);
+            DataContext.Instance.SaveChanges();
+            return RedirectToAction("List");
+        }
     }
 }
