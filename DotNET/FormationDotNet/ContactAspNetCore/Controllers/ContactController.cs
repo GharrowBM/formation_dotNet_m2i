@@ -1,6 +1,7 @@
 ﻿using CoursEFCore.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace ContactAspNetCore.Controllers
@@ -39,14 +40,22 @@ namespace ContactAspNetCore.Controllers
             //    LastName = lastName,
             //    Email = email,
             //};
-            DataContext.Instance.Personnes.Add(personne);
-            if (DataContext.Instance.SaveChanges() > 0)
+            
+            try
             {
-                return RedirectToAction("List", "Contact", new {message = "Contact ajouté"});
-            }
-            else
+                DataContext.Instance.Personnes.Add(personne);
+                if (DataContext.Instance.SaveChanges() > 0)
+                {
+                    return RedirectToAction("List", "Contact", new { message = "Contact ajouté" });
+                }
+                else
+                {
+                    return RedirectToAction("Form");
+                }
+            }catch(Exception e)
             {
-                return RedirectToAction("Form");
+                DataContext.Instance.Personnes.Remove(personne);
+                return View("Form", personne);
             }
         }
     }
