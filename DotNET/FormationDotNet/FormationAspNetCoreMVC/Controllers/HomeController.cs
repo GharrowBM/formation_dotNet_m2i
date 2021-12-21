@@ -45,5 +45,13 @@ namespace FormationAspNetCoreMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        public IActionResult GetPersonne(int id, string nom)
+        {
+            ViewBag.Id = id;
+            ViewBag.Nom = nom;
+            return View();
+        }
     }
 }

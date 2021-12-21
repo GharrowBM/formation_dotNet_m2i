@@ -25,6 +25,7 @@
         <div>
             Age : @p.Age
             Nom : @p.Name
+            <a asp-action="GetPersonne" asp-controller="Home" asp-route-id="@p.Id" asp-route-nom="@p.Name">Detail</a>
         </div>
     }
 </div>
