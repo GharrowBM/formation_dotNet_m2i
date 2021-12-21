@@ -7,9 +7,10 @@ namespace ContactAspNetCore.Controllers
 {
     public class ContactController : Controller
     {
-        public IActionResult List()
+        public IActionResult List(string message)
         {
-           // ViewData["contacts"] = DataContext.Instance.Personnes.ToList();
+            // ViewData["contacts"] = DataContext.Instance.Personnes.ToList();
+            ViewBag.Message = message;
             return View(DataContext.Instance.Personnes.Include(p => p.Adresses).ToList());
         }
 
@@ -21,7 +22,7 @@ namespace ContactAspNetCore.Controllers
 
         public IActionResult Detail(int id)
         {
-            Personne p = DataContext.Instance.Personnes.Include(p=>p.Adresses).FirstOrDefault(p=>p.Id == id);
+            Personne p = DataContext.Instance.Personnes.Include(p => p.Adresses).FirstOrDefault(p => p.Id == id);
             return View(p);
         }
 
@@ -30,17 +31,23 @@ namespace ContactAspNetCore.Controllers
             return View();
         }
 
-        public IActionResult SubmitForm(string firstName, string lastName, string email)
+        public IActionResult SubmitForm(Personne personne)
         {
-            Personne p = new Personne() 
-            { 
-                FirstName = firstName,
-                LastName = lastName,
-                Email = email,
-            };
-            DataContext.Instance.Personnes.Add(p);
-            DataContext.Instance.SaveChanges();
-            return RedirectToAction("List");
+            //Personne p = new Personne() 
+            //{ 
+            //    FirstName = firstName,
+            //    LastName = lastName,
+            //    Email = email,
+            //};
+            DataContext.Instance.Personnes.Add(personne);
+            if (DataContext.Instance.SaveChanges() > 0)
+            {
+                return RedirectToAction("List", "Contact", new {message = "Contact ajouté"});
+            }
+            else
+            {
+                return RedirectToAction("Form");
+            }
         }
     }
 }
