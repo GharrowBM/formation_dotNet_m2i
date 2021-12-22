@@ -6,8 +6,10 @@ namespace CompteBancaireMVC.Controllers
     public class CompteController : Controller
     {
         private Banque banque;
-        public IActionResult Index()
+        public IActionResult Index(string Message, string ClassAlert)
         {
+            ViewBag.Message = Message;
+            ViewBag.ClassAlert = ClassAlert;
             return View();
         }
 
@@ -37,9 +39,18 @@ namespace CompteBancaireMVC.Controllers
             return View();
         }
 
-        public IActionResult SubmitForm()
+        public IActionResult SubmitForm(string Nom, string Prenom, string Telephone, decimal Solde)
         {
-            return RedirectToAction("Index");
+            Client client = new Client(Nom,Prenom, Telephone);
+            banque = new Banque();
+            Compte compte = banque.CreationCompte(client, Solde, "1");
+            if(compte != null)
+            {
+                return RedirectToAction("Index", "Compte", new {Message = "Compte crée avec le numéro "+compte.Id, ClassAlert="alert-success"});
+            }else
+            {
+                return View("Form");
+            }
         }
     }
 }
