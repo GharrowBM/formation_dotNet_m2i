@@ -41,6 +41,10 @@
                 <div class="row">
                     <div class="col">Solde : @Model.Solde euros</div>
                 </div>
+                 <div class="row">
+                    <a asp-action="Form" class="col m-1 btn-success btn" asp-controller="Operation" asp-route-type="depot" asp-route-id="@Model.Id">Depôt</a>
+                    <a asp-action="Form" class="col m-1 btn-danger btn" asp-controller="Operation" asp-route-type="retrait" asp-route-id="@Model.Id">Retrait</a>
+                </div>
             </div>
         </section>
     }

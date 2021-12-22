@@ -1,0 +1,13 @@
+﻿<form class="container" asp-action="SubmitForm" asp-controller="Operation">
+    <input type="hidden" name="id" value="@ViewBag.Id" />
+    <input type="hidden" name="type" value="@ViewBag.Type" />
+    <div class="row justify-content-center m-1">
+        <h1 class="col-8 p-1">@ViewBag.Type</h1>     
+    </div>
+    <div class="row justify-content-center m-1">
+        <input type="text" name="montant" class="form-control p-1 col-8" placeholder="Montant opération" />        
+    </div>
+    <div class="row justify-content-center m-1">
+        <button type="submit" class="col-8 btn-secondary btn">Valider</button>        
+    </div>
+</form>
