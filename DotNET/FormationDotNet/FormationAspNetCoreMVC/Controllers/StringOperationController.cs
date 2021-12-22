@@ -6,17 +6,19 @@ namespace FormationAspNetCoreMVC.Controllers
     public class StringOperationController : Controller
     {
         private IStringService _stringService;
+        private AgeService _ageService;
 
-        public StringOperationController(IStringService stringService)
+        public StringOperationController(IStringService stringService, AgeService ageService)
         {
             _stringService = stringService;
+            _ageService = ageService;
         }
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Action(string id)
+        public IActionResult Action(string nom, int age)
         {
             //action sur la chaine de caractère
             //string result = null;
@@ -28,7 +30,7 @@ namespace FormationAspNetCoreMVC.Controllers
             //{
             //    result = id.ToUpper();
             //}
-            return new ContentResult() { Content = _stringService.Convert(id) };
+            return new ContentResult() { Content = _stringService.Convert(nom) +" / " + _ageService.Convert(age) };
         }
 
 

@@ -26,7 +26,10 @@ namespace FormationAspNetCoreMVC
             services.AddControllersWithViews();
             //Ajout d'instance dans le containder
             //services.AddTransient<StringService>();
-            services.AddTransient<ToolsService>();
+            //services.AddTransient<ToolsService>();
+            //services.AddScoped<ToolsService>();
+            services.AddSingleton<ToolsService>();
+            services.AddTransient<AgeService>();
             services.AddTransient<IStringService, StringService>();
 
         }
