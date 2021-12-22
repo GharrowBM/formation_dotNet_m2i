@@ -31,6 +31,8 @@ namespace FormationAspNetCoreMVC
             services.AddSingleton<ToolsService>();
             services.AddTransient<AgeService>();
             services.AddTransient<IStringService, StringService>();
+            //services.AddTransient<IGameConverter,BinService>();
+            services.AddTransient<IGameConverter,ChuckNorrisService>();
 
         }
 
