@@ -1,0 +1,47 @@
+﻿@model Compte
+<div class="container">
+    @if(ViewBag.Message != null)
+    {
+        <div class="row justify-content-center m-1"> 
+        @*@if(ViewBag.Error)
+        {
+                <div class="col alert-danger alert">@ViewBag.Message</div>
+            }else
+            {
+                <div class="col alert-success alert">@ViewBag.Message</div>
+            }*@
+            <div class="col @ViewBag.ClassAlert alert">@ViewBag.Message</div>
+        </div>
+    }
+   <section class="row justify-content-center">
+       <form class="col" asp-action="Search" asp-controller="Compte" method="post">
+           <div class="row justify-content-center m-1">
+               <input type="text" name="search" class="form-control col-8 p-1" placeholder="Recherche de compte par numéro" />
+               <button class="col-4 p-1 btn-primary btn" type="submit">Rechercher</button>
+           </div>
+       </form>
+   </section>
+    @if(Model != null)
+    {
+        <section class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">Client : @Model.Client</div>
+                </div>
+                <div class="row">
+                    <h2 class="col">Liste des opérations</h2>
+                </div>
+                @foreach(Operation o in Model.Operations)
+                {
+                    <div class="row">
+                        <div class="col">Date opération : @o.DateEtheureOperation</div>
+                        <div class="col">@o.Montant euros</div>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col">Solde : @Model.Solde euros</div>
+                </div>
+            </div>
+        </section>
+    }
+</div>

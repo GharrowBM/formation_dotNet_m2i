@@ -193,9 +193,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfMultithreading", "WpfMul
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormationASPNETCORE", "FormationASPNETCORE", "{F5BAF795-CD50-413C-91F8-1FBEE1990948}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormationAspNetCoreMVC", "FormationAspNetCoreMVC\FormationAspNetCoreMVC.csproj", "{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormationAspNetCoreMVC", "FormationAspNetCoreMVC\FormationAspNetCoreMVC.csproj", "{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAspNetCore", "ContactAspNetCore\ContactAspNetCore.csproj", "{65BF9B3F-29D3-4A42-ACAC-DFBFDA4E84AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactAspNetCore", "ContactAspNetCore\ContactAspNetCore.csproj", "{65BF9B3F-29D3-4A42-ACAC-DFBFDA4E84AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireMVC", "CompteBancaireMVC\CompteBancaireMVC.csproj", "{092EABBA-A3E8-4EF8-9A8E-A7994C9458F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -491,6 +493,10 @@ Global
 		{65BF9B3F-29D3-4A42-ACAC-DFBFDA4E84AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65BF9B3F-29D3-4A42-ACAC-DFBFDA4E84AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65BF9B3F-29D3-4A42-ACAC-DFBFDA4E84AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092EABBA-A3E8-4EF8-9A8E-A7994C9458F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092EABBA-A3E8-4EF8-9A8E-A7994C9458F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092EABBA-A3E8-4EF8-9A8E-A7994C9458F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092EABBA-A3E8-4EF8-9A8E-A7994C9458F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -582,6 +588,7 @@ Global
 		{9007E35E-7F76-4117-A408-C691F042545E} = {D2C6F76A-7968-4897-9F9D-D87DCE8AC18A}
 		{1B0F7E03-942D-4EB5-AA07-D2F215EA5CC9} = {F5BAF795-CD50-413C-91F8-1FBEE1990948}
 		{65BF9B3F-29D3-4A42-ACAC-DFBFDA4E84AC} = {F5BAF795-CD50-413C-91F8-1FBEE1990948}
+		{092EABBA-A3E8-4EF8-9A8E-A7994C9458F3} = {F5BAF795-CD50-413C-91F8-1FBEE1990948}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D04D9408-6251-4750-92D5-423A8E21360A}
