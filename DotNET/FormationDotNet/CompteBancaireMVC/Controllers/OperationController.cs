@@ -21,8 +21,10 @@ namespace CompteBancaireMVC.Controllers
             if(compte != null)
             {   
                 if((type =="depot" && compte.Depot(new Operation(montant))) || (type =="retrait" && compte.Retrait(new Operation(montant * -1)))) {
-                    result = new { Message = "Opération effectuée", ClassAlert = "alert-success" };
-                }else
+                    result = new { Message = "Opération effectuée", ClassAlert = "alert-success", Search = compte.Id.ToString() };
+                    return RedirectToAction("Search", "Compte", result);
+                }
+                else
                 {
                     result =  new { Message = "Erreur opération", ClassAlert = "alert-danger" };
                 }

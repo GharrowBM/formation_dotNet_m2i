@@ -13,10 +13,12 @@ namespace CompteBancaireMVC.Controllers
             return View();
         }
 
-        public IActionResult Search(string search)
+        public IActionResult Search(string search, string Message, string ClassAlert)
         {
             Compte compte = null;
-            if(int.TryParse(search, out int id))
+            ViewBag.Message = Message;
+            ViewBag.ClassAlert = ClassAlert;
+            if (int.TryParse(search, out int id))
             {
                 banque = new Banque();
                 compte = banque.RechercherCompte(id);
