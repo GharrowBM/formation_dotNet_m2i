@@ -8,9 +8,14 @@ namespace FormationAspNetCoreMVC.Services
         {
             string bin = String.Empty;
             string chuckNorris = String.Empty;
-            foreach (Char c in s)
+            foreach (char c in s)
             {
-                bin += System.Convert.ToString((int)c, 2);
+                string l = System.Convert.ToString((int)c, 2);
+                if(l.Length < 7)
+                {
+                    l = new string('0', 7 - l.Length) + l;
+                }
+                bin += l;
             }
             char lastChar = '\0';
             for(int i = 0; i < bin.Length; i++)
