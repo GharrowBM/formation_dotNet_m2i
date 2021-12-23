@@ -17,14 +17,18 @@ namespace FormationAspNetCoreMVC.Controllers
             return View();
         }
 
-        public IActionResult SubmitUpload(IFormFile image)
+        public IActionResult SubmitUpload(IFormFile[] images)
         {
             string wwwRootPath = _webHostEnvironment.WebRootPath;
-            string path = Path.Combine(wwwRootPath, "img",image.FileName);
-            Stream stream = System.IO.File.Create(path);
-            image.CopyTo(stream);
-            stream.Close();
-            string basePath = "img/" + image.FileName;
+            foreach (IFormFile image in images)
+            {
+
+                string path = Path.Combine(wwwRootPath, "img", image.FileName);
+                Stream stream = System.IO.File.Create(path);
+                image.CopyTo(stream);
+                stream.Close();
+                string basePath = "img/" + image.FileName;
+            }
             return RedirectToAction("Form");
         }
     }
