@@ -28,6 +28,8 @@ namespace CoursEFCore.Classes
         [Required]
         public string Email { get; set; }
 
+        public string Avatar { get; set; }
+
 
         //public int AdresseId { get; set; }
 

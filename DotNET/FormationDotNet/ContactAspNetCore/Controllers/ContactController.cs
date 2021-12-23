@@ -1,4 +1,6 @@
-﻿using CoursEFCore.Classes;
+﻿using ContactAspNetCore.Interfaces;
+using CoursEFCore.Classes;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +10,13 @@ namespace ContactAspNetCore.Controllers
 {
     public class ContactController : Controller
     {
+
+        private IUpload _uploadService;
+
+        public ContactController(IUpload uploadService)
+        {
+            _uploadService = uploadService;
+        }
         public IActionResult List(string message)
         {
             // ViewData["contacts"] = DataContext.Instance.Personnes.ToList();
@@ -51,7 +60,7 @@ namespace ContactAspNetCore.Controllers
             return View();
         }
 
-        public IActionResult SubmitForm(Personne personne)
+        public IActionResult SubmitForm(Personne personne, IFormFile avatar)
         {
             //Personne p = new Personne() 
             //{ 
@@ -79,6 +88,7 @@ namespace ContactAspNetCore.Controllers
                 }
                 else
                 {
+                    personne.Avatar = _uploadService.Upload(avatar);
                     DataContext.Instance.Personnes.Add(personne);
                     if (DataContext.Instance.SaveChanges() > 0)
                     {

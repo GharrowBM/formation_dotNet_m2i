@@ -1,7 +1,7 @@
 ﻿@model Personne
 <div>
     <h1>Formulaire contact</h1>
-    <form class="container" asp-action="SubmitForm" asp-controller="Contact" method="post">
+    <form class="container" asp-action="SubmitForm" asp-controller="Contact" method="post" enctype="multipart/form-data">
 
         @if (Model == null)
         {
@@ -13,6 +13,9 @@
             </div>
             <div class="row m-1 justify-content-center">
                 <input type="text" name="email" placeholder="Votre email" class="col-8 form-control p-1" />
+            </div>
+            <div class="row m-1 justify-content-center">
+                <input type="file" name="avatar" class="col-8 form-control p-1" />
             </div>
         }
         else
