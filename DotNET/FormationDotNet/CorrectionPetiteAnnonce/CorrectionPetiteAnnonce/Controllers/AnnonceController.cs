@@ -27,7 +27,8 @@ namespace CorrectionPetiteAnnonce.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            List<Annonce> annonces = _annonceRepository.GetAll();
+            return View("Index", annonces);
         }
 
 
@@ -37,9 +38,10 @@ namespace CorrectionPetiteAnnonce.Controllers
             return View("Index", annonces);
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            Annonce a = _annonceRepository.Get(id);
+            return View(a);
         }
 
         public IActionResult Form()

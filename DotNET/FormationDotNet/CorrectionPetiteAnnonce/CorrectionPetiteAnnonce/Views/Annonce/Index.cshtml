@@ -23,7 +23,8 @@
         {
             @foreach(Annonce a in Model)
                     {
-                        <div class="row">
+
+                        <a class="row" asp-action="Detail" asp-controller="Annonce" asp-route-id="@a.Id">
                             <div class="col-3">
                                 <img src="~/@a.Images[0].Url" />
                             </div>
@@ -42,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     }
         }
     </div>
