@@ -1,4 +1,5 @@
 ﻿@model List<Annonce>
+@inject FormatService _formatService;
 <section class="row m-1">
     <form class="col" asp-controller="Annonce" asp-action="SubmitSearch" method="post">
         <div class="row justify-content-center m-1">
@@ -34,12 +35,12 @@
                                         @a.Titre
                                     </h2>
                                     <span class="col-2">
-                                        @a.Prix
+                                        @_formatService.FormatPrice(a.Prix)
                                     </span>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        @a.Description
+                                        @_formatService.TextReduction(a.Description)
                                     </div>
                                 </div>
                             </div>

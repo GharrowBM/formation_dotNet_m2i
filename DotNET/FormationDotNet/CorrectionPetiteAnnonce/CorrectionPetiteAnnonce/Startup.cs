@@ -31,6 +31,7 @@ namespace CorrectionPetiteAnnonce
             services.AddDbContext<DataContext>();
             services.AddScoped<IRepository<Annonce>, AnnonceRepository>();
             services.AddTransient<UploadService>();
+            services.AddTransient<FormatService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
