@@ -8,7 +8,11 @@ namespace CorrectionPetiteAnnonce.Tools
         public DbSet<Annonce> Annonces { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDb)\coursEF;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=(LocalDb)\coursEF;Integrated Security=True");
+
+            //Pour une utilisation avec mysql
+            MySqlServerVersion v = new MySqlServerVersion(new System.Version(10, 4, 19));
+            optionsBuilder.UseMySql(@"Server=localhost;Database=m2i;Uid=root;Pwd=;",v);
         }
     }
 }

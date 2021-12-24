@@ -11,10 +11,22 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\Annonce\" />
+    <Folder Include="wwwroot\annonces\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pomelo.EntityFrameworkCore.MySql" />
+    <None Remove="Controllers\" />
+    <None Remove="Views\Annonce\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\annonces\" />
+  </ItemGroup>
 </Project>

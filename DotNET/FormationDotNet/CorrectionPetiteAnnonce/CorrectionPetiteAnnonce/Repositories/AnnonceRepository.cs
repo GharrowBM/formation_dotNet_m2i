@@ -31,9 +31,9 @@ namespace CorrectionPetiteAnnonce.Repositories
             return entity;
         }
 
-        public List<Annonce> Search(Func<Annonce, bool> searchMethode)
+        public List<Annonce> Search(string search)
         {
-            return _dataContext.Annonces.Include(a => a.Images).Where(a => searchMethode(a)).ToList();
+            return _dataContext.Annonces.Include(a => a.Images).Where(a => a.Description.Contains(search) || a.Titre.Contains(search)).ToList();
         }
     }
 }

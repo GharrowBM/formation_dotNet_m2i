@@ -1,0 +1,19 @@
+﻿<section class="row">
+    <form asp-controller="Annonce" asp-action="SubmitForm" method="post" enctype="multipart/form-data" class="col">
+        <div class="row justify-content-center m-1">
+            <input type="text" name="Titre" placeholder="Titre de l'annonce" class="col-8 p-1 form-control" />
+        </div>
+        <div class="row justify-content-center m-1">
+            <input type="text" name="Prix" placeholder="Prix de l'annonce" class="col-8 p-1 form-control" />
+        </div>
+        <div class="row justify-content-center m-1">
+            <textarea type="text" name="Description" placeholder="Description de l'annonce" class="col-8 p-1 form-control"></textarea>
+        </div>
+        <div class="row justify-content-center m-1">
+            <input type="file" multiple name="images" class="col-8 p-1 form-control" />
+        </div>
+        <div class="row justify-content-center m-1">
+            <button class="btn btn-secondary col-8 p-1" type="submit">Valider</button>
+        </div>
+    </form>
+</section>

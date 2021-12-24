@@ -1,0 +1,50 @@
+﻿@model List<Annonce>
+<section class="row m-1">
+    <form class="col" asp-controller="Annonce" asp-action="SubmitSearch" method="post">
+        <div class="row justify-content-center m-1">
+            <input type="text" name="search" placeholder="Votre recherche..." class="col-6 form-control p-1" />
+            <button type="submit" class="col-2 btn btn-primary">Rechercher</button>
+        </div>
+    </form>
+</section>
+<section class="row">
+    @if (Model != null)
+    {
+    <div class="col">
+        @if (Model.Count == 0)
+        {
+            <div class="row justify-content-center">
+                <div class="col alert alert-danger">
+                    Aucune annonce pour cette recherche
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach(Annonce a in Model)
+                    {
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="~/@a.Images[0].Url" />
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <h2 class="col-10">
+                                        @a.Titre
+                                    </h2>
+                                    <span class="col-2">
+                                        @a.Prix
+                                    </span>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        @a.Description
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+        }
+    </div>
+}
+</section>

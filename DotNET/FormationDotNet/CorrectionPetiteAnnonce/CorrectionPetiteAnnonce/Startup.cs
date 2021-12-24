@@ -1,6 +1,7 @@
 using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Repositories;
+using CorrectionPetiteAnnonce.Services;
 using CorrectionPetiteAnnonce.Tools;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,7 @@ namespace CorrectionPetiteAnnonce
             services.AddControllersWithViews();
             services.AddDbContext<DataContext>();
             services.AddScoped<IRepository<Annonce>, AnnonceRepository>();
+            services.AddTransient<UploadService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +54,7 @@ namespace CorrectionPetiteAnnonce
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Annonce}/{action=Index}/{id?}");
             });
         }
     }
