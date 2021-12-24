@@ -27,6 +27,7 @@ namespace CorrectionPetiteAnnonce.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            //string l = Request.Headers["Accept-Language"].ToString();
             List<Annonce> annonces = _annonceRepository.GetAll();
             return View("Index", annonces);
         }

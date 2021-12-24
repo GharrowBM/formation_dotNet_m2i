@@ -9,7 +9,7 @@ namespace CorrectionPetiteAnnonce.Services
 
         public string FormatPrice(decimal prix)
         {
-            return prix.ToString();
+            return prix.ToString("0.00");
         }
 
         public string TextReduction(string text)
