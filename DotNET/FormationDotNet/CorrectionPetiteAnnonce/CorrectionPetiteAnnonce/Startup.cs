@@ -32,6 +32,7 @@ namespace CorrectionPetiteAnnonce
             services.AddScoped<IRepository<Annonce>, AnnonceRepository>();
             services.AddTransient<UploadService>();
             services.AddTransient<FormatService>();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +51,8 @@ namespace CorrectionPetiteAnnonce
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

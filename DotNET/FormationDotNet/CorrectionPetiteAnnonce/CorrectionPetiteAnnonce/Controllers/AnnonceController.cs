@@ -29,6 +29,12 @@ namespace CorrectionPetiteAnnonce.Controllers
         {
             //string l = Request.Headers["Accept-Language"].ToString();
             List<Annonce> annonces = _annonceRepository.GetAll();
+
+            //Ecrire des données dans les cookies;
+            //Response.Cookies.Append("nombreVisite", "1", new CookieOptions() { Expires = DateTime.Now.AddDays(-1)});
+
+            //Ecrire dans la session
+            HttpContext.Session.SetString("nombre", "1");
             return View("Index", annonces);
         }
 
@@ -41,6 +47,11 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         public IActionResult Detail(int id)
         {
+            //Lire les données à partir d'un cookies
+            //string valueOfCookies = Request.Cookies["nombreVisite"];
+
+            //Lire les données à partir d'une session
+            string valueOfSession = HttpContext.Session.GetString("nombre");
             Annonce a = _annonceRepository.Get(id);
             return View(a);
         }
