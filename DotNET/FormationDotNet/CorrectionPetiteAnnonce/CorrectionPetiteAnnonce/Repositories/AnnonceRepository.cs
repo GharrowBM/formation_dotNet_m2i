@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace CorrectionPetiteAnnonce.Repositories
 {
@@ -31,9 +32,15 @@ namespace CorrectionPetiteAnnonce.Repositories
             return entity;
         }
 
-        public List<Annonce> Search(string search)
+        public List<Annonce> Search(Expression<Func<Annonce, bool>> searchMethode)
         {
-            return _dataContext.Annonces.Include(a => a.Images).Where(a => a.Description.Contains(search) || a.Titre.Contains(search)).ToList();
+            
+            return _dataContext.Annonces.Include(a => a.Images).Where(searchMethode).ToList();
+        }
+
+        public Annonce SearchOne(Expression<Func<Annonce, bool>> searchMethode)
+        {
+            throw new NotImplementedException();
         }
     }
 }

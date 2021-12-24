@@ -30,8 +30,12 @@ namespace CorrectionPetiteAnnonce
             services.AddControllersWithViews();
             services.AddDbContext<DataContext>();
             services.AddScoped<IRepository<Annonce>, AnnonceRepository>();
+            services.AddScoped<IRepository<Utilisateur>, UtilisteurRepository>();
             services.AddTransient<UploadService>();
+            services.AddScoped<LoginService>();
             services.AddTransient<FormatService>();
+
+            services.AddHttpContextAccessor();
             services.AddSession();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace CorrectionPetiteAnnonce.Interfaces
 {
@@ -8,6 +9,7 @@ namespace CorrectionPetiteAnnonce.Interfaces
         T Get(int id);
         List<T> GetAll();
         T Save(T entity);
-        List<T> Search(string search); 
+        List<T> Search(Expression<Func<T, bool>> searchMethode); 
+        T SearchOne(Expression<Func<T, bool>> searchMethode);
     }
 }

@@ -18,11 +18,12 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         IRepository<Annonce> _annonceRepository;
         UploadService _uploadService;
-
-        public AnnonceController(IRepository<Annonce> annonceRepository, UploadService uploadService)
+        LoginService _loginService;
+        public AnnonceController(IRepository<Annonce> annonceRepository, UploadService uploadService, LoginService loginService)
         {
             _annonceRepository = annonceRepository;
             _uploadService = uploadService;
+            _loginService = loginService;
         }
         // GET: /<controller>/
         public IActionResult Index()
@@ -41,7 +42,7 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         public IActionResult SubmitSearch(string search)
         {
-            List<Annonce> annonces = _annonceRepository.Search(search);
+            List<Annonce> annonces = _annonceRepository.Search(a => a.Titre.Contains(search) || a.Description.Contains(search));
             return View("Index", annonces);
         }
 
@@ -58,7 +59,11 @@ namespace CorrectionPetiteAnnonce.Controllers
 
         public IActionResult Form()
         {
-            return View();
+            if(_loginService.IsLogged())
+            {
+                return View();
+            }
+            return RedirectToAction("FormLogin", "Utilisateur");
         }
 
         public IActionResult SubmitForm(Annonce annonce, IFormFile[] images)

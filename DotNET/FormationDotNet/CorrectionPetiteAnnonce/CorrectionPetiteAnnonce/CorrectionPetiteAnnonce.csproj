@@ -19,12 +19,14 @@
     <Folder Include="Controllers\" />
     <Folder Include="Views\Annonce\" />
     <Folder Include="wwwroot\annonces\" />
+    <Folder Include="Views\Utilisateur\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Controllers\" />
     <None Remove="Views\Annonce\" />
+    <None Remove="Views\Utilisateur\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\annonces\" />
