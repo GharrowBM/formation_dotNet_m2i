@@ -28,13 +28,13 @@ namespace CorrectionPetiteAnnonce
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<DataContext>();
+            /*services.AddDbContext<DataContext>();
             services.AddScoped<IRepository<Annonce>, AnnonceRepository>();
             services.AddScoped<IRepository<Utilisateur>, UtilisteurRepository>();
             services.AddTransient<UploadService>();
             services.AddScoped<LoginService>();
-            services.AddTransient<FormatService>();
-
+            services.AddTransient<FormatService>();*/
+            services.AddOurServices();
             services.AddHttpContextAccessor();
             services.AddSession();
         }
