@@ -50,16 +50,42 @@ namespace ContactAPIRest.Controllers
         }
 
 
-        // PUT api/values/5
+        
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Contact newContact)
         {
+            Contact contact = _data.Contacts.Find(id);
+            if (contact != null)
+            {
+                contact.FirstName = newContact.FirstName ?? contact.FirstName;
+                contact.LastName = newContact.LastName ?? contact.LastName;
+                contact.Phone = newContact.Phone ?? contact.Phone;
+                contact.Email = newContact.Email ?? contact.Email;
+                
+                if (_data.SaveChanges() > 0)
+                {
+                    return Ok(new { Message = "contact updated" });
+                }
+                return Ok(new { Message = "Error" });
+            }
+            return NotFound();
         }
 
-        // DELETE api/values/5
+       
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            Contact contact = _data.Contacts.Find(id);
+            if (contact != null)
+            {
+                _data.Contacts.Remove(contact);
+                if (_data.SaveChanges() > 0)
+                {
+                    return Ok(new { Message = "contact deleted" });
+                }
+                return Ok(new { Message = "Error" });
+            }
+            return NotFound();
         }
     }
 }
