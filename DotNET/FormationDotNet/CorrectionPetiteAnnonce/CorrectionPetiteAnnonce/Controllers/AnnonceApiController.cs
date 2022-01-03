@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CorrectionPetiteAnnonce.Controllers
 {
+    [EnableCors("specialOrigin")]
     [Route("api/v1/annonces")]
     public class AnnonceApiController : Controller
     {
@@ -26,10 +28,10 @@ namespace CorrectionPetiteAnnonce.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("{annonceId}")]
+        public IActionResult Get(int annonceId)
         {
-            Annonce a = _annonceRepository.Get(id);
+            Annonce a = _annonceRepository.Get(annonceId);
             if(a != null)
             {
                 return Ok(a);

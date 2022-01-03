@@ -37,6 +37,17 @@ namespace CorrectionPetiteAnnonce
             services.AddOurServices();
             services.AddHttpContextAccessor();
             services.AddSession();
+            services.AddCors(options => {
+                options.AddPolicy("allConnections", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod();
+                });
+
+                options.AddPolicy("specialOrigin", builder =>
+                {
+                    builder.WithMethods("POST").WithOrigins("http://localhost:3000");
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +65,8 @@ namespace CorrectionPetiteAnnonce
 
             app.UseRouting();
 
+            //app.UseCors("specialOrigin");
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseSession();
