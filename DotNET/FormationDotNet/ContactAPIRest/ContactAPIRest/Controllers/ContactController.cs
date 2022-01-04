@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ContactAPIRest.Models;
 using ContactAPIRest.Tools;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,9 +15,11 @@ namespace ContactAPIRest.Controllers
     public class ContactController : Controller
     {
         DataContext _data;
-        public ContactController(DataContext data)
+        UploadService _upload;
+        public ContactController(DataContext data, UploadService upload)
         {
             _data = data;
+            _upload = upload;
         }
         
         [HttpGet]
@@ -37,8 +40,8 @@ namespace ContactAPIRest.Controllers
             return NotFound();
         }
 
-        
-        [HttpPost]
+
+        /*[HttpPost]
         public IActionResult Post([FromBody] Contact contact)
         {
             _data.Contacts.Add(contact);
@@ -47,10 +50,30 @@ namespace ContactAPIRest.Controllers
                 return Ok(new { Message = "contact added", Contact = contact });
             }
             return Ok(new { Message = "Error" });
+        }*/
+
+        [HttpPost]
+        public IActionResult Post([FromForm] IFormFile avatar, [FromForm] string FirstName, [FromForm] string LastName, [FromForm] string Phone, [FromForm] string Email)
+        {
+            Contact contact = new Contact()
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                Email = Email,
+                Phone = Phone,
+                Avatar = _upload.Upload(avatar)
+            };
+
+            _data.Contacts.Add(contact);
+            if (_data.SaveChanges() > 0)
+            {
+                return Ok(new { Message = "contact added", Contact = contact });
+            }
+            return Ok(new { Message = "Error" });
         }
 
 
-        
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Contact newContact)
         {

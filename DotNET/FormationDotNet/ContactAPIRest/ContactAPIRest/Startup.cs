@@ -28,6 +28,7 @@ namespace ContactAPIRest
 
             services.AddControllers();
             services.AddDbContext<DataContext>();
+            services.AddTransient<UploadService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +38,7 @@ namespace ContactAPIRest
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();

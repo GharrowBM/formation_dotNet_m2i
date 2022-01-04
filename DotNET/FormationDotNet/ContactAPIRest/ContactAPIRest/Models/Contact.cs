@@ -8,6 +8,7 @@ namespace ContactAPIRest.Models
         private string lastName;
         private string phone;
         private string email;
+        private string avatar;
         public Contact()
         {
         }
@@ -17,5 +18,6 @@ namespace ContactAPIRest.Models
         public string LastName { get => lastName; set => lastName = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Email { get => email; set => email = value; }
+        public string Avatar { get => avatar; set => avatar = value; }
     }
 }
