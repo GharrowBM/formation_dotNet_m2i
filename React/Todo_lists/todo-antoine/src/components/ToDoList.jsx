@@ -1,21 +1,29 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import '../styles/ToDoList.css'
 import {baseTasks} from '../datas/baseTasks'
 import Task from './Task'
+import { getAllTodos, postTodo } from "../services/data"
 
 export default function ToDoList() {
-
     function addTask(taskName) {
-        setTasks([...tasks, {
+        postTodo({
             name: taskName,
             isDone : false,
             isEdited : false
-        }])
+        }).then(res => {
+            setTasks([...tasks, res.data.todo])
+
+        })
     }
 
-    const [tasks, setTasks] = useState(baseTasks)
+    const [tasks, setTasks] = useState([])
+    const [firstLoading, setFirstLoading] = useState(true);
     const [newTaskName, setNTN] = useState('')
-
+    useEffect(() => {
+       getAllTodos().then(res => {
+           setTasks([...res.data])
+       }) 
+    },[firstLoading])
     return (<>
         <div className="todo-list">
             <h1>ToDo List</h1>
