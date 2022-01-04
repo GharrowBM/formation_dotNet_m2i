@@ -42,5 +42,10 @@ namespace CorrectionPetiteAnnonce.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public bool Update()
+        {
+            return _dataContext.SaveChanges() > 0;
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace CorrectionPetiteAnnonce.Interfaces
         T Save(T entity);
         List<T> Search(Expression<Func<T, bool>> searchMethode); 
         T SearchOne(Expression<Func<T, bool>> searchMethode);
+        bool Update();
     }
 }

@@ -38,5 +38,10 @@ namespace CorrectionPetiteAnnonce.Repositories
         {
             return _dataContext.Utilisateurs.SingleOrDefault(searchMethode);
         }
+
+        public bool Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
