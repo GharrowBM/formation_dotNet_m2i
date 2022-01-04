@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ApiToDoList.Models;
 using ApiToDoList.Tools;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -37,8 +38,14 @@ namespace ApiToDoList.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody] ToDo todo)
+        public IActionResult Post([FromForm] IFormFile file, [FromForm] string name)
         {
+            ToDo todo = new ToDo()
+            {
+                Name = name,
+                IsDone = false,
+                IsEdited = false
+            };
             _data.Todos.Add(todo);
             if(_data.SaveChanges() > 0)
             {

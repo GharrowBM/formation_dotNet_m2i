@@ -11,3 +11,6 @@ export const getTodo = (id) => {
 export const postTodo = (todo) => {
     return axios.post(baseUrl + '/todo', {...todo})
 }
+export const postTodoData = (data) => {
+    return axios.post(baseUrl + '/todo', data)
+}
