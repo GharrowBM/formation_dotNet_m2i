@@ -12,6 +12,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.13" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <None Remove="Controllers\" />
     <None Remove="Views\Annonce\" />
     <None Remove="Views\Utilisateur\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\annonces\" />

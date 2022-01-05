@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using CorrectionPetiteAnnonce.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,8 @@ namespace CorrectionPetiteAnnonce.Controllers
         }
 
         // POST api/values
+
+        [Authorize(Policy = "protected")]
         [HttpPost]
         public IActionResult Post([FromForm] IFormFile image, [FromForm] string titre, [FromForm] string description, [FromForm] decimal prix)
         {
@@ -58,6 +61,7 @@ namespace CorrectionPetiteAnnonce.Controllers
             return Ok(new { Message = "Annonce ajoutée", id= annonce.Id});
         }
 
+        [Authorize(Policy = "protected")]
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, [FromForm] IFormFile image)
         {

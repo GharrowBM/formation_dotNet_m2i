@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using CorrectionPetiteAnnonce.Interfaces;
 using CorrectionPetiteAnnonce.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CorrectionPetiteAnnonce.Services
 {
@@ -38,6 +43,30 @@ namespace CorrectionPetiteAnnonce.Services
                 }
             }
             return false;
+        }
+
+        public string GenerateToken(string login, string password)
+        {
+            //Verification dans la base de données de l'email et mot de passe
+            Utilisateur u = _utilisateurRepository.SearchOne(u => u.Login == login && u.Password == password);
+            if (u != null)
+            {
+                //données à stocker dans le token
+                List<Claim> claims = new List<Claim>()
+                {
+                    new Claim(ClaimTypes.Name, u.Login),                  
+                    new Claim(ClaimTypes.Role, "connected"),
+                };
+
+                //Objet pour signer le token
+                SigningCredentials signingCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Bonjour je suis la clé de cryptage")), SecurityAlgorithms.HmacSha256);
+
+
+                //Créer notre jwt
+                JwtSecurityToken jwt = new JwtSecurityToken(issuer: "m2i", audience: "m2i", claims: claims, signingCredentials: signingCredentials, expires: DateTime.Now.AddDays(2));
+                return new JwtSecurityTokenHandler().WriteToken(jwt);
+            }
+            return null;
         }
     }
 }
